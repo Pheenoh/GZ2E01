@@ -1,0 +1,17 @@
+.include "macros.inc"
+
+.section .text, "ax" # 802CEB88
+
+
+.global func_802CEB88
+func_802CEB88:
+/* 802CEB88 002CBAC8  80 0D 8D FC */	lwz r0, lbl_8045137C-_SDA_BASE_(r13)
+/* 802CEB8C 002CBACC  28 03 00 00 */	cmplwi r3, 0
+/* 802CEB90 002CBAD0  40 82 00 0C */	bne lbl_802CEB9C
+/* 802CEB94 002CBAD4  3C 60 80 2D */	lis r3, lbl_802CEB40@ha
+/* 802CEB98 002CBAD8  38 63 EB 40 */	addi r3, r3, lbl_802CEB40@l
+.global lbl_802CEB9C
+lbl_802CEB9C:
+/* 802CEB9C 002CBADC  90 6D 8D FC */	stw r3, lbl_8045137C-_SDA_BASE_(r13)
+/* 802CEBA0 002CBAE0  7C 03 03 78 */	mr r3, r0
+/* 802CEBA4 002CBAE4  4E 80 00 20 */	blr 

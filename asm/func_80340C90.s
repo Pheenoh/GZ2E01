@@ -1,0 +1,24 @@
+.include "macros.inc"
+
+.section .text, "ax" # 80340C90
+
+
+.global func_80340C90
+func_80340C90:
+/* 80340C90 0033DBD0  A0 63 02 C8 */	lhz r3, 0x2c8(r3)
+/* 80340C94 0033DBD4  38 00 00 01 */	li r0, 1
+/* 80340C98 0033DBD8  28 03 00 08 */	cmplwi r3, 8
+/* 80340C9C 0033DBDC  41 82 00 10 */	beq lbl_80340CAC
+/* 80340CA0 0033DBE0  28 03 00 00 */	cmplwi r3, 0
+/* 80340CA4 0033DBE4  41 82 00 08 */	beq lbl_80340CAC
+/* 80340CA8 0033DBE8  38 00 00 00 */	li r0, 0
+.global lbl_80340CAC
+lbl_80340CAC:
+/* 80340CAC 0033DBEC  2C 00 00 00 */	cmpwi r0, 0
+/* 80340CB0 0033DBF0  41 82 00 0C */	beq lbl_80340CBC
+/* 80340CB4 0033DBF4  38 60 00 01 */	li r3, 1
+/* 80340CB8 0033DBF8  4E 80 00 20 */	blr 
+.global lbl_80340CBC
+lbl_80340CBC:
+/* 80340CBC 0033DBFC  38 60 00 00 */	li r3, 0
+/* 80340CC0 0033DC00  4E 80 00 20 */	blr 

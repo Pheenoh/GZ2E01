@@ -1,0 +1,21 @@
+.include "macros.inc"
+
+.section .text, "ax" # 8015F168
+
+
+.global func_8015F168
+func_8015F168:
+/* 8015F168 0015C0A8  94 21 FF F0 */	stwu r1, -0x10(r1)
+/* 8015F16C 0015C0AC  7C 08 02 A6 */	mflr r0
+/* 8015F170 0015C0B0  90 01 00 14 */	stw r0, 0x14(r1)
+/* 8015F174 0015C0B4  93 E1 00 0C */	stw r31, 0xc(r1)
+/* 8015F178 0015C0B8  7C 7F 1B 78 */	mr r31, r3
+/* 8015F17C 0015C0BC  80 63 00 10 */	lwz r3, 0x10(r3)
+/* 8015F180 0015C0C0  48 16 F4 4D */	bl func_802CE5CC
+/* 8015F184 0015C0C4  80 7F 00 10 */	lwz r3, 0x10(r31)
+/* 8015F188 0015C0C8  4B EB 00 45 */	bl func_8000F1CC
+/* 8015F18C 0015C0CC  83 E1 00 0C */	lwz r31, 0xc(r1)
+/* 8015F190 0015C0D0  80 01 00 14 */	lwz r0, 0x14(r1)
+/* 8015F194 0015C0D4  7C 08 03 A6 */	mtlr r0
+/* 8015F198 0015C0D8  38 21 00 10 */	addi r1, r1, 0x10
+/* 8015F19C 0015C0DC  4E 80 00 20 */	blr 

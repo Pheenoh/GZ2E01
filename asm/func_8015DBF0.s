@@ -1,0 +1,29 @@
+.include "macros.inc"
+
+.section .text, "ax" # 8015DBF0
+
+
+.global func_8015DBF0
+func_8015DBF0:
+/* 8015DBF0 0015AB30  80 03 00 B0 */	lwz r0, 0xb0(r3)
+/* 8015DBF4 0015AB34  54 00 47 3E */	rlwinm r0, r0, 8, 0x1c, 0x1f
+/* 8015DBF8 0015AB38  28 00 00 09 */	cmplwi r0, 9
+/* 8015DBFC 0015AB3C  41 81 00 30 */	bgt lbl_8015DC2C
+/* 8015DC00 0015AB40  3C 80 80 3C */	lis r4, lbl_803B9E04@ha
+/* 8015DC04 0015AB44  38 84 9E 04 */	addi r4, r4, lbl_803B9E04@l
+/* 8015DC08 0015AB48  54 00 10 3A */	slwi r0, r0, 2
+/* 8015DC0C 0015AB4C  7C 04 00 2E */	lwzx r0, r4, r0
+/* 8015DC10 0015AB50  7C 09 03 A6 */	mtctr r0
+/* 8015DC14 0015AB54  4E 80 04 20 */	bctr 
+/* 8015DC18 0015AB58  C0 02 9B 50 */	lfs f0, lbl_80453550-_SDA2_BASE_(r2)
+/* 8015DC1C 0015AB5C  D0 03 04 EC */	stfs f0, 0x4ec(r3)
+/* 8015DC20 0015AB60  D0 03 04 F0 */	stfs f0, 0x4f0(r3)
+/* 8015DC24 0015AB64  D0 03 04 F4 */	stfs f0, 0x4f4(r3)
+/* 8015DC28 0015AB68  4E 80 00 20 */	blr 
+.global lbl_8015DC2C
+lbl_8015DC2C:
+/* 8015DC2C 0015AB6C  C0 02 9B 7C */	lfs f0, lbl_8045357C-_SDA2_BASE_(r2)
+/* 8015DC30 0015AB70  D0 03 04 EC */	stfs f0, 0x4ec(r3)
+/* 8015DC34 0015AB74  D0 03 04 F0 */	stfs f0, 0x4f0(r3)
+/* 8015DC38 0015AB78  D0 03 04 F4 */	stfs f0, 0x4f4(r3)
+/* 8015DC3C 0015AB7C  4E 80 00 20 */	blr 

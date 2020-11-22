@@ -1,0 +1,26 @@
+.include "macros.inc"
+
+.section .text, "ax" # 802E2F18
+
+
+.global func_802E2F18
+func_802E2F18:
+/* 802E2F18 002DFE58  80 83 00 84 */	lwz r4, 0x84(r3)
+/* 802E2F1C 002DFE5C  3C 04 00 01 */	addis r0, r4, 1
+/* 802E2F20 002DFE60  28 00 FF FF */	cmplwi r0, 0xffff
+/* 802E2F24 002DFE64  40 82 00 0C */	bne lbl_802E2F30
+/* 802E2F28 002DFE68  38 60 00 01 */	li r3, 1
+/* 802E2F2C 002DFE6C  4E 80 00 20 */	blr 
+.global lbl_802E2F30
+lbl_802E2F30:
+/* 802E2F30 002DFE70  80 03 00 88 */	lwz r0, 0x88(r3)
+/* 802E2F34 002DFE74  2C 00 00 00 */	cmpwi r0, 0
+/* 802E2F38 002DFE78  41 80 00 0C */	blt lbl_802E2F44
+/* 802E2F3C 002DFE7C  38 60 00 01 */	li r3, 1
+/* 802E2F40 002DFE80  4E 80 00 20 */	blr 
+.global lbl_802E2F44
+lbl_802E2F44:
+/* 802E2F44 002DFE84  30 04 FF FF */	addic r0, r4, -1
+/* 802E2F48 002DFE88  7C 00 21 10 */	subfe r0, r0, r4
+/* 802E2F4C 002DFE8C  54 03 06 3E */	clrlwi r3, r0, 0x18
+/* 802E2F50 002DFE90  4E 80 00 20 */	blr 

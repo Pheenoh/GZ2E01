@@ -1,0 +1,20 @@
+.include "macros.inc"
+
+.section .text, "ax" # 8003FC70
+
+
+.global func_8003FC70
+func_8003FC70:
+/* 8003FC70 0003CBB0  94 21 FF F0 */	stwu r1, -0x10(r1)
+/* 8003FC74 0003CBB4  7C 08 02 A6 */	mflr r0
+/* 8003FC78 0003CBB8  90 01 00 14 */	stw r0, 0x14(r1)
+/* 8003FC7C 0003CBBC  38 00 00 01 */	li r0, 1
+/* 8003FC80 0003CBC0  98 0D 80 B6 */	stb r0, lbl_80450636-_SDA_BASE_(r13)
+/* 8003FC84 0003CBC4  3C 60 80 42 */	lis r3, lbl_80424684@ha
+/* 8003FC88 0003CBC8  38 63 46 84 */	addi r3, r3, lbl_80424684@l
+/* 8003FC8C 0003CBCC  4B FF CC 69 */	bl func_8003C8F4
+/* 8003FC90 0003CBD0  4B FF FA C5 */	bl func_8003F754
+/* 8003FC94 0003CBD4  80 01 00 14 */	lwz r0, 0x14(r1)
+/* 8003FC98 0003CBD8  7C 08 03 A6 */	mtlr r0
+/* 8003FC9C 0003CBDC  38 21 00 10 */	addi r1, r1, 0x10
+/* 8003FCA0 0003CBE0  4E 80 00 20 */	blr 

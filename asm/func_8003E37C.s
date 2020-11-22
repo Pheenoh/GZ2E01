@@ -1,0 +1,19 @@
+.include "macros.inc"
+
+.section .text, "ax" # 8003E37C
+
+
+.global func_8003E37C
+func_8003E37C:
+/* 8003E37C 0003B2BC  38 A0 00 00 */	li r5, 0
+/* 8003E380 0003B2C0  80 83 00 18 */	lwz r4, 0x18(r3)
+/* 8003E384 0003B2C4  80 04 00 08 */	lwz r0, 8(r4)
+/* 8003E388 0003B2C8  90 03 00 18 */	stw r0, 0x18(r3)
+/* 8003E38C 0003B2CC  80 03 00 18 */	lwz r0, 0x18(r3)
+/* 8003E390 0003B2D0  28 00 00 00 */	cmplwi r0, 0
+/* 8003E394 0003B2D4  40 82 00 08 */	bne lbl_8003E39C
+/* 8003E398 0003B2D8  38 A0 00 01 */	li r5, 1
+.global lbl_8003E39C
+lbl_8003E39C:
+/* 8003E39C 0003B2DC  7C A3 2B 78 */	mr r3, r5
+/* 8003E3A0 0003B2E0  4E 80 00 20 */	blr 

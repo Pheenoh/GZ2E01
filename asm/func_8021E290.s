@@ -1,0 +1,21 @@
+.include "macros.inc"
+
+.section .text, "ax" # 8021E290
+
+
+.global func_8021E290
+func_8021E290:
+/* 8021E290 0021B1D0  94 21 FF F0 */	stwu r1, -0x10(r1)
+/* 8021E294 0021B1D4  7C 08 02 A6 */	mflr r0
+/* 8021E298 0021B1D8  90 01 00 14 */	stw r0, 0x14(r1)
+/* 8021E29C 0021B1DC  38 63 00 E9 */	addi r3, r3, 0xe9
+/* 8021E2A0 0021B1E0  48 14 A8 8D */	bl func_80368B2C
+/* 8021E2A4 0021B1E4  80 01 00 14 */	lwz r0, 0x14(r1)
+/* 8021E2A8 0021B1E8  7C 08 03 A6 */	mtlr r0
+/* 8021E2AC 0021B1EC  38 21 00 10 */	addi r1, r1, 0x10
+/* 8021E2B0 0021B1F0  4E 80 00 20 */	blr 
+/* 8021E2B4 0021B1F4  3C 60 80 43 */	lis r3, lbl_80430188@ha
+/* 8021E2B8 0021B1F8  38 63 01 88 */	addi r3, r3, lbl_80430188@l
+/* 8021E2BC 0021B1FC  80 63 00 1C */	lwz r3, 0x1c(r3)
+/* 8021E2C0 0021B200  A8 63 01 92 */	lha r3, 0x192(r3)
+/* 8021E2C4 0021B204  4E 80 00 20 */	blr 

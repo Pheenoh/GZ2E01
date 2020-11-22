@@ -1,0 +1,38 @@
+.include "macros.inc"
+
+.section .text, "ax" # 801CEA38
+
+
+.global func_801CEA38
+func_801CEA38:
+/* 801CEA38 001CB978  94 21 FF F0 */	stwu r1, -0x10(r1)
+/* 801CEA3C 001CB97C  7C 08 02 A6 */	mflr r0
+/* 801CEA40 001CB980  90 01 00 14 */	stw r0, 0x14(r1)
+/* 801CEA44 001CB984  55 00 06 3E */	clrlwi r0, r8, 0x18
+/* 801CEA48 001CB988  28 00 00 E0 */	cmplwi r0, 0xe0
+/* 801CEA4C 001CB98C  54 C9 06 36 */	rlwinm r9, r6, 0, 0x18, 0x1b
+/* 801CEA50 001CB990  50 A9 25 2E */	rlwimi r9, r5, 4, 0x14, 0x17
+/* 801CEA54 001CB994  50 E9 E7 3E */	rlwimi r9, r7, 0x1c, 0x1c, 0x1f
+/* 801CEA58 001CB998  51 09 3C 66 */	rlwimi r9, r8, 7, 0x11, 0x13
+/* 801CEA5C 001CB99C  41 80 00 14 */	blt lbl_801CEA70
+/* 801CEA60 001CB9A0  54 C0 15 B4 */	rlwinm r0, r6, 2, 0x16, 0x1a
+/* 801CEA64 001CB9A4  50 A0 3C 6A */	rlwimi r0, r5, 7, 0x11, 0x15
+/* 801CEA68 001CB9A8  50 E0 EE FE */	rlwimi r0, r7, 0x1d, 0x1b, 0x1f
+/* 801CEA6C 001CB9AC  60 09 80 00 */	ori r9, r0, 0x8000
+.global lbl_801CEA70
+lbl_801CEA70:
+/* 801CEA70 001CB9B0  80 03 00 C8 */	lwz r0, 0xc8(r3)
+/* 801CEA74 001CB9B4  54 84 18 38 */	slwi r4, r4, 3
+/* 801CEA78 001CB9B8  7C A0 22 14 */	add r5, r0, r4
+/* 801CEA7C 001CB9BC  B1 25 00 00 */	sth r9, 0(r5)
+/* 801CEA80 001CB9C0  B1 25 00 02 */	sth r9, 2(r5)
+/* 801CEA84 001CB9C4  B1 25 00 04 */	sth r9, 4(r5)
+/* 801CEA88 001CB9C8  B1 25 00 06 */	sth r9, 6(r5)
+/* 801CEA8C 001CB9CC  80 03 00 C8 */	lwz r0, 0xc8(r3)
+/* 801CEA90 001CB9D0  7C 60 22 14 */	add r3, r0, r4
+/* 801CEA94 001CB9D4  38 80 00 08 */	li r4, 8
+/* 801CEA98 001CB9D8  48 16 CB 45 */	bl func_8033B5DC
+/* 801CEA9C 001CB9DC  80 01 00 14 */	lwz r0, 0x14(r1)
+/* 801CEAA0 001CB9E0  7C 08 03 A6 */	mtlr r0
+/* 801CEAA4 001CB9E4  38 21 00 10 */	addi r1, r1, 0x10
+/* 801CEAA8 001CB9E8  4E 80 00 20 */	blr 

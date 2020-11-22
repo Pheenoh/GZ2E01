@@ -1,0 +1,21 @@
+.include "macros.inc"
+
+.section .text, "ax" # 801CB230
+
+
+.global func_801CB230
+func_801CB230:
+/* 801CB230 001C8170  80 83 00 14 */	lwz r4, 0x14(r3)
+/* 801CB234 001C8174  28 04 00 00 */	cmplwi r4, 0
+/* 801CB238 001C8178  41 82 00 20 */	beq lbl_801CB258
+/* 801CB23C 001C817C  3C 60 80 43 */	lis r3, lbl_8042FC60@ha
+/* 801CB240 001C8180  38 63 FC 60 */	addi r3, r3, lbl_8042FC60@l
+/* 801CB244 001C8184  88 03 02 F9 */	lbz r0, 0x2f9(r3)
+/* 801CB248 001C8188  28 00 00 00 */	cmplwi r0, 0
+/* 801CB24C 001C818C  41 82 00 0C */	beq lbl_801CB258
+/* 801CB250 001C8190  88 64 12 29 */	lbz r3, 0x1229(r4)
+/* 801CB254 001C8194  4E 80 00 20 */	blr 
+.global lbl_801CB258
+lbl_801CB258:
+/* 801CB258 001C8198  38 60 00 00 */	li r3, 0
+/* 801CB25C 001C819C  4E 80 00 20 */	blr 

@@ -1,0 +1,25 @@
+.include "macros.inc"
+
+.section .text, "ax" # 8032E364
+
+
+.global func_8032E364
+func_8032E364:
+/* 8032E364 0032B2A4  38 E0 00 00 */	li r7, 0
+/* 8032E368 0032B2A8  48 00 00 20 */	b lbl_8032E388
+.global lbl_8032E36C
+lbl_8032E36C:
+/* 8032E36C 0032B2AC  80 C3 00 08 */	lwz r6, 8(r3)
+/* 8032E370 0032B2B0  54 E0 04 3E */	clrlwi r0, r7, 0x10
+/* 8032E374 0032B2B4  1C A0 00 24 */	mulli r5, r0, 0x24
+/* 8032E378 0032B2B8  38 05 00 20 */	addi r0, r5, 0x20
+/* 8032E37C 0032B2BC  7C A6 00 2E */	lwzx r5, r6, r0
+/* 8032E380 0032B2C0  90 85 00 04 */	stw r4, 4(r5)
+/* 8032E384 0032B2C4  38 E7 00 01 */	addi r7, r7, 1
+.global lbl_8032E388
+lbl_8032E388:
+/* 8032E388 0032B2C8  54 E5 04 3E */	clrlwi r5, r7, 0x10
+/* 8032E38C 0032B2CC  A0 03 00 00 */	lhz r0, 0(r3)
+/* 8032E390 0032B2D0  7C 05 00 40 */	cmplw r5, r0
+/* 8032E394 0032B2D4  41 80 FF D8 */	blt lbl_8032E36C
+/* 8032E398 0032B2D8  4E 80 00 20 */	blr 

@@ -1,0 +1,28 @@
+.include "macros.inc"
+
+.section .text, "ax" # 80333BB8
+
+
+.global func_80333BB8
+func_80333BB8:
+/* 80333BB8 00330AF8  81 04 00 04 */	lwz r8, 4(r4)
+/* 80333BBC 00330AFC  80 E4 00 08 */	lwz r7, 8(r4)
+/* 80333BC0 00330B00  54 A0 08 3C */	slwi r0, r5, 1
+/* 80333BC4 00330B04  7C 07 02 2E */	lhzx r0, r7, r0
+/* 80333BC8 00330B08  1C 00 01 38 */	mulli r0, r0, 0x138
+/* 80333BCC 00330B0C  7C A8 02 14 */	add r5, r8, r0
+/* 80333BD0 00330B10  54 C0 08 3C */	slwi r0, r6, 1
+/* 80333BD4 00330B14  7C A5 02 14 */	add r5, r5, r0
+/* 80333BD8 00330B18  A0 05 00 A8 */	lhz r0, 0xa8(r5)
+/* 80333BDC 00330B1C  28 00 FF FF */	cmplwi r0, 0xffff
+/* 80333BE0 00330B20  41 82 00 18 */	beq lbl_80333BF8
+/* 80333BE4 00330B24  80 84 00 34 */	lwz r4, 0x34(r4)
+/* 80333BE8 00330B28  54 00 13 BA */	rlwinm r0, r0, 2, 0xe, 0x1d
+/* 80333BEC 00330B2C  7C 04 00 2E */	lwzx r0, r4, r0
+/* 80333BF0 00330B30  90 03 00 00 */	stw r0, 0(r3)
+/* 80333BF4 00330B34  4E 80 00 20 */	blr 
+.global lbl_80333BF8
+lbl_80333BF8:
+/* 80333BF8 00330B38  80 02 C9 CC */	lwz r0, lbl_804563CC-_SDA2_BASE_(r2)
+/* 80333BFC 00330B3C  90 03 00 00 */	stw r0, 0(r3)
+/* 80333C00 00330B40  4E 80 00 20 */	blr 

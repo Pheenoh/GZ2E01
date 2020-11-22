@@ -1,0 +1,23 @@
+.include "macros.inc"
+
+.section .text, "ax" # 8015F3C4
+
+
+.global func_8015F3C4
+func_8015F3C4:
+/* 8015F3C4 0015C304  3C 60 80 40 */	lis r3, lbl_804061C0@ha
+/* 8015F3C8 0015C308  38 63 61 C0 */	addi r3, r3, lbl_804061C0@l
+/* 8015F3CC 0015C30C  88 63 00 15 */	lbz r3, 0x15(r3)
+/* 8015F3D0 0015C310  38 80 00 01 */	li r4, 1
+/* 8015F3D4 0015C314  38 03 FF D6 */	addi r0, r3, -42
+/* 8015F3D8 0015C318  54 00 04 3E */	clrlwi r0, r0, 0x10
+/* 8015F3DC 0015C31C  38 60 FF FF */	li r3, -1
+/* 8015F3E0 0015C320  7C 00 20 10 */	subfc r0, r0, r4
+/* 8015F3E4 0015C324  7C 03 01 90 */	subfze r0, r3
+/* 8015F3E8 0015C328  54 00 06 3F */	clrlwi. r0, r0, 0x18
+/* 8015F3EC 0015C32C  40 82 00 08 */	bne lbl_8015F3F4
+/* 8015F3F0 0015C330  38 80 00 00 */	li r4, 0
+.global lbl_8015F3F4
+lbl_8015F3F4:
+/* 8015F3F4 0015C334  54 83 06 3E */	clrlwi r3, r4, 0x18
+/* 8015F3F8 0015C338  4E 80 00 20 */	blr 

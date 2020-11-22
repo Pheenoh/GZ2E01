@@ -1,0 +1,24 @@
+.include "macros.inc"
+
+.section .text, "ax" # 80152DE0
+
+
+.global func_80152DE0
+func_80152DE0:
+/* 80152DE0 0014FD20  94 21 FF F0 */	stwu r1, -0x10(r1)
+/* 80152DE4 0014FD24  7C 08 02 A6 */	mflr r0
+/* 80152DE8 0014FD28  90 01 00 14 */	stw r0, 0x14(r1)
+/* 80152DEC 0014FD2C  93 E1 00 0C */	stw r31, 0xc(r1)
+/* 80152DF0 0014FD30  7C 7F 1B 78 */	mr r31, r3
+/* 80152DF4 0014FD34  3C 60 80 40 */	lis r3, lbl_804061C0@ha
+/* 80152DF8 0014FD38  38 63 61 C0 */	addi r3, r3, lbl_804061C0@l
+/* 80152DFC 0014FD3C  38 63 0F 38 */	addi r3, r3, 0xf38
+/* 80152E00 0014FD40  38 9F 0A 58 */	addi r4, r31, 0xa58
+/* 80152E04 0014FD44  4B F2 22 FD */	bl func_80075100
+/* 80152E08 0014FD48  98 7F 04 E2 */	stb r3, 0x4e2(r31)
+/* 80152E0C 0014FD4C  98 7F 07 CA */	stb r3, 0x7ca(r31)
+/* 80152E10 0014FD50  83 E1 00 0C */	lwz r31, 0xc(r1)
+/* 80152E14 0014FD54  80 01 00 14 */	lwz r0, 0x14(r1)
+/* 80152E18 0014FD58  7C 08 03 A6 */	mtlr r0
+/* 80152E1C 0014FD5C  38 21 00 10 */	addi r1, r1, 0x10
+/* 80152E20 0014FD60  4E 80 00 20 */	blr 

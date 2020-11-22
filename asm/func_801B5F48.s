@@ -1,0 +1,22 @@
+.include "macros.inc"
+
+.section .text, "ax" # 801B5F48
+
+
+.global func_801B5F48
+func_801B5F48:
+/* 801B5F48 001B2E88  94 21 FF F0 */	stwu r1, -0x10(r1)
+/* 801B5F4C 001B2E8C  7C 08 02 A6 */	mflr r0
+/* 801B5F50 001B2E90  90 01 00 14 */	stw r0, 0x14(r1)
+/* 801B5F54 001B2E94  7C 66 1B 78 */	mr r6, r3
+/* 801B5F58 001B2E98  3C 60 80 40 */	lis r3, lbl_804061C0@ha
+/* 801B5F5C 001B2E9C  38 63 61 C0 */	addi r3, r3, lbl_804061C0@l
+/* 801B5F60 001B2EA0  38 63 5F 64 */	addi r3, r3, 0x5f64
+/* 801B5F64 001B2EA4  38 83 00 AC */	addi r4, r3, 0xac
+/* 801B5F68 001B2EA8  38 A3 00 B0 */	addi r5, r3, 0xb0
+/* 801B5F6C 001B2EAC  80 C6 00 88 */	lwz r6, 0x88(r6)
+/* 801B5F70 001B2EB0  4B EA 08 25 */	bl func_80056794
+/* 801B5F74 001B2EB4  80 01 00 14 */	lwz r0, 0x14(r1)
+/* 801B5F78 001B2EB8  7C 08 03 A6 */	mtlr r0
+/* 801B5F7C 001B2EBC  38 21 00 10 */	addi r1, r1, 0x10
+/* 801B5F80 001B2EC0  4E 80 00 20 */	blr 

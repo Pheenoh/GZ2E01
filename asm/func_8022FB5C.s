@@ -1,0 +1,22 @@
+.include "macros.inc"
+
+.section .text, "ax" # 8022FB5C
+
+
+.global func_8022FB5C
+func_8022FB5C:
+/* 8022FB5C 0022CA9C  94 21 FF F0 */	stwu r1, -0x10(r1)
+/* 8022FB60 0022CAA0  7C 08 02 A6 */	mflr r0
+/* 8022FB64 0022CAA4  90 01 00 14 */	stw r0, 0x14(r1)
+/* 8022FB68 0022CAA8  93 E1 00 0C */	stw r31, 0xc(r1)
+/* 8022FB6C 0022CAAC  7C 7F 1B 78 */	mr r31, r3
+/* 8022FB70 0022CAB0  48 07 79 D9 */	bl func_802A7548
+/* 8022FB74 0022CAB4  3C 60 80 3C */	lis r3, lbl_803C09E0@ha
+/* 8022FB78 0022CAB8  38 03 09 E0 */	addi r0, r3, lbl_803C09E0@l
+/* 8022FB7C 0022CABC  90 1F 00 00 */	stw r0, 0(r31)
+/* 8022FB80 0022CAC0  7F E3 FB 78 */	mr r3, r31
+/* 8022FB84 0022CAC4  83 E1 00 0C */	lwz r31, 0xc(r1)
+/* 8022FB88 0022CAC8  80 01 00 14 */	lwz r0, 0x14(r1)
+/* 8022FB8C 0022CACC  7C 08 03 A6 */	mtlr r0
+/* 8022FB90 0022CAD0  38 21 00 10 */	addi r1, r1, 0x10
+/* 8022FB94 0022CAD4  4E 80 00 20 */	blr 

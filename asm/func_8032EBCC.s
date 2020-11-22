@@ -1,0 +1,38 @@
+.include "macros.inc"
+
+.section .text, "ax" # 8032EBCC
+
+
+.global func_8032EBCC
+func_8032EBCC:
+/* 8032EBCC 0032BB0C  C0 22 CA 7C */	lfs f1, lbl_8045647C-_SDA2_BASE_(r2)
+/* 8032EBD0 0032BB10  38 60 00 00 */	li r3, 0
+/* 8032EBD4 0032BB14  48 00 00 14 */	b lbl_8032EBE8
+.global lbl_8032EBD8
+lbl_8032EBD8:
+/* 8032EBD8 0032BB18  54 60 13 BA */	rlwinm r0, r3, 2, 0xe, 0x1d
+/* 8032EBDC 0032BB1C  7C 05 04 2E */	lfsx f0, r5, r0
+/* 8032EBE0 0032BB20  EC 21 00 2A */	fadds f1, f1, f0
+/* 8032EBE4 0032BB24  38 63 00 01 */	addi r3, r3, 1
+.global lbl_8032EBE8
+lbl_8032EBE8:
+/* 8032EBE8 0032BB28  54 60 04 3E */	clrlwi r0, r3, 0x10
+/* 8032EBEC 0032BB2C  7C 00 20 00 */	cmpw r0, r4
+/* 8032EBF0 0032BB30  41 80 FF E8 */	blt lbl_8032EBD8
+/* 8032EBF4 0032BB34  C0 02 CA 70 */	lfs f0, lbl_80456470-_SDA2_BASE_(r2)
+/* 8032EBF8 0032BB38  EC 20 08 24 */	fdivs f1, f0, f1
+/* 8032EBFC 0032BB3C  38 60 00 00 */	li r3, 0
+/* 8032EC00 0032BB40  48 00 00 18 */	b lbl_8032EC18
+.global lbl_8032EC04
+lbl_8032EC04:
+/* 8032EC04 0032BB44  54 60 13 BA */	rlwinm r0, r3, 2, 0xe, 0x1d
+/* 8032EC08 0032BB48  7C 05 04 2E */	lfsx f0, r5, r0
+/* 8032EC0C 0032BB4C  EC 00 00 72 */	fmuls f0, f0, f1
+/* 8032EC10 0032BB50  7C 05 05 2E */	stfsx f0, r5, r0
+/* 8032EC14 0032BB54  38 63 00 01 */	addi r3, r3, 1
+.global lbl_8032EC18
+lbl_8032EC18:
+/* 8032EC18 0032BB58  54 60 04 3E */	clrlwi r0, r3, 0x10
+/* 8032EC1C 0032BB5C  7C 00 20 00 */	cmpw r0, r4
+/* 8032EC20 0032BB60  41 80 FF E4 */	blt lbl_8032EC04
+/* 8032EC24 0032BB64  4E 80 00 20 */	blr 

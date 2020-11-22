@@ -1,0 +1,84 @@
+.include "macros.inc"
+
+.section .text, "ax" # 8035B468
+
+
+.global func_8035B468
+func_8035B468:
+/* 8035B468 003583A8  80 62 CB 80 */	lwz r3, lbl_80456580-_SDA2_BASE_(r2)
+/* 8035B46C 003583AC  A0 03 00 04 */	lhz r0, 4(r3)
+/* 8035B470 003583B0  28 00 00 00 */	cmplwi r0, 0
+/* 8035B474 003583B4  4D 82 00 20 */	beqlr 
+/* 8035B478 003583B8  81 23 00 14 */	lwz r9, 0x14(r3)
+/* 8035B47C 003583BC  38 AD 85 08 */	addi r5, r13, lbl_80450A88-_SDA_BASE_
+/* 8035B480 003583C0  81 03 00 1C */	lwz r8, 0x1c(r3)
+/* 8035B484 003583C4  55 20 07 FE */	clrlwi r0, r9, 0x1f
+/* 8035B488 003583C8  80 83 00 18 */	lwz r4, 0x18(r3)
+/* 8035B48C 003583CC  55 26 FF FE */	rlwinm r6, r9, 0x1f, 0x1f, 0x1f
+/* 8035B490 003583D0  7C 00 32 14 */	add r0, r0, r6
+/* 8035B494 003583D4  55 26 F7 FE */	rlwinm r6, r9, 0x1e, 0x1f, 0x1f
+/* 8035B498 003583D8  7C 00 32 14 */	add r0, r0, r6
+/* 8035B49C 003583DC  55 27 EF FE */	rlwinm r7, r9, 0x1d, 0x1f, 0x1f
+/* 8035B4A0 003583E0  55 26 BF BE */	rlwinm r6, r9, 0x17, 0x1e, 0x1f
+/* 8035B4A4 003583E4  7C A5 30 AE */	lbzx r5, r5, r6
+/* 8035B4A8 003583E8  55 08 BF FE */	rlwinm r8, r8, 0x17, 0x1f, 0x1f
+/* 8035B4AC 003583EC  7C 00 3A 14 */	add r0, r0, r7
+/* 8035B4B0 003583F0  55 26 E7 FE */	rlwinm r6, r9, 0x1c, 0x1f, 0x1f
+/* 8035B4B4 003583F4  7C 00 32 14 */	add r0, r0, r6
+/* 8035B4B8 003583F8  55 26 DF FE */	rlwinm r6, r9, 0x1b, 0x1f, 0x1f
+/* 8035B4BC 003583FC  7C 00 32 14 */	add r0, r0, r6
+/* 8035B4C0 00358400  55 26 D7 FE */	rlwinm r6, r9, 0x1a, 0x1f, 0x1f
+/* 8035B4C4 00358404  7C 00 32 14 */	add r0, r0, r6
+/* 8035B4C8 00358408  55 26 CF FE */	rlwinm r6, r9, 0x19, 0x1f, 0x1f
+/* 8035B4CC 0035840C  7C 00 32 14 */	add r0, r0, r6
+/* 8035B4D0 00358410  55 26 C7 FE */	rlwinm r6, r9, 0x18, 0x1f, 0x1f
+/* 8035B4D4 00358414  7C 00 32 14 */	add r0, r0, r6
+/* 8035B4D8 00358418  2C 08 00 01 */	cmpwi r8, 1
+/* 8035B4DC 0035841C  7C 00 2A 14 */	add r0, r0, r5
+/* 8035B4E0 00358420  40 82 00 0C */	bne lbl_8035B4EC
+/* 8035B4E4 00358424  39 00 00 03 */	li r8, 3
+/* 8035B4E8 00358428  48 00 00 08 */	b lbl_8035B4F0
+.global lbl_8035B4EC
+lbl_8035B4EC:
+/* 8035B4EC 0035842C  39 00 00 01 */	li r8, 1
+.global lbl_8035B4F0
+lbl_8035B4F0:
+/* 8035B4F0 00358430  55 26 AF BE */	rlwinm r6, r9, 0x15, 0x1e, 0x1f
+/* 8035B4F4 00358434  38 AD 85 08 */	addi r5, r13, lbl_80450A88-_SDA_BASE_
+/* 8035B4F8 00358438  7C C5 30 AE */	lbzx r6, r5, r6
+/* 8035B4FC 0035843C  55 25 9F BE */	rlwinm r5, r9, 0x13, 0x1e, 0x1f
+/* 8035B500 00358440  38 ED 85 00 */	addi r7, r13, lbl_80450A80-_SDA_BASE_
+/* 8035B504 00358444  7D 06 41 D6 */	mullw r8, r6, r8
+/* 8035B508 00358448  7C C7 28 AE */	lbzx r6, r7, r5
+/* 8035B50C 0035844C  7C 00 42 14 */	add r0, r0, r8
+/* 8035B510 00358450  55 25 8F BE */	rlwinm r5, r9, 0x11, 0x1e, 0x1f
+/* 8035B514 00358454  7D 27 28 AE */	lbzx r9, r7, r5
+/* 8035B518 00358458  7C 00 32 14 */	add r0, r0, r6
+/* 8035B51C 0035845C  54 86 07 BE */	clrlwi r6, r4, 0x1e
+/* 8035B520 00358460  39 0D 85 04 */	addi r8, r13, lbl_80450A84-_SDA_BASE_
+/* 8035B524 00358464  54 85 F7 BE */	rlwinm r5, r4, 0x1e, 0x1e, 0x1f
+/* 8035B528 00358468  7C E8 30 AE */	lbzx r7, r8, r6
+/* 8035B52C 0035846C  7C 00 4A 14 */	add r0, r0, r9
+/* 8035B530 00358470  7C C8 28 AE */	lbzx r6, r8, r5
+/* 8035B534 00358474  7C 00 3A 14 */	add r0, r0, r7
+/* 8035B538 00358478  54 85 E7 BE */	rlwinm r5, r4, 0x1c, 0x1e, 0x1f
+/* 8035B53C 0035847C  7C E8 28 AE */	lbzx r7, r8, r5
+/* 8035B540 00358480  7C 00 32 14 */	add r0, r0, r6
+/* 8035B544 00358484  54 85 D7 BE */	rlwinm r5, r4, 0x1a, 0x1e, 0x1f
+/* 8035B548 00358488  7C C8 28 AE */	lbzx r6, r8, r5
+/* 8035B54C 0035848C  7C 00 3A 14 */	add r0, r0, r7
+/* 8035B550 00358490  54 85 C7 BE */	rlwinm r5, r4, 0x18, 0x1e, 0x1f
+/* 8035B554 00358494  7C E8 28 AE */	lbzx r7, r8, r5
+/* 8035B558 00358498  7C 00 32 14 */	add r0, r0, r6
+/* 8035B55C 0035849C  54 85 B7 BE */	rlwinm r5, r4, 0x16, 0x1e, 0x1f
+/* 8035B560 003584A0  7C C8 28 AE */	lbzx r6, r8, r5
+/* 8035B564 003584A4  54 85 A7 BE */	rlwinm r5, r4, 0x14, 0x1e, 0x1f
+/* 8035B568 003584A8  7C 00 3A 14 */	add r0, r0, r7
+/* 8035B56C 003584AC  7C A8 28 AE */	lbzx r5, r8, r5
+/* 8035B570 003584B0  54 84 97 BE */	rlwinm r4, r4, 0x12, 0x1e, 0x1f
+/* 8035B574 003584B4  7C 00 32 14 */	add r0, r0, r6
+/* 8035B578 003584B8  7C 88 20 AE */	lbzx r4, r8, r4
+/* 8035B57C 003584BC  7C 00 2A 14 */	add r0, r0, r5
+/* 8035B580 003584C0  7C 00 22 14 */	add r0, r0, r4
+/* 8035B584 003584C4  B0 03 00 06 */	sth r0, 6(r3)
+/* 8035B588 003584C8  4E 80 00 20 */	blr 

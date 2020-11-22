@@ -1,0 +1,30 @@
+.include "macros.inc"
+
+.section .text, "ax" # 80034CA0
+
+
+.global func_80034CA0
+func_80034CA0:
+/* 80034CA0 00031BE0  38 80 00 00 */	li r4, 0
+/* 80034CA4 00031BE4  7C 85 23 78 */	mr r5, r4
+/* 80034CA8 00031BE8  38 00 00 02 */	li r0, 2
+/* 80034CAC 00031BEC  7C 09 03 A6 */	mtctr r0
+.global lbl_80034CB0
+lbl_80034CB0:
+/* 80034CB0 00031BF0  7C A3 23 2E */	sthx r5, r3, r4
+/* 80034CB4 00031BF4  38 84 00 02 */	addi r4, r4, 2
+/* 80034CB8 00031BF8  42 00 FF F8 */	bdnz lbl_80034CB0
+/* 80034CBC 00031BFC  38 80 00 00 */	li r4, 0
+/* 80034CC0 00031C00  38 A0 00 00 */	li r5, 0
+/* 80034CC4 00031C04  38 00 00 02 */	li r0, 2
+/* 80034CC8 00031C08  7C 09 03 A6 */	mtctr r0
+.global lbl_80034CCC
+lbl_80034CCC:
+/* 80034CCC 00031C0C  38 04 00 06 */	addi r0, r4, 6
+/* 80034CD0 00031C10  7C A3 03 2E */	sthx r5, r3, r0
+/* 80034CD4 00031C14  38 84 00 02 */	addi r4, r4, 2
+/* 80034CD8 00031C18  42 00 FF F4 */	bdnz lbl_80034CCC
+/* 80034CDC 00031C1C  38 00 00 00 */	li r0, 0
+/* 80034CE0 00031C20  B0 03 00 04 */	sth r0, 4(r3)
+/* 80034CE4 00031C24  B0 03 00 0A */	sth r0, 0xa(r3)
+/* 80034CE8 00031C28  4E 80 00 20 */	blr 

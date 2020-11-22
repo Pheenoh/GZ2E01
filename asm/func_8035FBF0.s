@@ -1,0 +1,28 @@
+.include "macros.inc"
+
+.section .text, "ax" # 8035FBF0
+
+
+.global func_8035FBF0
+func_8035FBF0:
+/* 8035FBF0 0035CB30  81 02 CB 80 */	lwz r8, lbl_80456580-_SDA2_BASE_(r2)
+/* 8035FBF4 0035CB34  20 03 00 03 */	subfic r0, r3, 3
+/* 8035FBF8 0035CB38  7C 07 00 34 */	cntlzw r7, r0
+/* 8035FBFC 0035CB3C  20 03 00 02 */	subfic r0, r3, 2
+/* 8035FC00 0035CB40  81 28 01 D0 */	lwz r9, 0x1d0(r8)
+/* 8035FC04 0035CB44  50 E9 35 28 */	rlwimi r9, r7, 6, 0x14, 0x14
+/* 8035FC08 0035CB48  38 E9 00 00 */	addi r7, r9, 0
+/* 8035FC0C 0035CB4C  50 67 07 FE */	rlwimi r7, r3, 0, 0x1f, 0x1f
+/* 8035FC10 0035CB50  7C 00 00 34 */	cntlzw r0, r0
+/* 8035FC14 0035CB54  50 07 E7 BC */	rlwimi r7, r0, 0x1c, 0x1e, 0x1e
+/* 8035FC18 0035CB58  50 C7 64 26 */	rlwimi r7, r6, 0xc, 0x10, 0x13
+/* 8035FC1C 0035CB5C  50 87 45 6E */	rlwimi r7, r4, 8, 0x15, 0x17
+/* 8035FC20 0035CB60  38 00 00 61 */	li r0, 0x61
+/* 8035FC24 0035CB64  3C 60 CC 01 */	lis r3, 0xCC008000@ha
+/* 8035FC28 0035CB68  98 03 80 00 */	stb r0, 0xCC008000@l(r3)
+/* 8035FC2C 0035CB6C  50 A7 2E 34 */	rlwimi r7, r5, 5, 0x18, 0x1a
+/* 8035FC30 0035CB70  38 00 00 00 */	li r0, 0
+/* 8035FC34 0035CB74  90 E3 80 00 */	stw r7, -0x8000(r3)
+/* 8035FC38 0035CB78  90 E8 01 D0 */	stw r7, 0x1d0(r8)
+/* 8035FC3C 0035CB7C  B0 08 00 02 */	sth r0, 2(r8)
+/* 8035FC40 0035CB80  4E 80 00 20 */	blr 

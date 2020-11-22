@@ -1,0 +1,22 @@
+.include "macros.inc"
+
+.section .text, "ax" # 80362144
+
+
+.global func_80362144
+func_80362144:
+/* 80362144 0035F084  DB AB FF E8 */	stfd f29, -0x18(r11)
+/* 80362148 0035F088  DB CB FF F0 */	stfd f30, -0x10(r11)
+/* 8036214C 0035F08C  DB EB FF F8 */	stfd f31, -8(r11)
+/* 80362150 0035F090  4E 80 00 20 */	blr 
+/* 80362154 0035F094  C9 CB FF 70 */	lfd f14, -0x90(r11)
+/* 80362158 0035F098  C9 EB FF 78 */	lfd f15, -0x88(r11)
+/* 8036215C 0035F09C  CA 0B FF 80 */	lfd f16, -0x80(r11)
+/* 80362160 0035F0A0  CA 2B FF 88 */	lfd f17, -0x78(r11)
+/* 80362164 0035F0A4  CA 4B FF 90 */	lfd f18, -0x70(r11)
+/* 80362168 0035F0A8  CA 6B FF 98 */	lfd f19, -0x68(r11)
+/* 8036216C 0035F0AC  CA 8B FF A0 */	lfd f20, -0x60(r11)
+/* 80362170 0035F0B0  CA AB FF A8 */	lfd f21, -0x58(r11)
+/* 80362174 0035F0B4  CA CB FF B0 */	lfd f22, -0x50(r11)
+/* 80362178 0035F0B8  CA EB FF B8 */	lfd f23, -0x48(r11)
+/* 8036217C 0035F0BC  CB 0B FF C0 */	lfd f24, -0x40(r11)

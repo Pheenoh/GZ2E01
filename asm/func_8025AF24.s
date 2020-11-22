@@ -1,0 +1,17 @@
+.include "macros.inc"
+
+.section .text, "ax" # 8025AF24
+
+
+.global func_8025AF24
+func_8025AF24:
+/* 8025AF24 00257E64  94 21 FF F0 */	stwu r1, -0x10(r1)
+/* 8025AF28 00257E68  7C 08 02 A6 */	mflr r0
+/* 8025AF2C 00257E6C  90 01 00 14 */	stw r0, 0x14(r1)
+/* 8025AF30 00257E70  38 81 00 08 */	addi r4, r1, 8
+/* 8025AF34 00257E74  4B FF FE F1 */	bl func_8025AE24
+/* 8025AF38 00257E78  4B DC 9A 1D */	bl func_80024954
+/* 8025AF3C 00257E7C  80 01 00 14 */	lwz r0, 0x14(r1)
+/* 8025AF40 00257E80  7C 08 03 A6 */	mtlr r0
+/* 8025AF44 00257E84  38 21 00 10 */	addi r1, r1, 0x10
+/* 8025AF48 00257E88  4E 80 00 20 */	blr 

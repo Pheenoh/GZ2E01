@@ -1,0 +1,114 @@
+.include "macros.inc"
+
+.section .text, "ax" # 80331DAC
+
+
+.global func_80331DAC
+func_80331DAC:
+/* 80331DAC 0032ECEC  81 04 00 04 */	lwz r8, 4(r4)
+/* 80331DB0 0032ECF0  80 E4 00 08 */	lwz r7, 8(r4)
+/* 80331DB4 0032ECF4  54 A0 08 3C */	slwi r0, r5, 1
+/* 80331DB8 0032ECF8  7C 07 02 2E */	lhzx r0, r7, r0
+/* 80331DBC 0032ECFC  1C 00 01 4C */	mulli r0, r0, 0x14c
+/* 80331DC0 0032ED00  7C A8 02 14 */	add r5, r8, r0
+/* 80331DC4 0032ED04  54 C0 08 3C */	slwi r0, r6, 1
+/* 80331DC8 0032ED08  7C A5 02 14 */	add r5, r5, r0
+/* 80331DCC 0032ED0C  A0 05 00 0C */	lhz r0, 0xc(r5)
+/* 80331DD0 0032ED10  28 00 FF FF */	cmplwi r0, 0xffff
+/* 80331DD4 0032ED14  41 82 00 C0 */	beq lbl_80331E94
+/* 80331DD8 0032ED18  80 84 00 18 */	lwz r4, 0x18(r4)
+/* 80331DDC 0032ED1C  54 00 1B 78 */	rlwinm r0, r0, 3, 0xd, 0x1c
+/* 80331DE0 0032ED20  7C 84 02 14 */	add r4, r4, r0
+/* 80331DE4 0032ED24  88 A4 00 05 */	lbz r5, 5(r4)
+/* 80331DE8 0032ED28  38 05 FF 01 */	addi r0, r5, -255
+/* 80331DEC 0032ED2C  30 00 FF FF */	addic r0, r0, -1
+/* 80331DF0 0032ED30  7C 00 01 10 */	subfe r0, r0, r0
+/* 80331DF4 0032ED34  7C A9 00 78 */	andc r9, r5, r0
+/* 80331DF8 0032ED38  88 E4 00 04 */	lbz r7, 4(r4)
+/* 80331DFC 0032ED3C  88 C4 00 03 */	lbz r6, 3(r4)
+/* 80331E00 0032ED40  88 A4 00 02 */	lbz r5, 2(r4)
+/* 80331E04 0032ED44  88 04 00 00 */	lbz r0, 0(r4)
+/* 80331E08 0032ED48  54 08 0B FC */	rlwinm r8, r0, 1, 0xf, 0x1e
+/* 80331E0C 0032ED4C  88 04 00 01 */	lbz r0, 1(r4)
+/* 80331E10 0032ED50  7D 00 03 78 */	or r0, r8, r0
+/* 80331E14 0032ED54  54 04 06 B0 */	rlwinm r4, r0, 0, 0x1a, 0x18
+/* 80331E18 0032ED58  55 20 34 B2 */	rlwinm r0, r9, 6, 0x12, 0x19
+/* 80331E1C 0032ED5C  7C 80 03 78 */	or r0, r4, r0
+/* 80331E20 0032ED60  50 A0 17 7A */	rlwimi r0, r5, 2, 0x1d, 0x1d
+/* 80331E24 0032ED64  50 A0 17 38 */	rlwimi r0, r5, 2, 0x1c, 0x1c
+/* 80331E28 0032ED68  50 A0 16 F6 */	rlwimi r0, r5, 2, 0x1b, 0x1b
+/* 80331E2C 0032ED6C  50 A0 16 B4 */	rlwimi r0, r5, 2, 0x1a, 0x1a
+/* 80331E30 0032ED70  50 A0 3D 28 */	rlwimi r0, r5, 7, 0x14, 0x14
+/* 80331E34 0032ED74  50 A0 3C E6 */	rlwimi r0, r5, 7, 0x13, 0x13
+/* 80331E38 0032ED78  54 A4 3C A4 */	rlwinm r4, r5, 7, 0x12, 0x12
+/* 80331E3C 0032ED7C  50 04 04 FE */	rlwimi r4, r0, 0, 0x13, 0x1f
+/* 80331E40 0032ED80  54 A0 3C 62 */	rlwinm r0, r5, 7, 0x11, 0x11
+/* 80331E44 0032ED84  50 80 04 BE */	rlwimi r0, r4, 0, 0x12, 0x1f
+/* 80331E48 0032ED88  54 04 06 6C */	rlwinm r4, r0, 0, 0x19, 0x16
+/* 80331E4C 0032ED8C  30 07 FF FF */	addic r0, r7, -1
+/* 80331E50 0032ED90  7C 00 01 10 */	subfe r0, r0, r0
+/* 80331E54 0032ED94  7C C0 00 78 */	andc r0, r6, r0
+/* 80331E58 0032ED98  54 00 38 30 */	slwi r0, r0, 7
+/* 80331E5C 0032ED9C  7C 80 03 78 */	or r0, r4, r0
+/* 80331E60 0032EDA0  54 05 05 EA */	rlwinm r5, r0, 0, 0x17, 0x15
+/* 80331E64 0032EDA4  20 87 00 02 */	subfic r4, r7, 2
+/* 80331E68 0032EDA8  30 04 FF FF */	addic r0, r4, -1
+/* 80331E6C 0032EDAC  7C 00 21 10 */	subfe r0, r0, r4
+/* 80331E70 0032EDB0  54 00 4B EC */	rlwinm r0, r0, 9, 0xf, 0x16
+/* 80331E74 0032EDB4  7C A0 03 78 */	or r0, r5, r0
+/* 80331E78 0032EDB8  54 04 05 A8 */	rlwinm r4, r0, 0, 0x16, 0x14
+/* 80331E7C 0032EDBC  30 07 FF FF */	addic r0, r7, -1
+/* 80331E80 0032EDC0  7C 00 39 10 */	subfe r0, r0, r7
+/* 80331E84 0032EDC4  54 00 53 AA */	rlwinm r0, r0, 0xa, 0xe, 0x15
+/* 80331E88 0032EDC8  7C 80 03 78 */	or r0, r4, r0
+/* 80331E8C 0032EDCC  B0 03 00 00 */	sth r0, 0(r3)
+/* 80331E90 0032EDD0  4E 80 00 20 */	blr 
+.global lbl_80331E94
+lbl_80331E94:
+/* 80331E94 0032EDD4  39 02 C9 F0 */	addi r8, r2, lbl_804563F0-_SDA2_BASE_
+/* 80331E98 0032EDD8  88 A8 00 05 */	lbz r5, 5(r8)
+/* 80331E9C 0032EDDC  3C 80 00 01 */	lis r4, 0x0000FFFF@ha
+/* 80331EA0 0032EDE0  38 04 FF FF */	addi r0, r4, 0x0000FFFF@l
+/* 80331EA4 0032EDE4  7C 00 28 50 */	subf r0, r0, r5
+/* 80331EA8 0032EDE8  30 00 FF FF */	addic r0, r0, -1
+/* 80331EAC 0032EDEC  7C 00 01 10 */	subfe r0, r0, r0
+/* 80331EB0 0032EDF0  7C A9 00 78 */	andc r9, r5, r0
+/* 80331EB4 0032EDF4  88 E8 00 04 */	lbz r7, 4(r8)
+/* 80331EB8 0032EDF8  88 C8 00 03 */	lbz r6, 3(r8)
+/* 80331EBC 0032EDFC  88 A8 00 02 */	lbz r5, 2(r8)
+/* 80331EC0 0032EE00  88 88 00 01 */	lbz r4, 1(r8)
+/* 80331EC4 0032EE04  88 02 C9 F0 */	lbz r0, lbl_804563F0-_SDA2_BASE_(r2)
+/* 80331EC8 0032EE08  54 00 0B FC */	rlwinm r0, r0, 1, 0xf, 0x1e
+/* 80331ECC 0032EE0C  7C 00 23 78 */	or r0, r0, r4
+/* 80331ED0 0032EE10  54 04 06 B0 */	rlwinm r4, r0, 0, 0x1a, 0x18
+/* 80331ED4 0032EE14  55 20 34 B2 */	rlwinm r0, r9, 6, 0x12, 0x19
+/* 80331ED8 0032EE18  7C 80 03 78 */	or r0, r4, r0
+/* 80331EDC 0032EE1C  50 A0 17 7A */	rlwimi r0, r5, 2, 0x1d, 0x1d
+/* 80331EE0 0032EE20  50 A0 17 38 */	rlwimi r0, r5, 2, 0x1c, 0x1c
+/* 80331EE4 0032EE24  50 A0 16 F6 */	rlwimi r0, r5, 2, 0x1b, 0x1b
+/* 80331EE8 0032EE28  50 A0 16 B4 */	rlwimi r0, r5, 2, 0x1a, 0x1a
+/* 80331EEC 0032EE2C  50 A0 3D 28 */	rlwimi r0, r5, 7, 0x14, 0x14
+/* 80331EF0 0032EE30  50 A0 3C E6 */	rlwimi r0, r5, 7, 0x13, 0x13
+/* 80331EF4 0032EE34  54 A4 3C A4 */	rlwinm r4, r5, 7, 0x12, 0x12
+/* 80331EF8 0032EE38  50 04 04 FE */	rlwimi r4, r0, 0, 0x13, 0x1f
+/* 80331EFC 0032EE3C  54 A0 3C 62 */	rlwinm r0, r5, 7, 0x11, 0x11
+/* 80331F00 0032EE40  50 80 04 BE */	rlwimi r0, r4, 0, 0x12, 0x1f
+/* 80331F04 0032EE44  54 04 06 6C */	rlwinm r4, r0, 0, 0x19, 0x16
+/* 80331F08 0032EE48  30 07 FF FF */	addic r0, r7, -1
+/* 80331F0C 0032EE4C  7C 00 01 10 */	subfe r0, r0, r0
+/* 80331F10 0032EE50  7C C0 00 78 */	andc r0, r6, r0
+/* 80331F14 0032EE54  54 00 38 30 */	slwi r0, r0, 7
+/* 80331F18 0032EE58  7C 80 03 78 */	or r0, r4, r0
+/* 80331F1C 0032EE5C  54 05 05 EA */	rlwinm r5, r0, 0, 0x17, 0x15
+/* 80331F20 0032EE60  20 87 00 02 */	subfic r4, r7, 2
+/* 80331F24 0032EE64  30 04 FF FF */	addic r0, r4, -1
+/* 80331F28 0032EE68  7C 00 21 10 */	subfe r0, r0, r4
+/* 80331F2C 0032EE6C  54 00 4B EC */	rlwinm r0, r0, 9, 0xf, 0x16
+/* 80331F30 0032EE70  7C A0 03 78 */	or r0, r5, r0
+/* 80331F34 0032EE74  54 04 05 A8 */	rlwinm r4, r0, 0, 0x16, 0x14
+/* 80331F38 0032EE78  30 07 FF FF */	addic r0, r7, -1
+/* 80331F3C 0032EE7C  7C 00 39 10 */	subfe r0, r0, r7
+/* 80331F40 0032EE80  54 00 53 AA */	rlwinm r0, r0, 0xa, 0xe, 0x15
+/* 80331F44 0032EE84  7C 80 03 78 */	or r0, r4, r0
+/* 80331F48 0032EE88  B0 03 00 00 */	sth r0, 0(r3)
+/* 80331F4C 0032EE8C  4E 80 00 20 */	blr 

@@ -1,0 +1,13 @@
+.include "macros.inc"
+
+.section .text, "ax" # 8003F6FC
+
+
+.global func_8003F6FC
+func_8003F6FC:
+/* 8003F6FC 0003C63C  38 00 00 00 */	li r0, 0
+/* 8003F700 0003C640  98 0D 88 D8 */	stb r0, lbl_80450E58-_SDA_BASE_(r13)
+/* 8003F704 0003C644  98 0D 88 E0 */	stb r0, lbl_80450E60-_SDA_BASE_(r13)
+/* 8003F708 0003C648  38 00 FF FF */	li r0, -1
+/* 8003F70C 0003C64C  90 0D 88 DC */	stw r0, lbl_80450E5C-_SDA_BASE_(r13)
+/* 8003F710 0003C650  4E 80 00 20 */	blr 

@@ -1,0 +1,22 @@
+.include "macros.inc"
+
+.section .text, "ax" # 80371DA4
+
+
+.global func_80371DA4
+func_80371DA4:
+/* 80371DA4 0036ECE4  94 21 FF F0 */	stwu r1, -0x10(r1)
+/* 80371DA8 0036ECE8  7C 08 02 A6 */	mflr r0
+/* 80371DAC 0036ECEC  3C A0 80 3D */	lis r5, lbl_803D32A8@ha
+/* 80371DB0 0036ECF0  90 01 00 14 */	stw r0, 0x14(r1)
+/* 80371DB4 0036ECF4  38 A5 32 A8 */	addi r5, r5, lbl_803D32A8@l
+/* 80371DB8 0036ECF8  81 85 00 10 */	lwz r12, 0x10(r5)
+/* 80371DBC 0036ECFC  7D 89 03 A6 */	mtctr r12
+/* 80371DC0 0036ED00  4E 80 04 21 */	bctrl 
+/* 80371DC4 0036ED04  7C 03 00 D0 */	neg r0, r3
+/* 80371DC8 0036ED08  7C 00 1B 78 */	or r0, r0, r3
+/* 80371DCC 0036ED0C  7C 03 FE 70 */	srawi r3, r0, 0x1f
+/* 80371DD0 0036ED10  80 01 00 14 */	lwz r0, 0x14(r1)
+/* 80371DD4 0036ED14  7C 08 03 A6 */	mtlr r0
+/* 80371DD8 0036ED18  38 21 00 10 */	addi r1, r1, 0x10
+/* 80371DDC 0036ED1C  4E 80 00 20 */	blr 

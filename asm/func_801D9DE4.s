@@ -1,0 +1,22 @@
+.include "macros.inc"
+
+.section .text, "ax" # 801D9DE4
+
+
+.global func_801D9DE4
+func_801D9DE4:
+/* 801D9DE4 001D6D24  94 21 FF F0 */	stwu r1, -0x10(r1)
+/* 801D9DE8 001D6D28  7C 08 02 A6 */	mflr r0
+/* 801D9DEC 001D6D2C  90 01 00 14 */	stw r0, 0x14(r1)
+/* 801D9DF0 001D6D30  4B FF FF DD */	bl func_801D9DCC
+/* 801D9DF4 001D6D34  7C 64 1B 78 */	mr r4, r3
+/* 801D9DF8 001D6D38  3C 60 80 40 */	lis r3, lbl_804061C0@ha
+/* 801D9DFC 001D6D3C  38 63 61 C0 */	addi r3, r3, lbl_804061C0@l
+/* 801D9E00 001D6D40  38 63 00 CC */	addi r3, r3, 0xcc
+/* 801D9E04 001D6D44  4B E5 A0 C5 */	bl func_80033EC8
+/* 801D9E08 001D6D48  30 03 FF FF */	addic r0, r3, -1
+/* 801D9E0C 001D6D4C  7C 60 19 10 */	subfe r3, r0, r3
+/* 801D9E10 001D6D50  80 01 00 14 */	lwz r0, 0x14(r1)
+/* 801D9E14 001D6D54  7C 08 03 A6 */	mtlr r0
+/* 801D9E18 001D6D58  38 21 00 10 */	addi r1, r1, 0x10
+/* 801D9E1C 001D6D5C  4E 80 00 20 */	blr 

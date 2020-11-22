@@ -1,0 +1,21 @@
+.include "macros.inc"
+
+.section .text, "ax" # 80037D94
+
+
+.global func_80037D94
+func_80037D94:
+/* 80037D94 00034CD4  38 80 00 00 */	li r4, 0
+/* 80037D98 00034CD8  A8 03 06 90 */	lha r0, 0x690(r3)
+/* 80037D9C 00034CDC  2C 00 00 66 */	cmpwi r0, 0x66
+/* 80037DA0 00034CE0  40 82 00 10 */	bne lbl_80037DB0
+/* 80037DA4 00034CE4  A8 03 05 B4 */	lha r0, 0x5b4(r3)
+/* 80037DA8 00034CE8  2C 00 00 01 */	cmpwi r0, 1
+/* 80037DAC 00034CEC  40 80 00 08 */	bge lbl_80037DB4
+.global lbl_80037DB0
+lbl_80037DB0:
+/* 80037DB0 00034CF0  38 80 00 01 */	li r4, 1
+.global lbl_80037DB4
+lbl_80037DB4:
+/* 80037DB4 00034CF4  54 83 06 3E */	clrlwi r3, r4, 0x18
+/* 80037DB8 00034CF8  4E 80 00 20 */	blr 

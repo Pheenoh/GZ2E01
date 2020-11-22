@@ -1,0 +1,24 @@
+.include "macros.inc"
+
+.section .text, "ax" # 802DE44C
+
+
+.global func_802DE44C
+func_802DE44C:
+/* 802DE44C 002DB38C  94 21 FF F0 */	stwu r1, -0x10(r1)
+/* 802DE450 002DB390  7C 08 02 A6 */	mflr r0
+/* 802DE454 002DB394  90 01 00 14 */	stw r0, 0x14(r1)
+/* 802DE458 002DB398  28 05 00 00 */	cmplwi r5, 0
+/* 802DE45C 002DB39C  41 82 00 0C */	beq lbl_802DE468
+/* 802DE460 002DB3A0  88 C5 00 0C */	lbz r6, 0xc(r5)
+/* 802DE464 002DB3A4  48 00 00 08 */	b lbl_802DE46C
+.global lbl_802DE468
+lbl_802DE468:
+/* 802DE468 002DB3A8  38 C0 00 00 */	li r6, 0
+.global lbl_802DE46C
+lbl_802DE46C:
+/* 802DE46C 002DB3AC  48 00 00 15 */	bl func_802DE480
+/* 802DE470 002DB3B0  80 01 00 14 */	lwz r0, 0x14(r1)
+/* 802DE474 002DB3B4  7C 08 03 A6 */	mtlr r0
+/* 802DE478 002DB3B8  38 21 00 10 */	addi r1, r1, 0x10
+/* 802DE47C 002DB3BC  4E 80 00 20 */	blr 

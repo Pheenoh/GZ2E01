@@ -1,0 +1,24 @@
+.include "macros.inc"
+
+.section .text, "ax" # 802DCA1C
+
+
+.global func_802DCA1C
+func_802DCA1C:
+/* 802DCA1C 002D995C  94 21 FF F0 */	stwu r1, -0x10(r1)
+/* 802DCA20 002D9960  7C 08 02 A6 */	mflr r0
+/* 802DCA24 002D9964  90 01 00 14 */	stw r0, 0x14(r1)
+/* 802DCA28 002D9968  93 E1 00 0C */	stw r31, 0xc(r1)
+/* 802DCA2C 002D996C  7C 7F 1B 79 */	or. r31, r3, r3
+/* 802DCA30 002D9970  41 82 00 10 */	beq lbl_802DCA40
+/* 802DCA34 002D9974  7C 80 07 35 */	extsh. r0, r4
+/* 802DCA38 002D9978  40 81 00 08 */	ble lbl_802DCA40
+/* 802DCA3C 002D997C  4B FF 23 01 */	bl func_802CED3C
+.global lbl_802DCA40
+lbl_802DCA40:
+/* 802DCA40 002D9980  7F E3 FB 78 */	mr r3, r31
+/* 802DCA44 002D9984  83 E1 00 0C */	lwz r31, 0xc(r1)
+/* 802DCA48 002D9988  80 01 00 14 */	lwz r0, 0x14(r1)
+/* 802DCA4C 002D998C  7C 08 03 A6 */	mtlr r0
+/* 802DCA50 002D9990  38 21 00 10 */	addi r1, r1, 0x10
+/* 802DCA54 002D9994  4E 80 00 20 */	blr 

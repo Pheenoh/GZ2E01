@@ -1,0 +1,29 @@
+.include "macros.inc"
+
+.section .text, "ax" # 80353B7C
+
+
+.global func_80353B7C
+func_80353B7C:
+/* 80353B7C 00350ABC  28 03 00 00 */	cmplwi r3, 0
+/* 80353B80 00350AC0  3C 80 80 45 */	lis r4, lbl_8044CBC0@ha
+/* 80353B84 00350AC4  38 84 CB C0 */	addi r4, r4, lbl_8044CBC0@l
+/* 80353B88 00350AC8  41 82 00 0C */	beq lbl_80353B94
+/* 80353B8C 00350ACC  7C 60 1B 78 */	mr r0, r3
+/* 80353B90 00350AD0  48 00 00 08 */	b lbl_80353B98
+.global lbl_80353B94
+lbl_80353B94:
+/* 80353B94 00350AD4  38 04 02 20 */	addi r0, r4, 0x220
+.global lbl_80353B98
+lbl_80353B98:
+/* 80353B98 00350AD8  28 03 00 00 */	cmplwi r3, 0
+/* 80353B9C 00350ADC  90 04 01 0C */	stw r0, 0x10c(r4)
+/* 80353BA0 00350AE0  41 82 00 08 */	beq lbl_80353BA8
+/* 80353BA4 00350AE4  48 00 00 08 */	b lbl_80353BAC
+.global lbl_80353BA8
+lbl_80353BA8:
+/* 80353BA8 00350AE8  38 64 02 20 */	addi r3, r4, 0x220
+.global lbl_80353BAC
+lbl_80353BAC:
+/* 80353BAC 00350AEC  90 64 02 1C */	stw r3, 0x21c(r4)
+/* 80353BB0 00350AF0  4E 80 00 20 */	blr 

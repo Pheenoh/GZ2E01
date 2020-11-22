@@ -1,0 +1,51 @@
+.include "macros.inc"
+
+.section .text, "ax" # 8029EA00
+
+
+.global func_8029EA00
+func_8029EA00:
+/* 8029EA00 0029B940  94 21 FF F0 */	stwu r1, -0x10(r1)
+/* 8029EA04 0029B944  7C 08 02 A6 */	mflr r0
+/* 8029EA08 0029B948  90 01 00 14 */	stw r0, 0x14(r1)
+/* 8029EA0C 0029B94C  93 E1 00 0C */	stw r31, 0xc(r1)
+/* 8029EA10 0029B950  93 C1 00 08 */	stw r30, 8(r1)
+/* 8029EA14 0029B954  7C 7E 1B 78 */	mr r30, r3
+/* 8029EA18 0029B958  80 0D 8D 8C */	lwz r0, lbl_8045130C-_SDA_BASE_(r13)
+/* 8029EA1C 0029B95C  28 00 00 00 */	cmplwi r0, 0
+/* 8029EA20 0029B960  40 82 00 1C */	bne lbl_8029EA3C
+/* 8029EA24 0029B964  3C 60 80 3A */	lis r3, lbl_8039B8B8@ha
+/* 8029EA28 0029B968  38 63 B8 B8 */	addi r3, r3, lbl_8039B8B8@l
+/* 8029EA2C 0029B96C  4C C6 31 82 */	crclr 6
+/* 8029EA30 0029B970  4B D6 80 8D */	bl func_80006ABC
+/* 8029EA34 0029B974  38 60 00 00 */	li r3, 0
+/* 8029EA38 0029B978  48 00 00 34 */	b lbl_8029EA6C
+.global lbl_8029EA3C
+lbl_8029EA3C:
+/* 8029EA3C 0029B97C  48 09 EC B9 */	bl func_8033D6F4
+/* 8029EA40 0029B980  7C 60 1B 78 */	mr r0, r3
+/* 8029EA44 0029B984  7F C3 F3 78 */	mr r3, r30
+/* 8029EA48 0029B988  7C 1F 03 78 */	mr r31, r0
+/* 8029EA4C 0029B98C  48 0B 3E B1 */	bl func_803528FC
+/* 8029EA50 0029B990  38 60 00 00 */	li r3, 0
+/* 8029EA54 0029B994  38 00 00 01 */	li r0, 1
+/* 8029EA58 0029B998  90 7E 00 00 */	stw r3, 0(r30)
+/* 8029EA5C 0029B99C  7F E3 FB 78 */	mr r3, r31
+/* 8029EA60 0029B9A0  90 1E 00 08 */	stw r0, 8(r30)
+/* 8029EA64 0029B9A4  48 09 EC B9 */	bl func_8033D71C
+/* 8029EA68 0029B9A8  7F C3 F3 78 */	mr r3, r30
+.global lbl_8029EA6C
+lbl_8029EA6C:
+/* 8029EA6C 0029B9AC  80 01 00 14 */	lwz r0, 0x14(r1)
+/* 8029EA70 0029B9B0  83 E1 00 0C */	lwz r31, 0xc(r1)
+/* 8029EA74 0029B9B4  83 C1 00 08 */	lwz r30, 8(r1)
+/* 8029EA78 0029B9B8  7C 08 03 A6 */	mtlr r0
+/* 8029EA7C 0029B9BC  38 21 00 10 */	addi r1, r1, 0x10
+/* 8029EA80 0029B9C0  4E 80 00 20 */	blr 
+/* 8029EA84 0029B9C4  00 00 00 00 */	.4byte 0x00000000  /* unknown instruction */
+/* 8029EA88 0029B9C8  00 00 00 00 */	.4byte 0x00000000  /* unknown instruction */
+/* 8029EA8C 0029B9CC  00 00 00 00 */	.4byte 0x00000000  /* unknown instruction */
+/* 8029EA90 0029B9D0  00 00 00 00 */	.4byte 0x00000000  /* unknown instruction */
+/* 8029EA94 0029B9D4  00 00 00 00 */	.4byte 0x00000000  /* unknown instruction */
+/* 8029EA98 0029B9D8  00 00 00 00 */	.4byte 0x00000000  /* unknown instruction */
+/* 8029EA9C 0029B9DC  00 00 00 00 */	.4byte 0x00000000  /* unknown instruction */

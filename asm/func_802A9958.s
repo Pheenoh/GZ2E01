@@ -1,0 +1,31 @@
+.include "macros.inc"
+
+.section .text, "ax" # 802A9958
+
+
+.global func_802A9958
+func_802A9958:
+/* 802A9958 002A6898  EC 01 00 72 */	fmuls f0, f1, f1
+/* 802A995C 002A689C  EC 41 00 2A */	fadds f2, f1, f0
+/* 802A9960 002A68A0  C0 02 BE 2C */	lfs f0, lbl_8045582C-_SDA2_BASE_(r2)
+/* 802A9964 002A68A4  FC 02 00 40 */	fcmpo cr0, f2, f0
+/* 802A9968 002A68A8  40 81 00 20 */	ble lbl_802A9988
+/* 802A996C 002A68AC  EC 42 00 28 */	fsubs f2, f2, f0
+/* 802A9970 002A68B0  C0 03 00 0C */	lfs f0, 0xc(r3)
+/* 802A9974 002A68B4  FC 01 00 40 */	fcmpo cr0, f1, f0
+/* 802A9978 002A68B8  40 80 00 08 */	bge lbl_802A9980
+/* 802A997C 002A68BC  EC 42 00 2A */	fadds f2, f2, f0
+.global lbl_802A9980
+lbl_802A9980:
+/* 802A9980 002A68C0  FC 20 10 90 */	fmr f1, f2
+/* 802A9984 002A68C4  4E 80 00 20 */	blr 
+.global lbl_802A9988
+lbl_802A9988:
+/* 802A9988 002A68C8  C0 03 00 0C */	lfs f0, 0xc(r3)
+/* 802A998C 002A68CC  FC 01 00 40 */	fcmpo cr0, f1, f0
+/* 802A9990 002A68D0  40 80 00 08 */	bge lbl_802A9998
+/* 802A9994 002A68D4  EC 42 00 2A */	fadds f2, f2, f0
+.global lbl_802A9998
+lbl_802A9998:
+/* 802A9998 002A68D8  FC 20 10 90 */	fmr f1, f2
+/* 802A999C 002A68DC  4E 80 00 20 */	blr 

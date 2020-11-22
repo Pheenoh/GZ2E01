@@ -1,0 +1,19 @@
+.include "macros.inc"
+
+.section .text, "ax" # 802A22F8
+
+
+.global func_802A22F8
+func_802A22F8:
+/* 802A22F8 0029F238  3C 80 80 3D */	lis r4, lbl_803C9970@ha
+/* 802A22FC 0029F23C  38 04 99 70 */	addi r0, r4, lbl_803C9970@l
+/* 802A2300 0029F240  90 03 00 00 */	stw r0, 0(r3)
+/* 802A2304 0029F244  C0 02 BD BC */	lfs f0, lbl_804557BC-_SDA2_BASE_(r2)
+/* 802A2308 0029F248  D0 03 00 48 */	stfs f0, 0x48(r3)
+/* 802A230C 0029F24C  D0 03 00 50 */	stfs f0, 0x50(r3)
+/* 802A2310 0029F250  C0 22 BD C0 */	lfs f1, lbl_804557C0-_SDA2_BASE_(r2)
+/* 802A2314 0029F254  D0 23 00 4C */	stfs f1, 0x4c(r3)
+/* 802A2318 0029F258  C0 02 BD B8 */	lfs f0, lbl_804557B8-_SDA2_BASE_(r2)
+/* 802A231C 0029F25C  D0 03 00 54 */	stfs f0, 0x54(r3)
+/* 802A2320 0029F260  D0 23 00 58 */	stfs f1, 0x58(r3)
+/* 802A2324 0029F264  4E 80 00 20 */	blr 

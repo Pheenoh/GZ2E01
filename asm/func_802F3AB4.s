@@ -1,0 +1,51 @@
+.include "macros.inc"
+
+.section .text, "ax" # 802F3AB4
+
+
+.global func_802F3AB4
+func_802F3AB4:
+/* 802F3AB4 002F09F4  94 21 FF E0 */	stwu r1, -0x20(r1)
+/* 802F3AB8 002F09F8  80 02 C7 C4 */	lwz r0, lbl_804561C4-_SDA2_BASE_(r2)
+/* 802F3ABC 002F09FC  90 01 00 10 */	stw r0, 0x10(r1)
+/* 802F3AC0 002F0A00  90 01 00 0C */	stw r0, 0xc(r1)
+/* 802F3AC4 002F0A04  88 01 00 0C */	lbz r0, 0xc(r1)
+/* 802F3AC8 002F0A08  98 01 00 14 */	stb r0, 0x14(r1)
+/* 802F3ACC 002F0A0C  88 01 00 0D */	lbz r0, 0xd(r1)
+/* 802F3AD0 002F0A10  98 01 00 15 */	stb r0, 0x15(r1)
+/* 802F3AD4 002F0A14  88 01 00 0E */	lbz r0, 0xe(r1)
+/* 802F3AD8 002F0A18  98 01 00 16 */	stb r0, 0x16(r1)
+/* 802F3ADC 002F0A1C  88 01 00 0F */	lbz r0, 0xf(r1)
+/* 802F3AE0 002F0A20  98 01 00 17 */	stb r0, 0x17(r1)
+/* 802F3AE4 002F0A24  81 04 00 04 */	lwz r8, 4(r4)
+/* 802F3AE8 002F0A28  80 E4 00 08 */	lwz r7, 8(r4)
+/* 802F3AEC 002F0A2C  54 A0 08 3C */	slwi r0, r5, 1
+/* 802F3AF0 002F0A30  7C 07 02 2E */	lhzx r0, r7, r0
+/* 802F3AF4 002F0A34  1C 00 00 E8 */	mulli r0, r0, 0xe8
+/* 802F3AF8 002F0A38  7C A8 02 14 */	add r5, r8, r0
+/* 802F3AFC 002F0A3C  54 C0 08 3C */	slwi r0, r6, 1
+/* 802F3B00 002F0A40  7C A5 02 14 */	add r5, r5, r0
+/* 802F3B04 002F0A44  A0 05 00 4A */	lhz r0, 0x4a(r5)
+/* 802F3B08 002F0A48  28 00 FF FF */	cmplwi r0, 0xffff
+/* 802F3B0C 002F0A4C  41 82 00 38 */	beq lbl_802F3B44
+/* 802F3B10 002F0A50  80 84 00 3C */	lwz r4, 0x3c(r4)
+/* 802F3B14 002F0A54  54 00 13 BA */	rlwinm r0, r0, 2, 0xe, 0x1d
+/* 802F3B18 002F0A58  7C 04 00 2E */	lwzx r0, r4, r0
+/* 802F3B1C 002F0A5C  90 01 00 08 */	stw r0, 8(r1)
+/* 802F3B20 002F0A60  88 01 00 08 */	lbz r0, 8(r1)
+/* 802F3B24 002F0A64  98 03 00 00 */	stb r0, 0(r3)
+/* 802F3B28 002F0A68  88 01 00 09 */	lbz r0, 9(r1)
+/* 802F3B2C 002F0A6C  98 03 00 01 */	stb r0, 1(r3)
+/* 802F3B30 002F0A70  88 01 00 0A */	lbz r0, 0xa(r1)
+/* 802F3B34 002F0A74  98 03 00 02 */	stb r0, 2(r3)
+/* 802F3B38 002F0A78  88 01 00 0B */	lbz r0, 0xb(r1)
+/* 802F3B3C 002F0A7C  98 03 00 03 */	stb r0, 3(r3)
+/* 802F3B40 002F0A80  48 00 00 0C */	b lbl_802F3B4C
+.global lbl_802F3B44
+lbl_802F3B44:
+/* 802F3B44 002F0A84  80 01 00 14 */	lwz r0, 0x14(r1)
+/* 802F3B48 002F0A88  90 03 00 00 */	stw r0, 0(r3)
+.global lbl_802F3B4C
+lbl_802F3B4C:
+/* 802F3B4C 002F0A8C  38 21 00 20 */	addi r1, r1, 0x20
+/* 802F3B50 002F0A90  4E 80 00 20 */	blr 

@@ -1,0 +1,30 @@
+.include "macros.inc"
+
+.section .text, "ax" # 801D9E20
+
+
+.global func_801D9E20
+func_801D9E20:
+/* 801D9E20 001D6D60  94 21 FF F0 */	stwu r1, -0x10(r1)
+/* 801D9E24 001D6D64  7C 08 02 A6 */	mflr r0
+/* 801D9E28 001D6D68  90 01 00 14 */	stw r0, 0x14(r1)
+/* 801D9E2C 001D6D6C  3C 60 80 40 */	lis r3, lbl_804061C0@ha
+/* 801D9E30 001D6D70  38 63 61 C0 */	addi r3, r3, lbl_804061C0@l
+/* 801D9E34 001D6D74  38 63 07 F0 */	addi r3, r3, 0x7f0
+/* 801D9E38 001D6D78  1C 05 00 06 */	mulli r0, r5, 6
+/* 801D9E3C 001D6D7C  7C 04 02 14 */	add r0, r4, r0
+/* 801D9E40 001D6D80  54 00 10 3A */	slwi r0, r0, 2
+/* 801D9E44 001D6D84  3C 80 80 39 */	lis r4, lbl_80396860@ha
+/* 801D9E48 001D6D88  38 84 68 60 */	addi r4, r4, lbl_80396860@l
+/* 801D9E4C 001D6D8C  7C 04 00 2E */	lwzx r0, r4, r0
+/* 801D9E50 001D6D90  54 00 08 3C */	slwi r0, r0, 1
+/* 801D9E54 001D6D94  3C 80 80 3A */	lis r4, lbl_803A7288@ha
+/* 801D9E58 001D6D98  38 84 72 88 */	addi r4, r4, lbl_803A7288@l
+/* 801D9E5C 001D6D9C  7C 84 02 2E */	lhzx r4, r4, r0
+/* 801D9E60 001D6DA0  4B E5 AB 5D */	bl func_800349BC
+/* 801D9E64 001D6DA4  30 03 FF FF */	addic r0, r3, -1
+/* 801D9E68 001D6DA8  7C 60 19 10 */	subfe r3, r0, r3
+/* 801D9E6C 001D6DAC  80 01 00 14 */	lwz r0, 0x14(r1)
+/* 801D9E70 001D6DB0  7C 08 03 A6 */	mtlr r0
+/* 801D9E74 001D6DB4  38 21 00 10 */	addi r1, r1, 0x10
+/* 801D9E78 001D6DB8  4E 80 00 20 */	blr 

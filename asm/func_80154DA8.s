@@ -1,0 +1,54 @@
+.include "macros.inc"
+
+.section .text, "ax" # 80154DA8
+
+
+.global func_80154DA8
+func_80154DA8:
+/* 80154DA8 00151CE8  38 00 00 00 */	li r0, 0
+/* 80154DAC 00151CEC  ED 05 18 28 */	fsubs f8, f5, f3
+/* 80154DB0 00151CF0  ED 26 20 28 */	fsubs f9, f6, f4
+/* 80154DB4 00151CF4  EC A8 02 32 */	fmuls f5, f8, f8
+/* 80154DB8 00151CF8  EC 09 02 72 */	fmuls f0, f9, f9
+/* 80154DBC 00151CFC  EC E5 00 2A */	fadds f7, f5, f0
+/* 80154DC0 00151D00  C0 C2 99 D8 */	lfs f6, lbl_804533D8-_SDA2_BASE_(r2)
+/* 80154DC4 00151D04  FC 06 38 00 */	fcmpu cr0, f6, f7
+/* 80154DC8 00151D08  40 82 00 10 */	bne lbl_80154DD8
+/* 80154DCC 00151D0C  D0 C5 00 00 */	stfs f6, 0(r5)
+/* 80154DD0 00151D10  38 60 00 00 */	li r3, 0
+/* 80154DD4 00151D14  4E 80 00 20 */	blr 
+.global lbl_80154DD8
+lbl_80154DD8:
+/* 80154DD8 00151D18  EC 01 18 28 */	fsubs f0, f1, f3
+/* 80154DDC 00151D1C  EC A8 00 32 */	fmuls f5, f8, f0
+/* 80154DE0 00151D20  EC 02 20 28 */	fsubs f0, f2, f4
+/* 80154DE4 00151D24  EC 09 00 32 */	fmuls f0, f9, f0
+/* 80154DE8 00151D28  EC 05 00 2A */	fadds f0, f5, f0
+/* 80154DEC 00151D2C  EC A0 38 24 */	fdivs f5, f0, f7
+/* 80154DF0 00151D30  FC 06 28 40 */	fcmpo cr0, f6, f5
+/* 80154DF4 00151D34  4C 40 13 82 */	cror 2, 0, 2
+/* 80154DF8 00151D38  40 82 00 18 */	bne lbl_80154E10
+/* 80154DFC 00151D3C  C0 02 99 DC */	lfs f0, lbl_804533DC-_SDA2_BASE_(r2)
+/* 80154E00 00151D40  FC 05 00 40 */	fcmpo cr0, f5, f0
+/* 80154E04 00151D44  4C 40 13 82 */	cror 2, 0, 2
+/* 80154E08 00151D48  40 82 00 08 */	bne lbl_80154E10
+/* 80154E0C 00151D4C  38 00 00 01 */	li r0, 1
+.global lbl_80154E10
+lbl_80154E10:
+/* 80154E10 00151D50  EC 08 01 72 */	fmuls f0, f8, f5
+/* 80154E14 00151D54  EC 03 00 2A */	fadds f0, f3, f0
+/* 80154E18 00151D58  D0 03 00 00 */	stfs f0, 0(r3)
+/* 80154E1C 00151D5C  EC 09 01 72 */	fmuls f0, f9, f5
+/* 80154E20 00151D60  EC 04 00 2A */	fadds f0, f4, f0
+/* 80154E24 00151D64  D0 04 00 00 */	stfs f0, 0(r4)
+/* 80154E28 00151D68  C0 83 00 00 */	lfs f4, 0(r3)
+/* 80154E2C 00151D6C  EC 04 08 28 */	fsubs f0, f4, f1
+/* 80154E30 00151D70  EC 60 00 32 */	fmuls f3, f0, f0
+/* 80154E34 00151D74  C0 04 00 00 */	lfs f0, 0(r4)
+/* 80154E38 00151D78  EC 20 10 28 */	fsubs f1, f0, f2
+/* 80154E3C 00151D7C  EC 04 10 28 */	fsubs f0, f4, f2
+/* 80154E40 00151D80  EC 01 00 32 */	fmuls f0, f1, f0
+/* 80154E44 00151D84  EC 03 00 2A */	fadds f0, f3, f0
+/* 80154E48 00151D88  D0 05 00 00 */	stfs f0, 0(r5)
+/* 80154E4C 00151D8C  7C 03 03 78 */	mr r3, r0
+/* 80154E50 00151D90  4E 80 00 20 */	blr 

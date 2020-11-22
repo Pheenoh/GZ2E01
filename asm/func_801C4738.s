@@ -1,0 +1,27 @@
+.include "macros.inc"
+
+.section .text, "ax" # 801C4738
+
+
+.global func_801C4738
+func_801C4738:
+/* 801C4738 001C1678  38 60 00 00 */	li r3, 0
+/* 801C473C 001C167C  54 85 06 3E */	clrlwi r5, r4, 0x18
+/* 801C4740 001C1680  3C 80 80 3C */	lis r4, lbl_803BCF18@ha
+/* 801C4744 001C1684  38 84 CF 18 */	addi r4, r4, lbl_803BCF18@l
+/* 801C4748 001C1688  38 00 00 17 */	li r0, 0x17
+/* 801C474C 001C168C  7C 09 03 A6 */	mtctr r0
+.global lbl_801C4750
+lbl_801C4750:
+/* 801C4750 001C1690  7C C4 1A 14 */	add r6, r4, r3
+/* 801C4754 001C1694  88 06 00 08 */	lbz r0, 8(r6)
+/* 801C4758 001C1698  7C 05 00 40 */	cmplw r5, r0
+/* 801C475C 001C169C  40 82 00 0C */	bne lbl_801C4768
+/* 801C4760 001C16A0  C0 26 00 00 */	lfs f1, 0(r6)
+/* 801C4764 001C16A4  4E 80 00 20 */	blr 
+.global lbl_801C4768
+lbl_801C4768:
+/* 801C4768 001C16A8  38 63 00 0C */	addi r3, r3, 0xc
+/* 801C476C 001C16AC  42 00 FF E4 */	bdnz lbl_801C4750
+/* 801C4770 001C16B0  C0 22 A6 D8 */	lfs f1, lbl_804540D8-_SDA2_BASE_(r2)
+/* 801C4774 001C16B4  4E 80 00 20 */	blr 

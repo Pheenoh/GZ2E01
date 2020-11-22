@@ -1,0 +1,27 @@
+.include "macros.inc"
+
+.section .text, "ax" # 802A4028
+
+
+.global func_802A4028
+func_802A4028:
+/* 802A4028 002A0F68  94 21 FF F0 */	stwu r1, -0x10(r1)
+/* 802A402C 002A0F6C  7C 08 02 A6 */	mflr r0
+/* 802A4030 002A0F70  90 01 00 14 */	stw r0, 0x14(r1)
+/* 802A4034 002A0F74  93 E1 00 0C */	stw r31, 0xc(r1)
+/* 802A4038 002A0F78  83 E3 00 58 */	lwz r31, 0x58(r3)
+/* 802A403C 002A0F7C  48 00 00 10 */	b lbl_802A404C
+.global lbl_802A4040
+lbl_802A4040:
+/* 802A4040 002A0F80  80 7F 00 00 */	lwz r3, 0(r31)
+/* 802A4044 002A0F84  4B FF E5 55 */	bl func_802A2598
+/* 802A4048 002A0F88  83 FF 00 0C */	lwz r31, 0xc(r31)
+.global lbl_802A404C
+lbl_802A404C:
+/* 802A404C 002A0F8C  28 1F 00 00 */	cmplwi r31, 0
+/* 802A4050 002A0F90  40 82 FF F0 */	bne lbl_802A4040
+/* 802A4054 002A0F94  83 E1 00 0C */	lwz r31, 0xc(r1)
+/* 802A4058 002A0F98  80 01 00 14 */	lwz r0, 0x14(r1)
+/* 802A405C 002A0F9C  7C 08 03 A6 */	mtlr r0
+/* 802A4060 002A0FA0  38 21 00 10 */	addi r1, r1, 0x10
+/* 802A4064 002A0FA4  4E 80 00 20 */	blr 

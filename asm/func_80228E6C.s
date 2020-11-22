@@ -1,0 +1,24 @@
+.include "macros.inc"
+
+.section .text, "ax" # 80228E6C
+
+
+.global func_80228E6C
+func_80228E6C:
+/* 80228E6C 00225DAC  94 21 FF F0 */	stwu r1, -0x10(r1)
+/* 80228E70 00225DB0  7C 08 02 A6 */	mflr r0
+/* 80228E74 00225DB4  90 01 00 14 */	stw r0, 0x14(r1)
+/* 80228E78 00225DB8  80 63 05 C0 */	lwz r3, 0x5c0(r3)
+/* 80228E7C 00225DBC  28 03 00 00 */	cmplwi r3, 0
+/* 80228E80 00225DC0  40 82 00 0C */	bne lbl_80228E8C
+/* 80228E84 00225DC4  38 60 00 00 */	li r3, 0
+/* 80228E88 00225DC8  48 00 00 08 */	b lbl_80228E90
+.global lbl_80228E8C
+lbl_80228E8C:
+/* 80228E8C 00225DCC  48 00 E2 31 */	bl func_802370BC
+.global lbl_80228E90
+lbl_80228E90:
+/* 80228E90 00225DD0  80 01 00 14 */	lwz r0, 0x14(r1)
+/* 80228E94 00225DD4  7C 08 03 A6 */	mtlr r0
+/* 80228E98 00225DD8  38 21 00 10 */	addi r1, r1, 0x10
+/* 80228E9C 00225DDC  4E 80 00 20 */	blr 

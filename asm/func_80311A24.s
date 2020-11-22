@@ -1,0 +1,49 @@
+.include "macros.inc"
+
+.section .text, "ax" # 80311A24
+
+
+.global func_80311A24
+func_80311A24:
+/* 80311A24 0030E964  54 60 04 38 */	rlwinm r0, r3, 0, 0x10, 0x1c
+/* 80311A28 0030E968  3C 60 80 44 */	lis r3, lbl_80439A20@ha
+/* 80311A2C 0030E96C  38 63 9A 20 */	addi r3, r3, lbl_80439A20@l
+/* 80311A30 0030E970  7C 83 04 2E */	lfsx f4, r3, r0
+/* 80311A34 0030E974  38 E3 00 04 */	addi r7, r3, 4
+/* 80311A38 0030E978  7C A7 04 2E */	lfsx f5, r7, r0
+/* 80311A3C 0030E97C  54 80 04 38 */	rlwinm r0, r4, 0, 0x10, 0x1c
+/* 80311A40 0030E980  7C C3 04 2E */	lfsx f6, r3, r0
+/* 80311A44 0030E984  7C E7 04 2E */	lfsx f7, r7, r0
+/* 80311A48 0030E988  54 A0 04 38 */	rlwinm r0, r5, 0, 0x10, 0x1c
+/* 80311A4C 0030E98C  7D 03 04 2E */	lfsx f8, r3, r0
+/* 80311A50 0030E990  7D 27 04 2E */	lfsx f9, r7, r0
+/* 80311A54 0030E994  FC 00 30 50 */	fneg f0, f6
+/* 80311A58 0030E998  D0 06 00 20 */	stfs f0, 0x20(r6)
+/* 80311A5C 0030E99C  EC 09 01 F2 */	fmuls f0, f9, f7
+/* 80311A60 0030E9A0  D0 06 00 00 */	stfs f0, 0(r6)
+/* 80311A64 0030E9A4  EC 08 01 F2 */	fmuls f0, f8, f7
+/* 80311A68 0030E9A8  D0 06 00 10 */	stfs f0, 0x10(r6)
+/* 80311A6C 0030E9AC  EC 07 01 32 */	fmuls f0, f7, f4
+/* 80311A70 0030E9B0  D0 06 00 24 */	stfs f0, 0x24(r6)
+/* 80311A74 0030E9B4  EC 07 01 72 */	fmuls f0, f7, f5
+/* 80311A78 0030E9B8  D0 06 00 28 */	stfs f0, 0x28(r6)
+/* 80311A7C 0030E9BC  EC E5 02 32 */	fmuls f7, f5, f8
+/* 80311A80 0030E9C0  ED 44 02 72 */	fmuls f10, f4, f9
+/* 80311A84 0030E9C4  EC 0A 01 B2 */	fmuls f0, f10, f6
+/* 80311A88 0030E9C8  EC 00 38 28 */	fsubs f0, f0, f7
+/* 80311A8C 0030E9CC  D0 06 00 04 */	stfs f0, 4(r6)
+/* 80311A90 0030E9D0  EC 07 01 B2 */	fmuls f0, f7, f6
+/* 80311A94 0030E9D4  EC 00 50 28 */	fsubs f0, f0, f10
+/* 80311A98 0030E9D8  D0 06 00 18 */	stfs f0, 0x18(r6)
+/* 80311A9C 0030E9DC  EC 84 02 32 */	fmuls f4, f4, f8
+/* 80311AA0 0030E9E0  EC A5 02 72 */	fmuls f5, f5, f9
+/* 80311AA4 0030E9E4  EC 05 01 B2 */	fmuls f0, f5, f6
+/* 80311AA8 0030E9E8  EC 04 00 2A */	fadds f0, f4, f0
+/* 80311AAC 0030E9EC  D0 06 00 08 */	stfs f0, 8(r6)
+/* 80311AB0 0030E9F0  EC 04 01 B2 */	fmuls f0, f4, f6
+/* 80311AB4 0030E9F4  EC 05 00 2A */	fadds f0, f5, f0
+/* 80311AB8 0030E9F8  D0 06 00 14 */	stfs f0, 0x14(r6)
+/* 80311ABC 0030E9FC  D0 26 00 0C */	stfs f1, 0xc(r6)
+/* 80311AC0 0030EA00  D0 46 00 1C */	stfs f2, 0x1c(r6)
+/* 80311AC4 0030EA04  D0 66 00 2C */	stfs f3, 0x2c(r6)
+/* 80311AC8 0030EA08  4E 80 00 20 */	blr 

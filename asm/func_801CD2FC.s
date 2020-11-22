@@ -1,0 +1,34 @@
+.include "macros.inc"
+
+.section .text, "ax" # 801CD2FC
+
+
+.global func_801CD2FC
+func_801CD2FC:
+/* 801CD2FC 001CA23C  80 63 00 8C */	lwz r3, 0x8c(r3)
+/* 801CD300 001CA240  28 03 00 00 */	cmplwi r3, 0
+/* 801CD304 001CA244  41 82 00 44 */	beq lbl_801CD348
+/* 801CD308 001CA248  80 03 00 08 */	lwz r0, 8(r3)
+/* 801CD30C 001CA24C  7C A3 02 14 */	add r5, r3, r0
+/* 801CD310 001CA250  38 C5 00 04 */	addi r6, r5, 4
+/* 801CD314 001CA254  38 60 00 00 */	li r3, 0
+/* 801CD318 001CA258  88 05 00 00 */	lbz r0, 0(r5)
+/* 801CD31C 001CA25C  7C 09 03 A6 */	mtctr r0
+/* 801CD320 001CA260  2C 00 00 00 */	cmpwi r0, 0
+/* 801CD324 001CA264  40 81 00 24 */	ble lbl_801CD348
+.global lbl_801CD328
+lbl_801CD328:
+/* 801CD328 001CA268  7C 06 18 AE */	lbzx r0, r6, r3
+/* 801CD32C 001CA26C  7C 04 00 00 */	cmpw r4, r0
+/* 801CD330 001CA270  40 82 00 10 */	bne lbl_801CD340
+/* 801CD334 001CA274  7C 66 1A 14 */	add r3, r6, r3
+/* 801CD338 001CA278  88 63 00 01 */	lbz r3, 1(r3)
+/* 801CD33C 001CA27C  4E 80 00 20 */	blr 
+.global lbl_801CD340
+lbl_801CD340:
+/* 801CD340 001CA280  38 63 00 28 */	addi r3, r3, 0x28
+/* 801CD344 001CA284  42 00 FF E4 */	bdnz lbl_801CD328
+.global lbl_801CD348
+lbl_801CD348:
+/* 801CD348 001CA288  38 60 00 00 */	li r3, 0
+/* 801CD34C 001CA28C  4E 80 00 20 */	blr 

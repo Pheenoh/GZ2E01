@@ -1,0 +1,15 @@
+.include "macros.inc"
+
+.section .text, "ax" # 8036CA54
+
+
+.global func_8036CA54
+func_8036CA54:
+/* 8036CA54 00369994  94 21 FF F0 */	stwu r1, -0x10(r1)
+/* 8036CA58 00369998  7C 08 02 A6 */	mflr r0
+/* 8036CA5C 0036999C  90 01 00 14 */	stw r0, 0x14(r1)
+/* 8036CA60 003699A0  4B FF FD 41 */	bl func_8036C7A0
+/* 8036CA64 003699A4  80 01 00 14 */	lwz r0, 0x14(r1)
+/* 8036CA68 003699A8  7C 08 03 A6 */	mtlr r0
+/* 8036CA6C 003699AC  38 21 00 10 */	addi r1, r1, 0x10
+/* 8036CA70 003699B0  4E 80 00 20 */	blr 

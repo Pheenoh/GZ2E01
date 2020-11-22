@@ -1,0 +1,19 @@
+.include "macros.inc"
+
+.section .text, "ax" # 801D88EC
+
+
+.global func_801D88EC
+func_801D88EC:
+/* 801D88EC 001D582C  80 63 00 14 */	lwz r3, 0x14(r3)
+/* 801D88F0 001D5830  28 03 00 00 */	cmplwi r3, 0
+/* 801D88F4 001D5834  41 82 00 18 */	beq lbl_801D890C
+/* 801D88F8 001D5838  88 03 00 0C */	lbz r0, 0xc(r3)
+/* 801D88FC 001D583C  2C 00 00 00 */	cmpwi r0, 0
+/* 801D8900 001D5840  40 82 00 0C */	bne lbl_801D890C
+/* 801D8904 001D5844  38 60 00 00 */	li r3, 0
+/* 801D8908 001D5848  4E 80 00 20 */	blr 
+.global lbl_801D890C
+lbl_801D890C:
+/* 801D890C 001D584C  38 60 00 01 */	li r3, 1
+/* 801D8910 001D5850  4E 80 00 20 */	blr 

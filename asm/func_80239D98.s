@@ -1,0 +1,22 @@
+.include "macros.inc"
+
+.section .text, "ax" # 80239D98
+
+
+.global func_80239D98
+func_80239D98:
+/* 80239D98 00236CD8  94 21 FF F0 */	stwu r1, -0x10(r1)
+/* 80239D9C 00236CDC  7C 08 02 A6 */	mflr r0
+/* 80239DA0 00236CE0  90 01 00 14 */	stw r0, 0x14(r1)
+/* 80239DA4 00236CE4  80 63 00 18 */	lwz r3, 0x18(r3)
+/* 80239DA8 00236CE8  80 63 00 04 */	lwz r3, 4(r3)
+/* 80239DAC 00236CEC  D0 23 00 D4 */	stfs f1, 0xd4(r3)
+/* 80239DB0 00236CF0  D0 43 00 D8 */	stfs f2, 0xd8(r3)
+/* 80239DB4 00236CF4  81 83 00 00 */	lwz r12, 0(r3)
+/* 80239DB8 00236CF8  81 8C 00 2C */	lwz r12, 0x2c(r12)
+/* 80239DBC 00236CFC  7D 89 03 A6 */	mtctr r12
+/* 80239DC0 00236D00  4E 80 04 21 */	bctrl 
+/* 80239DC4 00236D04  80 01 00 14 */	lwz r0, 0x14(r1)
+/* 80239DC8 00236D08  7C 08 03 A6 */	mtlr r0
+/* 80239DCC 00236D0C  38 21 00 10 */	addi r1, r1, 0x10
+/* 80239DD0 00236D10  4E 80 00 20 */	blr 

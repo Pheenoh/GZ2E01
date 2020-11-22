@@ -1,0 +1,29 @@
+.include "macros.inc"
+
+.section .text, "ax" # 802A2CF4
+
+
+.global func_802A2CF4
+func_802A2CF4:
+/* 802A2CF4 0029FC34  38 80 00 00 */	li r4, 0
+/* 802A2CF8 0029FC38  80 03 00 04 */	lwz r0, 4(r3)
+/* 802A2CFC 0029FC3C  7C 09 03 A6 */	mtctr r0
+/* 802A2D00 0029FC40  2C 00 00 00 */	cmpwi r0, 0
+/* 802A2D04 0029FC44  40 81 00 28 */	ble lbl_802A2D2C
+.global lbl_802A2D08
+lbl_802A2D08:
+/* 802A2D08 0029FC48  80 03 00 00 */	lwz r0, 0(r3)
+/* 802A2D0C 0029FC4C  7C A0 22 14 */	add r5, r0, r4
+/* 802A2D10 0029FC50  80 05 00 00 */	lwz r0, 0(r5)
+/* 802A2D14 0029FC54  28 00 00 00 */	cmplwi r0, 0
+/* 802A2D18 0029FC58  40 82 00 0C */	bne lbl_802A2D24
+/* 802A2D1C 0029FC5C  7C A3 2B 78 */	mr r3, r5
+/* 802A2D20 0029FC60  4E 80 00 20 */	blr 
+.global lbl_802A2D24
+lbl_802A2D24:
+/* 802A2D24 0029FC64  38 84 00 04 */	addi r4, r4, 4
+/* 802A2D28 0029FC68  42 00 FF E0 */	bdnz lbl_802A2D08
+.global lbl_802A2D2C
+lbl_802A2D2C:
+/* 802A2D2C 0029FC6C  38 60 00 00 */	li r3, 0
+/* 802A2D30 0029FC70  4E 80 00 20 */	blr 

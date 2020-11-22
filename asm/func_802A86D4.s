@@ -1,0 +1,18 @@
+.include "macros.inc"
+
+.section .text, "ax" # 802A86D4
+
+
+.global func_802A86D4
+func_802A86D4:
+/* 802A86D4 002A5614  94 21 FF F0 */	stwu r1, -0x10(r1)
+/* 802A86D8 002A5618  7C 08 02 A6 */	mflr r0
+/* 802A86DC 002A561C  90 01 00 14 */	stw r0, 0x14(r1)
+/* 802A86E0 002A5620  81 83 00 00 */	lwz r12, 0(r3)
+/* 802A86E4 002A5624  81 8C 00 50 */	lwz r12, 0x50(r12)
+/* 802A86E8 002A5628  7D 89 03 A6 */	mtctr r12
+/* 802A86EC 002A562C  4E 80 04 21 */	bctrl 
+/* 802A86F0 002A5630  80 01 00 14 */	lwz r0, 0x14(r1)
+/* 802A86F4 002A5634  7C 08 03 A6 */	mtlr r0
+/* 802A86F8 002A5638  38 21 00 10 */	addi r1, r1, 0x10
+/* 802A86FC 002A563C  4E 80 00 20 */	blr 

@@ -1,0 +1,21 @@
+.include "macros.inc"
+
+.section .text, "ax" # 80053DE0
+
+
+.global func_80053DE0
+func_80053DE0:
+/* 80053DE0 00050D20  94 21 FF E0 */	stwu r1, -0x20(r1)
+/* 80053DE4 00050D24  7C 08 02 A6 */	mflr r0
+/* 80053DE8 00050D28  90 01 00 24 */	stw r0, 0x24(r1)
+/* 80053DEC 00050D2C  DB E1 00 10 */	stfd f31, 0x10(r1)
+/* 80053DF0 00050D30  F3 E1 00 18 */	psq_st f31, 24(r1), 0, qr0
+/* 80053DF4 00050D34  FF E0 08 90 */	fmr f31, f1
+/* 80053DF8 00050D38  4B FF FE F5 */	bl func_80053CEC
+/* 80053DFC 00050D3C  EC 3F 00 72 */	fmuls f1, f31, f1
+/* 80053E00 00050D40  E3 E1 00 18 */	psq_l f31, 24(r1), 0, qr0
+/* 80053E04 00050D44  CB E1 00 10 */	lfd f31, 0x10(r1)
+/* 80053E08 00050D48  80 01 00 24 */	lwz r0, 0x24(r1)
+/* 80053E0C 00050D4C  7C 08 03 A6 */	mtlr r0
+/* 80053E10 00050D50  38 21 00 20 */	addi r1, r1, 0x20
+/* 80053E14 00050D54  4E 80 00 20 */	blr 

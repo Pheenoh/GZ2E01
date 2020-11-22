@@ -1,0 +1,20 @@
+.include "macros.inc"
+
+.section .text, "ax" # 8029E274
+
+
+.global func_8029E274
+func_8029E274:
+/* 8029E274 0029B1B4  94 21 FF F0 */	stwu r1, -0x10(r1)
+/* 8029E278 0029B1B8  7C 08 02 A6 */	mflr r0
+/* 8029E27C 0029B1BC  90 01 00 14 */	stw r0, 0x14(r1)
+/* 8029E280 0029B1C0  7C 60 1B 78 */	mr r0, r3
+/* 8029E284 0029B1C4  7C 85 23 78 */	mr r5, r4
+/* 8029E288 0029B1C8  3C 60 80 43 */	lis r3, lbl_80431D78@ha
+/* 8029E28C 0029B1CC  38 63 1D 78 */	addi r3, r3, lbl_80431D78@l
+/* 8029E290 0029B1D0  7C 04 03 78 */	mr r4, r0
+/* 8029E294 0029B1D4  4B FF 1D 15 */	bl func_8028FFA8
+/* 8029E298 0029B1D8  80 01 00 14 */	lwz r0, 0x14(r1)
+/* 8029E29C 0029B1DC  7C 08 03 A6 */	mtlr r0
+/* 8029E2A0 0029B1E0  38 21 00 10 */	addi r1, r1, 0x10
+/* 8029E2A4 0029B1E4  4E 80 00 20 */	blr 

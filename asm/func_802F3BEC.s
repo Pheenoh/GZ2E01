@@ -1,0 +1,48 @@
+.include "macros.inc"
+
+.section .text, "ax" # 802F3BEC
+
+
+.global func_802F3BEC
+func_802F3BEC:
+/* 802F3BEC 002F0B2C  81 04 00 04 */	lwz r8, 4(r4)
+/* 802F3BF0 002F0B30  80 E4 00 08 */	lwz r7, 8(r4)
+/* 802F3BF4 002F0B34  54 A0 08 3C */	slwi r0, r5, 1
+/* 802F3BF8 002F0B38  7C 07 02 2E */	lhzx r0, r7, r0
+/* 802F3BFC 002F0B3C  1C 00 00 E8 */	mulli r0, r0, 0xe8
+/* 802F3C00 002F0B40  7C A8 02 14 */	add r5, r8, r0
+/* 802F3C04 002F0B44  54 C0 08 3C */	slwi r0, r6, 1
+/* 802F3C08 002F0B48  7C A5 02 14 */	add r5, r5, r0
+/* 802F3C0C 002F0B4C  A0 05 00 DA */	lhz r0, 0xda(r5)
+/* 802F3C10 002F0B50  28 00 FF FF */	cmplwi r0, 0xffff
+/* 802F3C14 002F0B54  41 82 00 40 */	beq lbl_802F3C54
+/* 802F3C18 002F0B58  80 84 00 4C */	lwz r4, 0x4c(r4)
+/* 802F3C1C 002F0B5C  54 00 13 BA */	rlwinm r0, r0, 2, 0xe, 0x1d
+/* 802F3C20 002F0B60  7C E4 02 14 */	add r7, r4, r0
+/* 802F3C24 002F0B64  88 87 00 00 */	lbz r4, 0(r7)
+/* 802F3C28 002F0B68  88 C7 00 03 */	lbz r6, 3(r7)
+/* 802F3C2C 002F0B6C  88 07 00 02 */	lbz r0, 2(r7)
+/* 802F3C30 002F0B70  54 05 15 BA */	rlwinm r5, r0, 2, 0x16, 0x1d
+/* 802F3C34 002F0B74  54 84 30 32 */	slwi r4, r4, 6
+/* 802F3C38 002F0B78  88 07 00 01 */	lbz r0, 1(r7)
+/* 802F3C3C 002F0B7C  54 00 25 36 */	rlwinm r0, r0, 4, 0x14, 0x1b
+/* 802F3C40 002F0B80  7C 00 2A 14 */	add r0, r0, r5
+/* 802F3C44 002F0B84  7C 00 32 14 */	add r0, r0, r6
+/* 802F3C48 002F0B88  7C 04 02 14 */	add r0, r4, r0
+/* 802F3C4C 002F0B8C  98 03 00 00 */	stb r0, 0(r3)
+/* 802F3C50 002F0B90  4E 80 00 20 */	blr 
+.global lbl_802F3C54
+lbl_802F3C54:
+/* 802F3C54 002F0B94  38 82 C7 9C */	addi r4, r2, lbl_8045619C-_SDA2_BASE_
+/* 802F3C58 002F0B98  88 E4 00 01 */	lbz r7, 1(r4)
+/* 802F3C5C 002F0B9C  88 C4 00 03 */	lbz r6, 3(r4)
+/* 802F3C60 002F0BA0  88 04 00 02 */	lbz r0, 2(r4)
+/* 802F3C64 002F0BA4  54 05 15 BA */	rlwinm r5, r0, 2, 0x16, 0x1d
+/* 802F3C68 002F0BA8  88 02 C7 9C */	lbz r0, lbl_8045619C-_SDA2_BASE_(r2)
+/* 802F3C6C 002F0BAC  54 04 34 B2 */	rlwinm r4, r0, 6, 0x12, 0x19
+/* 802F3C70 002F0BB0  54 E0 20 36 */	slwi r0, r7, 4
+/* 802F3C74 002F0BB4  7C 00 2A 14 */	add r0, r0, r5
+/* 802F3C78 002F0BB8  7C 00 32 14 */	add r0, r0, r6
+/* 802F3C7C 002F0BBC  7C 04 02 14 */	add r0, r4, r0
+/* 802F3C80 002F0BC0  98 03 00 00 */	stb r0, 0(r3)
+/* 802F3C84 002F0BC4  4E 80 00 20 */	blr 

@@ -1,0 +1,25 @@
+.include "macros.inc"
+
+.section .text, "ax" # 801C2538
+
+
+.global func_801C2538
+func_801C2538:
+/* 801C2538 001BF478  38 A0 00 00 */	li r5, 0
+/* 801C253C 001BF47C  88 03 00 F3 */	lbz r0, 0xf3(r3)
+/* 801C2540 001BF480  28 00 00 00 */	cmplwi r0, 0
+/* 801C2544 001BF484  40 82 00 2C */	bne lbl_801C2570
+/* 801C2548 001BF488  3C 80 80 3F */	lis r4, lbl_803F6094@ha
+/* 801C254C 001BF48C  38 84 60 94 */	addi r4, r4, lbl_803F6094@l
+/* 801C2550 001BF490  88 03 00 E6 */	lbz r0, 0xe6(r3)
+/* 801C2554 001BF494  7C 00 07 74 */	extsb r0, r0
+/* 801C2558 001BF498  1C 00 04 04 */	mulli r0, r0, 0x404
+/* 801C255C 001BF49C  7C 64 02 14 */	add r3, r4, r0
+/* 801C2560 001BF4A0  80 03 00 20 */	lwz r0, 0x20(r3)
+/* 801C2564 001BF4A4  28 00 00 00 */	cmplwi r0, 0
+/* 801C2568 001BF4A8  41 82 00 08 */	beq lbl_801C2570
+/* 801C256C 001BF4AC  38 A0 00 01 */	li r5, 1
+.global lbl_801C2570
+lbl_801C2570:
+/* 801C2570 001BF4B0  7C A3 2B 78 */	mr r3, r5
+/* 801C2574 001BF4B4  4E 80 00 20 */	blr 

@@ -1,0 +1,22 @@
+.include "macros.inc"
+
+.section .text, "ax" # 802DE9E0
+
+
+.global func_802DE9E0
+func_802DE9E0:
+/* 802DE9E0 002DB920  94 21 FF F0 */	stwu r1, -0x10(r1)
+/* 802DE9E4 002DB924  7C 08 02 A6 */	mflr r0
+/* 802DE9E8 002DB928  90 01 00 14 */	stw r0, 0x14(r1)
+/* 802DE9EC 002DB92C  93 E1 00 0C */	stw r31, 0xc(r1)
+/* 802DE9F0 002DB930  7C 7F 1B 78 */	mr r31, r3
+/* 802DE9F4 002DB934  3C A0 80 3C */	lis r5, lbl_803BB3DC@ha
+/* 802DE9F8 002DB938  38 05 B3 DC */	addi r0, r5, lbl_803BB3DC@l
+/* 802DE9FC 002DB93C  90 03 00 00 */	stw r0, 0(r3)
+/* 802DEA00 002DB940  48 00 00 1D */	bl func_802DEA1C
+/* 802DEA04 002DB944  7F E3 FB 78 */	mr r3, r31
+/* 802DEA08 002DB948  83 E1 00 0C */	lwz r31, 0xc(r1)
+/* 802DEA0C 002DB94C  80 01 00 14 */	lwz r0, 0x14(r1)
+/* 802DEA10 002DB950  7C 08 03 A6 */	mtlr r0
+/* 802DEA14 002DB954  38 21 00 10 */	addi r1, r1, 0x10
+/* 802DEA18 002DB958  4E 80 00 20 */	blr 

@@ -1,0 +1,26 @@
+.include "macros.inc"
+
+.section .text, "ax" # 802E4960
+
+
+.global func_802E4960
+func_802E4960:
+/* 802E4960 002E18A0  80 6D 8F B0 */	lwz r3, lbl_80451530-_SDA_BASE_(r13)
+/* 802E4964 002E18A4  28 03 00 00 */	cmplwi r3, 0
+/* 802E4968 002E18A8  40 82 00 0C */	bne lbl_802E4974
+/* 802E496C 002E18AC  38 60 00 00 */	li r3, 0
+/* 802E4970 002E18B0  4E 80 00 20 */	blr 
+.global lbl_802E4974
+lbl_802E4974:
+/* 802E4974 002E18B4  3C 03 00 01 */	addis r0, r3, 1
+/* 802E4978 002E18B8  28 00 FF FF */	cmplwi r0, 0xffff
+/* 802E497C 002E18BC  41 82 00 0C */	beq lbl_802E4988
+/* 802E4980 002E18C0  38 03 FF FF */	addi r0, r3, -1
+/* 802E4984 002E18C4  90 0D 8F B0 */	stw r0, lbl_80451530-_SDA_BASE_(r13)
+.global lbl_802E4988
+lbl_802E4988:
+/* 802E4988 002E18C8  80 6D 8F B0 */	lwz r3, lbl_80451530-_SDA_BASE_(r13)
+/* 802E498C 002E18CC  28 03 00 05 */	cmplwi r3, 5
+/* 802E4990 002E18D0  4C 80 00 20 */	bgelr 
+/* 802E4994 002E18D4  38 60 00 00 */	li r3, 0
+/* 802E4998 002E18D8  4E 80 00 20 */	blr 

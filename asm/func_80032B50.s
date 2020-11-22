@@ -1,0 +1,26 @@
+.include "macros.inc"
+
+.section .text, "ax" # 80032B50
+
+
+.global func_80032B50
+func_80032B50:
+/* 80032B50 0002FA90  38 80 00 00 */	li r4, 0
+/* 80032B54 0002FA94  90 83 00 04 */	stw r4, 4(r3)
+/* 80032B58 0002FA98  90 83 00 00 */	stw r4, 0(r3)
+/* 80032B5C 0002FA9C  98 83 00 08 */	stb r4, 8(r3)
+/* 80032B60 0002FAA0  98 83 00 09 */	stb r4, 9(r3)
+/* 80032B64 0002FAA4  98 83 00 0A */	stb r4, 0xa(r3)
+/* 80032B68 0002FAA8  C0 02 83 58 */	lfs f0, lbl_80451D58-_SDA2_BASE_(r2)
+/* 80032B6C 0002FAAC  D0 03 00 0C */	stfs f0, 0xc(r3)
+/* 80032B70 0002FAB0  B0 83 00 10 */	sth r4, 0x10(r3)
+/* 80032B74 0002FAB4  38 A0 00 00 */	li r5, 0
+/* 80032B78 0002FAB8  38 00 00 03 */	li r0, 3
+/* 80032B7C 0002FABC  7C 09 03 A6 */	mtctr r0
+.global lbl_80032B80
+lbl_80032B80:
+/* 80032B80 0002FAC0  38 05 00 12 */	addi r0, r5, 0x12
+/* 80032B84 0002FAC4  7C 83 01 AE */	stbx r4, r3, r0
+/* 80032B88 0002FAC8  38 A5 00 01 */	addi r5, r5, 1
+/* 80032B8C 0002FACC  42 00 FF F4 */	bdnz lbl_80032B80
+/* 80032B90 0002FAD0  4E 80 00 20 */	blr 

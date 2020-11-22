@@ -1,0 +1,24 @@
+.include "macros.inc"
+
+.section .text, "ax" # 802DEA1C
+
+
+.global func_802DEA1C
+func_802DEA1C:
+/* 802DEA1C 002DB95C  90 83 00 04 */	stw r4, 4(r3)
+/* 802DEA20 002DB960  28 04 00 00 */	cmplwi r4, 0
+/* 802DEA24 002DB964  41 82 00 24 */	beq lbl_802DEA48
+/* 802DEA28 002DB968  A0 04 00 00 */	lhz r0, 0(r4)
+/* 802DEA2C 002DB96C  B0 03 00 0C */	sth r0, 0xc(r3)
+/* 802DEA30 002DB970  A0 03 00 0C */	lhz r0, 0xc(r3)
+/* 802DEA34 002DB974  54 05 10 3A */	slwi r5, r0, 2
+/* 802DEA38 002DB978  38 05 00 04 */	addi r0, r5, 4
+/* 802DEA3C 002DB97C  7C 04 02 14 */	add r0, r4, r0
+/* 802DEA40 002DB980  90 03 00 08 */	stw r0, 8(r3)
+/* 802DEA44 002DB984  4E 80 00 20 */	blr 
+.global lbl_802DEA48
+lbl_802DEA48:
+/* 802DEA48 002DB988  38 00 00 00 */	li r0, 0
+/* 802DEA4C 002DB98C  B0 03 00 0C */	sth r0, 0xc(r3)
+/* 802DEA50 002DB990  90 03 00 08 */	stw r0, 8(r3)
+/* 802DEA54 002DB994  4E 80 00 20 */	blr 

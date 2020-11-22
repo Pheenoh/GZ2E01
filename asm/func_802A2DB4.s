@@ -1,0 +1,33 @@
+.include "macros.inc"
+
+.section .text, "ax" # 802A2DB4
+
+
+.global func_802A2DB4
+func_802A2DB4:
+/* 802A2DB4 0029FCF4  94 21 FF F0 */	stwu r1, -0x10(r1)
+/* 802A2DB8 0029FCF8  28 04 00 00 */	cmplwi r4, 0
+/* 802A2DBC 0029FCFC  40 82 00 14 */	bne lbl_802A2DD0
+/* 802A2DC0 0029FD00  D0 23 00 00 */	stfs f1, 0(r3)
+/* 802A2DC4 0029FD04  38 00 00 00 */	li r0, 0
+/* 802A2DC8 0029FD08  90 03 00 1C */	stw r0, 0x1c(r3)
+/* 802A2DCC 0029FD0C  48 00 00 38 */	b lbl_802A2E04
+.global lbl_802A2DD0
+lbl_802A2DD0:
+/* 802A2DD0 0029FD10  C0 03 00 00 */	lfs f0, 0(r3)
+/* 802A2DD4 0029FD14  90 83 00 1C */	stw r4, 0x1c(r3)
+/* 802A2DD8 0029FD18  EC 61 00 28 */	fsubs f3, f1, f0
+/* 802A2DDC 0029FD1C  80 03 00 1C */	lwz r0, 0x1c(r3)
+/* 802A2DE0 0029FD20  C8 42 BD E8 */	lfd f2, lbl_804557E8-_SDA2_BASE_(r2)
+/* 802A2DE4 0029FD24  90 01 00 0C */	stw r0, 0xc(r1)
+/* 802A2DE8 0029FD28  3C 00 43 30 */	lis r0, 0x4330
+/* 802A2DEC 0029FD2C  90 01 00 08 */	stw r0, 8(r1)
+/* 802A2DF0 0029FD30  C8 01 00 08 */	lfd f0, 8(r1)
+/* 802A2DF4 0029FD34  EC 00 10 28 */	fsubs f0, f0, f2
+/* 802A2DF8 0029FD38  EC 03 00 24 */	fdivs f0, f3, f0
+/* 802A2DFC 0029FD3C  D0 03 00 14 */	stfs f0, 0x14(r3)
+/* 802A2E00 0029FD40  D0 23 00 18 */	stfs f1, 0x18(r3)
+.global lbl_802A2E04
+lbl_802A2E04:
+/* 802A2E04 0029FD44  38 21 00 10 */	addi r1, r1, 0x10
+/* 802A2E08 0029FD48  4E 80 00 20 */	blr 

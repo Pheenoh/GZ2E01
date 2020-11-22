@@ -1,0 +1,25 @@
+.include "macros.inc"
+
+.section .text, "ax" # 8035E08C
+
+
+.global func_8035E08C
+func_8035E08C:
+/* 8035E08C 0035AFCC  7C 08 02 A6 */	mflr r0
+/* 8035E090 0035AFD0  90 01 00 04 */	stw r0, 4(r1)
+/* 8035E094 0035AFD4  94 21 FF D0 */	stwu r1, -0x30(r1)
+/* 8035E098 0035AFD8  93 E1 00 2C */	stw r31, 0x2c(r1)
+/* 8035E09C 0035AFDC  83 E1 00 38 */	lwz r31, 0x38(r1)
+/* 8035E0A0 0035AFE0  93 C1 00 28 */	stw r30, 0x28(r1)
+/* 8035E0A4 0035AFE4  7C 7E 1B 78 */	mr r30, r3
+/* 8035E0A8 0035AFE8  4B FF FD 99 */	bl func_8035DE40
+/* 8035E0AC 0035AFEC  88 1E 00 1F */	lbz r0, 0x1f(r30)
+/* 8035E0B0 0035AFF0  54 00 07 FA */	rlwinm r0, r0, 0, 0x1f, 0x1d
+/* 8035E0B4 0035AFF4  98 1E 00 1F */	stb r0, 0x1f(r30)
+/* 8035E0B8 0035AFF8  93 FE 00 18 */	stw r31, 0x18(r30)
+/* 8035E0BC 0035AFFC  80 01 00 34 */	lwz r0, 0x34(r1)
+/* 8035E0C0 0035B000  83 E1 00 2C */	lwz r31, 0x2c(r1)
+/* 8035E0C4 0035B004  83 C1 00 28 */	lwz r30, 0x28(r1)
+/* 8035E0C8 0035B008  38 21 00 30 */	addi r1, r1, 0x30
+/* 8035E0CC 0035B00C  7C 08 03 A6 */	mtlr r0
+/* 8035E0D0 0035B010  4E 80 00 20 */	blr 

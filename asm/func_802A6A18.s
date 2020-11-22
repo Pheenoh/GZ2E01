@@ -1,0 +1,29 @@
+.include "macros.inc"
+
+.section .text, "ax" # 802A6A18
+
+
+.global func_802A6A18
+func_802A6A18:
+/* 802A6A18 002A3958  80 A3 00 00 */	lwz r5, 0(r3)
+/* 802A6A1C 002A395C  80 04 00 00 */	lwz r0, 0(r4)
+/* 802A6A20 002A3960  48 00 00 28 */	b lbl_802A6A48
+.global lbl_802A6A24
+lbl_802A6A24:
+/* 802A6A24 002A3964  80 65 00 00 */	lwz r3, 0(r5)
+/* 802A6A28 002A3968  80 83 00 10 */	lwz r4, 0x10(r3)
+/* 802A6A2C 002A396C  7C 04 00 40 */	cmplw r4, r0
+/* 802A6A30 002A3970  40 82 00 14 */	bne lbl_802A6A44
+/* 802A6A34 002A3974  38 00 FF FF */	li r0, -1
+/* 802A6A38 002A3978  90 03 00 10 */	stw r0, 0x10(r3)
+/* 802A6A3C 002A397C  38 60 00 01 */	li r3, 1
+/* 802A6A40 002A3980  4E 80 00 20 */	blr 
+.global lbl_802A6A44
+lbl_802A6A44:
+/* 802A6A44 002A3984  80 A5 00 0C */	lwz r5, 0xc(r5)
+.global lbl_802A6A48
+lbl_802A6A48:
+/* 802A6A48 002A3988  28 05 00 00 */	cmplwi r5, 0
+/* 802A6A4C 002A398C  40 82 FF D8 */	bne lbl_802A6A24
+/* 802A6A50 002A3990  38 60 00 00 */	li r3, 0
+/* 802A6A54 002A3994  4E 80 00 20 */	blr 

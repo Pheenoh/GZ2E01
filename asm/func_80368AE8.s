@@ -1,0 +1,32 @@
+.include "macros.inc"
+
+.section .text, "ax" # 80368AE8
+
+
+.global func_80368AE8
+func_80368AE8:
+/* 80368AE8 00365A28  38 84 FF FF */	addi r4, r4, -1
+/* 80368AEC 00365A2C  38 C3 FF FF */	addi r6, r3, -1
+/* 80368AF0 00365A30  38 A5 00 01 */	addi r5, r5, 1
+/* 80368AF4 00365A34  48 00 00 2C */	b lbl_80368B20
+.global lbl_80368AF8
+lbl_80368AF8:
+/* 80368AF8 00365A38  8C 04 00 01 */	lbzu r0, 1(r4)
+/* 80368AFC 00365A3C  28 00 00 00 */	cmplwi r0, 0
+/* 80368B00 00365A40  9C 06 00 01 */	stbu r0, 1(r6)
+/* 80368B04 00365A44  40 82 00 1C */	bne lbl_80368B20
+/* 80368B08 00365A48  38 00 00 00 */	li r0, 0
+/* 80368B0C 00365A4C  48 00 00 08 */	b lbl_80368B14
+.global lbl_80368B10
+lbl_80368B10:
+/* 80368B10 00365A50  9C 06 00 01 */	stbu r0, 1(r6)
+.global lbl_80368B14
+lbl_80368B14:
+/* 80368B14 00365A54  34 A5 FF FF */	addic. r5, r5, -1
+/* 80368B18 00365A58  40 82 FF F8 */	bne lbl_80368B10
+/* 80368B1C 00365A5C  4E 80 00 20 */	blr 
+.global lbl_80368B20
+lbl_80368B20:
+/* 80368B20 00365A60  34 A5 FF FF */	addic. r5, r5, -1
+/* 80368B24 00365A64  40 82 FF D4 */	bne lbl_80368AF8
+/* 80368B28 00365A68  4E 80 00 20 */	blr 

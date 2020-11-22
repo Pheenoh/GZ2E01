@@ -1,0 +1,41 @@
+.include "macros.inc"
+
+.section .text, "ax" # 80346CE4
+
+
+.global func_80346CE4
+func_80346CE4:
+/* 80346CE4 00343C24  ED 44 18 28 */	fsubs f10, f4, f3
+/* 80346CE8 00343C28  C1 62 CB 08 */	lfs f11, lbl_80456508-_SDA2_BASE_(r2)
+/* 80346CEC 00343C2C  EC 01 10 28 */	fsubs f0, f1, f2
+/* 80346CF0 00343C30  C1 22 CB 18 */	lfs f9, lbl_80456518-_SDA2_BASE_(r2)
+/* 80346CF4 00343C34  EC 64 18 2A */	fadds f3, f4, f3
+/* 80346CF8 00343C38  ED 8B 50 24 */	fdivs f12, f11, f10
+/* 80346CFC 00343C3C  ED 4B 00 24 */	fdivs f10, f11, f0
+/* 80346D00 00343C40  EC 89 03 32 */	fmuls f4, f9, f12
+/* 80346D04 00343C44  FC 60 18 50 */	fneg f3, f3
+/* 80346D08 00343C48  EC 01 10 2A */	fadds f0, f1, f2
+/* 80346D0C 00343C4C  EC 24 01 72 */	fmuls f1, f4, f5
+/* 80346D10 00343C50  EC 4C 00 F2 */	fmuls f2, f12, f3
+/* 80346D14 00343C54  FC 00 00 50 */	fneg f0, f0
+/* 80346D18 00343C58  D0 23 00 00 */	stfs f1, 0(r3)
+/* 80346D1C 00343C5C  EC 29 02 B2 */	fmuls f1, f9, f10
+/* 80346D20 00343C60  EC 45 00 B2 */	fmuls f2, f5, f2
+/* 80346D24 00343C64  C0 62 CB 0C */	lfs f3, lbl_8045650C-_SDA2_BASE_(r2)
+/* 80346D28 00343C68  EC 0A 00 32 */	fmuls f0, f10, f0
+/* 80346D2C 00343C6C  D0 63 00 04 */	stfs f3, 4(r3)
+/* 80346D30 00343C70  EC 47 10 2A */	fadds f2, f7, f2
+/* 80346D34 00343C74  EC 21 01 B2 */	fmuls f1, f1, f6
+/* 80346D38 00343C78  D0 63 00 08 */	stfs f3, 8(r3)
+/* 80346D3C 00343C7C  EC 06 00 32 */	fmuls f0, f6, f0
+/* 80346D40 00343C80  D0 43 00 0C */	stfs f2, 0xc(r3)
+/* 80346D44 00343C84  D0 63 00 10 */	stfs f3, 0x10(r3)
+/* 80346D48 00343C88  EC 08 00 2A */	fadds f0, f8, f0
+/* 80346D4C 00343C8C  D0 23 00 14 */	stfs f1, 0x14(r3)
+/* 80346D50 00343C90  D0 63 00 18 */	stfs f3, 0x18(r3)
+/* 80346D54 00343C94  D0 03 00 1C */	stfs f0, 0x1c(r3)
+/* 80346D58 00343C98  D0 63 00 20 */	stfs f3, 0x20(r3)
+/* 80346D5C 00343C9C  D0 63 00 24 */	stfs f3, 0x24(r3)
+/* 80346D60 00343CA0  D0 63 00 28 */	stfs f3, 0x28(r3)
+/* 80346D64 00343CA4  D1 63 00 2C */	stfs f11, 0x2c(r3)
+/* 80346D68 00343CA8  4E 80 00 20 */	blr 

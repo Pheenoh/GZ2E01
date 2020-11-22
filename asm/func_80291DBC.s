@@ -1,0 +1,22 @@
+.include "macros.inc"
+
+.section .text, "ax" # 80291DBC
+
+
+.global func_80291DBC
+func_80291DBC:
+/* 80291DBC 0028ECFC  94 21 FF F0 */	stwu r1, -0x10(r1)
+/* 80291DC0 0028ED00  7C 08 02 A6 */	mflr r0
+/* 80291DC4 0028ED04  90 01 00 14 */	stw r0, 0x14(r1)
+/* 80291DC8 0028ED08  93 E1 00 0C */	stw r31, 0xc(r1)
+/* 80291DCC 0028ED0C  7C 7F 1B 78 */	mr r31, r3
+/* 80291DD0 0028ED10  98 83 02 2B */	stb r4, 0x22b(r3)
+/* 80291DD4 0028ED14  48 00 0C D1 */	bl func_80292AA4
+/* 80291DD8 0028ED18  88 1F 02 2B */	lbz r0, 0x22b(r31)
+/* 80291DDC 0028ED1C  7C 00 1A 14 */	add r0, r0, r3
+/* 80291DE0 0028ED20  98 1F 02 2B */	stb r0, 0x22b(r31)
+/* 80291DE4 0028ED24  83 E1 00 0C */	lwz r31, 0xc(r1)
+/* 80291DE8 0028ED28  80 01 00 14 */	lwz r0, 0x14(r1)
+/* 80291DEC 0028ED2C  7C 08 03 A6 */	mtlr r0
+/* 80291DF0 0028ED30  38 21 00 10 */	addi r1, r1, 0x10
+/* 80291DF4 0028ED34  4E 80 00 20 */	blr 

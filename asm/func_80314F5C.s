@@ -1,0 +1,26 @@
+.include "macros.inc"
+
+.section .text, "ax" # 80314F5C
+
+
+.global func_80314F5C
+func_80314F5C:
+/* 80314F5C 00311E9C  80 84 00 2C */	lwz r4, 0x2c(r4)
+/* 80314F60 00311EA0  80 63 00 2C */	lwz r3, 0x2c(r3)
+/* 80314F64 00311EA4  38 00 00 C0 */	li r0, 0xc0
+/* 80314F68 00311EA8  7C 09 03 A6 */	mtctr r0
+.global lbl_80314F6C
+lbl_80314F6C:
+/* 80314F6C 00311EAC  88 A4 00 00 */	lbz r5, 0(r4)
+/* 80314F70 00311EB0  88 03 00 00 */	lbz r0, 0(r3)
+/* 80314F74 00311EB4  7C 05 00 40 */	cmplw r5, r0
+/* 80314F78 00311EB8  41 82 00 0C */	beq lbl_80314F84
+/* 80314F7C 00311EBC  38 60 00 00 */	li r3, 0
+/* 80314F80 00311EC0  4E 80 00 20 */	blr 
+.global lbl_80314F84
+lbl_80314F84:
+/* 80314F84 00311EC4  38 63 00 01 */	addi r3, r3, 1
+/* 80314F88 00311EC8  38 84 00 01 */	addi r4, r4, 1
+/* 80314F8C 00311ECC  42 00 FF E0 */	bdnz lbl_80314F6C
+/* 80314F90 00311ED0  38 60 00 01 */	li r3, 1
+/* 80314F94 00311ED4  4E 80 00 20 */	blr 

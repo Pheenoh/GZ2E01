@@ -1,0 +1,21 @@
+.include "macros.inc"
+
+.section .text, "ax" # 801B5F84
+
+
+.global func_801B5F84
+func_801B5F84:
+/* 801B5F84 001B2EC4  88 03 02 2C */	lbz r0, 0x22c(r3)
+/* 801B5F88 001B2EC8  28 00 00 00 */	cmplwi r0, 0
+/* 801B5F8C 001B2ECC  40 82 00 10 */	bne lbl_801B5F9C
+/* 801B5F90 001B2ED0  88 03 02 5F */	lbz r0, 0x25f(r3)
+/* 801B5F94 001B2ED4  28 00 00 00 */	cmplwi r0, 0
+/* 801B5F98 001B2ED8  41 82 00 0C */	beq lbl_801B5FA4
+.global lbl_801B5F9C
+lbl_801B5F9C:
+/* 801B5F9C 001B2EDC  38 60 00 01 */	li r3, 1
+/* 801B5FA0 001B2EE0  4E 80 00 20 */	blr 
+.global lbl_801B5FA4
+lbl_801B5FA4:
+/* 801B5FA4 001B2EE4  38 60 00 00 */	li r3, 0
+/* 801B5FA8 001B2EE8  4E 80 00 20 */	blr 

@@ -1,0 +1,37 @@
+.include "macros.inc"
+
+.section .text, "ax" # 80288B78
+
+
+.global func_80288B78
+func_80288B78:
+/* 80288B78 00285AB8  54 80 06 3E */	clrlwi r0, r4, 0x18
+/* 80288B7C 00285ABC  2C 00 00 02 */	cmpwi r0, 2
+/* 80288B80 00285AC0  41 82 00 30 */	beq lbl_80288BB0
+/* 80288B84 00285AC4  40 80 00 10 */	bge lbl_80288B94
+/* 80288B88 00285AC8  2C 00 00 01 */	cmpwi r0, 1
+/* 80288B8C 00285ACC  40 80 00 14 */	bge lbl_80288BA0
+/* 80288B90 00285AD0  4E 80 00 20 */	blr 
+.global lbl_80288B94
+lbl_80288B94:
+/* 80288B94 00285AD4  2C 00 00 04 */	cmpwi r0, 4
+/* 80288B98 00285AD8  4C 80 00 20 */	bgelr 
+/* 80288B9C 00285ADC  48 00 00 24 */	b lbl_80288BC0
+.global lbl_80288BA0
+lbl_80288BA0:
+/* 80288BA0 00285AE0  A0 03 00 1C */	lhz r0, 0x1c(r3)
+/* 80288BA4 00285AE4  7C 00 2B 78 */	or r0, r0, r5
+/* 80288BA8 00285AE8  B0 03 00 1C */	sth r0, 0x1c(r3)
+/* 80288BAC 00285AEC  4E 80 00 20 */	blr 
+.global lbl_80288BB0
+lbl_80288BB0:
+/* 80288BB0 00285AF0  A0 03 00 1C */	lhz r0, 0x1c(r3)
+/* 80288BB4 00285AF4  7C 00 28 38 */	and r0, r0, r5
+/* 80288BB8 00285AF8  B0 03 00 1C */	sth r0, 0x1c(r3)
+/* 80288BBC 00285AFC  4E 80 00 20 */	blr 
+.global lbl_80288BC0
+lbl_80288BC0:
+/* 80288BC0 00285B00  A0 03 00 1C */	lhz r0, 0x1c(r3)
+/* 80288BC4 00285B04  7C 00 2A 78 */	xor r0, r0, r5
+/* 80288BC8 00285B08  B0 03 00 1C */	sth r0, 0x1c(r3)
+/* 80288BCC 00285B0C  4E 80 00 20 */	blr 

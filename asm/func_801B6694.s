@@ -1,0 +1,22 @@
+.include "macros.inc"
+
+.section .text, "ax" # 801B6694
+
+
+.global func_801B6694
+func_801B6694:
+/* 801B6694 001B35D4  94 21 FF F0 */	stwu r1, -0x10(r1)
+/* 801B6698 001B35D8  7C 08 02 A6 */	mflr r0
+/* 801B669C 001B35DC  90 01 00 14 */	stw r0, 0x14(r1)
+/* 801B66A0 001B35E0  3C 60 80 40 */	lis r3, lbl_804061C0@ha
+/* 801B66A4 001B35E4  38 63 61 C0 */	addi r3, r3, lbl_804061C0@l
+/* 801B66A8 001B35E8  80 63 5D B4 */	lwz r3, 0x5db4(r3)
+/* 801B66AC 001B35EC  28 03 00 00 */	cmplwi r3, 0
+/* 801B66B0 001B35F0  41 82 00 08 */	beq lbl_801B66B8
+/* 801B66B4 001B35F4  4B F8 A4 15 */	bl func_80140AC8
+.global lbl_801B66B8
+lbl_801B66B8:
+/* 801B66B8 001B35F8  80 01 00 14 */	lwz r0, 0x14(r1)
+/* 801B66BC 001B35FC  7C 08 03 A6 */	mtlr r0
+/* 801B66C0 001B3600  38 21 00 10 */	addi r1, r1, 0x10
+/* 801B66C4 001B3604  4E 80 00 20 */	blr 

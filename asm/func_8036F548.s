@@ -1,0 +1,23 @@
+.include "macros.inc"
+
+.section .text, "ax" # 8036F548
+
+
+.global func_8036F548
+func_8036F548:
+/* 8036F548 0036C488  3C A0 FF FF */	lis r5, 0xFFFFFFF1@h
+/* 8036F54C 0036C48C  60 A5 FF F1 */	ori r5, r5, 0xFFFFFFF1@l
+/* 8036F550 0036C490  7C A5 18 38 */	and r5, r5, r3
+/* 8036F554 0036C494  7C 65 18 50 */	subf r3, r5, r3
+/* 8036F558 0036C498  7C 84 1A 14 */	add r4, r4, r3
+.global lbl_8036F55C
+lbl_8036F55C:
+/* 8036F55C 0036C49C  7C 00 28 6C */	dcbst 0, r5
+/* 8036F560 0036C4A0  7C 00 28 AC */	dcbf 0, r5
+/* 8036F564 0036C4A4  7C 00 04 AC */	sync 0
+/* 8036F568 0036C4A8  7C 00 2F AC */	icbi 0, r5
+/* 8036F56C 0036C4AC  30 A5 00 08 */	addic r5, r5, 8
+/* 8036F570 0036C4B0  34 84 FF F8 */	addic. r4, r4, -8
+/* 8036F574 0036C4B4  40 80 FF E8 */	bge lbl_8036F55C
+/* 8036F578 0036C4B8  4C 00 01 2C */	isync 
+/* 8036F57C 0036C4BC  4E 80 00 20 */	blr 

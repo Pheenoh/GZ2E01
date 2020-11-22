@@ -1,0 +1,24 @@
+.include "macros.inc"
+
+.section .text, "ax" # 8002FA54
+
+
+.global func_8002FA54
+func_8002FA54:
+/* 8002FA54 0002C994  3C 60 80 43 */	lis r3, lbl_8042CA54@ha
+/* 8002FA58 0002C998  38 83 CA 54 */	addi r4, r3, lbl_8042CA54@l
+/* 8002FA5C 0002C99C  38 60 00 00 */	li r3, 0
+/* 8002FA60 0002C9A0  88 04 0F 3D */	lbz r0, 0xf3d(r4)
+/* 8002FA64 0002C9A4  28 00 00 01 */	cmplwi r0, 1
+/* 8002FA68 0002C9A8  4C 82 00 20 */	bnelr 
+/* 8002FA6C 0002C9AC  C0 24 0F 40 */	lfs f1, 0xf40(r4)
+/* 8002FA70 0002C9B0  C8 02 83 20 */	lfd f0, lbl_80451D20-_SDA2_BASE_(r2)
+/* 8002FA74 0002C9B4  FC 01 00 40 */	fcmpo cr0, f1, f0
+/* 8002FA78 0002C9B8  4C 81 00 20 */	blelr 
+/* 8002FA7C 0002C9BC  38 60 00 01 */	li r3, 1
+/* 8002FA80 0002C9C0  4E 80 00 20 */	blr 
+/* 8002FA84 0002C9C4  3C 80 80 40 */	lis r4, lbl_804061C0@ha
+/* 8002FA88 0002C9C8  38 84 61 C0 */	addi r4, r4, lbl_804061C0@l
+/* 8002FA8C 0002C9CC  3C 84 00 02 */	addis r4, r4, 2
+/* 8002FA90 0002C9D0  98 64 DD FC */	stb r3, -0x2204(r4)
+/* 8002FA94 0002C9D4  4E 80 00 20 */	blr 

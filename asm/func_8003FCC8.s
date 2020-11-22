@@ -1,0 +1,23 @@
+.include "macros.inc"
+
+.section .text, "ax" # 8003FCC8
+
+
+.global func_8003FCC8
+func_8003FCC8:
+/* 8003FCC8 0003CC08  38 00 00 00 */	li r0, 0
+/* 8003FCCC 0003CC0C  98 03 00 31 */	stb r0, 0x31(r3)
+/* 8003FCD0 0003CC10  90 83 00 04 */	stw r4, 4(r3)
+/* 8003FCD4 0003CC14  B0 A3 00 1C */	sth r5, 0x1c(r3)
+/* 8003FCD8 0003CC18  B0 C3 00 1E */	sth r6, 0x1e(r3)
+/* 8003FCDC 0003CC1C  B0 E3 00 20 */	sth r7, 0x20(r3)
+/* 8003FCE0 0003CC20  B1 03 00 22 */	sth r8, 0x22(r3)
+/* 8003FCE4 0003CC24  C0 02 84 28 */	lfs f0, lbl_80451E28-_SDA2_BASE_(r2)
+/* 8003FCE8 0003CC28  D0 03 00 10 */	stfs f0, 0x10(r3)
+/* 8003FCEC 0003CC2C  D0 03 00 14 */	stfs f0, 0x14(r3)
+/* 8003FCF0 0003CC30  C0 02 84 38 */	lfs f0, lbl_80451E38-_SDA2_BASE_(r2)
+/* 8003FCF4 0003CC34  D0 03 00 08 */	stfs f0, 8(r3)
+/* 8003FCF8 0003CC38  D0 03 00 0C */	stfs f0, 0xc(r3)
+/* 8003FCFC 0003CC3C  90 03 00 2C */	stw r0, 0x2c(r3)
+/* 8003FD00 0003CC40  98 03 00 30 */	stb r0, 0x30(r3)
+/* 8003FD04 0003CC44  4E 80 00 20 */	blr 

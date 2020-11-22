@@ -1,0 +1,21 @@
+.include "macros.inc"
+
+.section .text, "ax" # 8035FE40
+
+
+.global func_8035FE40
+func_8035FE40:
+/* 8035FE40 0035CD80  54 80 06 3E */	clrlwi r0, r4, 0x18
+/* 8035FE44 0035CD84  80 82 CB 80 */	lwz r4, lbl_80456580-_SDA2_BASE_(r2)
+/* 8035FE48 0035CD88  38 A0 00 00 */	li r5, 0
+/* 8035FE4C 0035CD8C  50 05 07 FE */	rlwimi r5, r0, 0, 0x1f, 0x1f
+/* 8035FE50 0035CD90  50 65 0F BC */	rlwimi r5, r3, 1, 0x1e, 0x1e
+/* 8035FE54 0035CD94  38 00 00 61 */	li r0, 0x61
+/* 8035FE58 0035CD98  3C 60 CC 01 */	lis r3, 0xCC008000@ha
+/* 8035FE5C 0035CD9C  98 03 80 00 */	stb r0, 0xCC008000@l(r3)
+/* 8035FE60 0035CDA0  38 00 00 44 */	li r0, 0x44
+/* 8035FE64 0035CDA4  50 05 C0 0E */	rlwimi r5, r0, 0x18, 0, 7
+/* 8035FE68 0035CDA8  90 A3 80 00 */	stw r5, -0x8000(r3)
+/* 8035FE6C 0035CDAC  38 00 00 00 */	li r0, 0
+/* 8035FE70 0035CDB0  B0 04 00 02 */	sth r0, 2(r4)
+/* 8035FE74 0035CDB4  4E 80 00 20 */	blr 

@@ -1,0 +1,24 @@
+.include "macros.inc"
+
+.section .text, "ax" # 8004ACEC
+
+
+.global func_8004ACEC
+func_8004ACEC:
+/* 8004ACEC 00047C2C  94 21 FF F0 */	stwu r1, -0x10(r1)
+/* 8004ACF0 00047C30  7C 08 02 A6 */	mflr r0
+/* 8004ACF4 00047C34  90 01 00 14 */	stw r0, 0x14(r1)
+/* 8004ACF8 00047C38  93 E1 00 0C */	stw r31, 0xc(r1)
+/* 8004ACFC 00047C3C  7C 9F 23 78 */	mr r31, r4
+/* 8004AD00 00047C40  48 00 00 59 */	bl func_8004AD58
+/* 8004AD04 00047C44  28 03 00 00 */	cmplwi r3, 0
+/* 8004AD08 00047C48  41 82 00 0C */	beq lbl_8004AD14
+/* 8004AD0C 00047C4C  7F E4 FB 78 */	mr r4, r31
+/* 8004AD10 00047C50  4B FF FB CD */	bl func_8004A8DC
+.global lbl_8004AD14
+lbl_8004AD14:
+/* 8004AD14 00047C54  83 E1 00 0C */	lwz r31, 0xc(r1)
+/* 8004AD18 00047C58  80 01 00 14 */	lwz r0, 0x14(r1)
+/* 8004AD1C 00047C5C  7C 08 03 A6 */	mtlr r0
+/* 8004AD20 00047C60  38 21 00 10 */	addi r1, r1, 0x10
+/* 8004AD24 00047C64  4E 80 00 20 */	blr 

@@ -1,0 +1,21 @@
+.include "macros.inc"
+
+.section .text, "ax" # 802E02A4
+
+
+.global func_802E02A4
+func_802E02A4:
+/* 802E02A4 002DD1E4  94 21 FF F0 */	stwu r1, -0x10(r1)
+/* 802E02A8 002DD1E8  7C 08 02 A6 */	mflr r0
+/* 802E02AC 002DD1EC  90 01 00 14 */	stw r0, 0x14(r1)
+/* 802E02B0 002DD1F0  80 8D 8F B8 */	lwz r4, lbl_80451538-_SDA_BASE_(r13)
+/* 802E02B4 002DD1F4  80 84 00 04 */	lwz r4, 4(r4)
+/* 802E02B8 002DD1F8  A0 E4 00 06 */	lhz r7, 6(r4)
+/* 802E02BC 002DD1FC  A0 C4 00 04 */	lhz r6, 4(r4)
+/* 802E02C0 002DD200  38 80 00 00 */	li r4, 0
+/* 802E02C4 002DD204  38 A0 00 00 */	li r5, 0
+/* 802E02C8 002DD208  48 00 00 15 */	bl func_802E02DC
+/* 802E02CC 002DD20C  80 01 00 14 */	lwz r0, 0x14(r1)
+/* 802E02D0 002DD210  7C 08 03 A6 */	mtlr r0
+/* 802E02D4 002DD214  38 21 00 10 */	addi r1, r1, 0x10
+/* 802E02D8 002DD218  4E 80 00 20 */	blr 

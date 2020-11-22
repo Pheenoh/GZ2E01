@@ -1,0 +1,19 @@
+.include "macros.inc"
+
+.section .text, "ax" # 801CC8AC
+
+
+.global func_801CC8AC
+func_801CC8AC:
+/* 801CC8AC 001C97EC  94 21 FF F0 */	stwu r1, -0x10(r1)
+/* 801CC8B0 001C97F0  7C 08 02 A6 */	mflr r0
+/* 801CC8B4 001C97F4  90 01 00 14 */	stw r0, 0x14(r1)
+/* 801CC8B8 001C97F8  38 00 00 00 */	li r0, 0
+/* 801CC8BC 001C97FC  98 03 03 13 */	stb r0, 0x313(r3)
+/* 801CC8C0 001C9800  80 63 00 18 */	lwz r3, 0x18(r3)
+/* 801CC8C4 001C9804  38 80 00 00 */	li r4, 0
+/* 801CC8C8 001C9808  48 00 A7 49 */	bl func_801D7010
+/* 801CC8CC 001C980C  80 01 00 14 */	lwz r0, 0x14(r1)
+/* 801CC8D0 001C9810  7C 08 03 A6 */	mtlr r0
+/* 801CC8D4 001C9814  38 21 00 10 */	addi r1, r1, 0x10
+/* 801CC8D8 001C9818  4E 80 00 20 */	blr 

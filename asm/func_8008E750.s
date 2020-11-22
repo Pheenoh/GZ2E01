@@ -1,0 +1,18 @@
+.include "macros.inc"
+
+.section .text, "ax" # 8008E750
+
+
+.global func_8008E750
+func_8008E750:
+/* 8008E750 0008B690  38 80 00 00 */	li r4, 0
+/* 8008E754 0008B694  7C 60 07 74 */	extsb r0, r3
+/* 8008E758 0008B698  2C 00 00 2D */	cmpwi r0, 0x2d
+/* 8008E75C 0008B69C  41 82 00 10 */	beq lbl_8008E76C
+/* 8008E760 0008B6A0  2C 00 00 78 */	cmpwi r0, 0x78
+/* 8008E764 0008B6A4  41 82 00 08 */	beq lbl_8008E76C
+/* 8008E768 0008B6A8  38 80 00 01 */	li r4, 1
+.global lbl_8008E76C
+lbl_8008E76C:
+/* 8008E76C 0008B6AC  7C 83 23 78 */	mr r3, r4
+/* 8008E770 0008B6B0  4E 80 00 20 */	blr 

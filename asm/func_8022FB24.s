@@ -1,0 +1,23 @@
+.include "macros.inc"
+
+.section .text, "ax" # 8022FB24
+
+
+.global func_8022FB24
+func_8022FB24:
+/* 8022FB24 0022CA64  38 A0 FF FF */	li r5, -1
+/* 8022FB28 0022CA68  88 03 00 83 */	lbz r0, 0x83(r3)
+/* 8022FB2C 0022CA6C  88 83 00 82 */	lbz r4, 0x82(r3)
+/* 8022FB30 0022CA70  7C C0 21 D6 */	mullw r6, r0, r4
+/* 8022FB34 0022CA74  7C 86 22 14 */	add r4, r6, r4
+/* 8022FB38 0022CA78  A8 03 00 80 */	lha r0, 0x80(r3)
+/* 8022FB3C 0022CA7C  7C 00 30 00 */	cmpw r0, r6
+/* 8022FB40 0022CA80  41 80 00 14 */	blt lbl_8022FB54
+/* 8022FB44 0022CA84  7C 00 20 00 */	cmpw r0, r4
+/* 8022FB48 0022CA88  40 80 00 0C */	bge lbl_8022FB54
+/* 8022FB4C 0022CA8C  7C 06 00 50 */	subf r0, r6, r0
+/* 8022FB50 0022CA90  7C 05 07 34 */	extsh r5, r0
+.global lbl_8022FB54
+lbl_8022FB54:
+/* 8022FB54 0022CA94  7C A3 2B 78 */	mr r3, r5
+/* 8022FB58 0022CA98  4E 80 00 20 */	blr 

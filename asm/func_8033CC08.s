@@ -1,0 +1,22 @@
+.include "macros.inc"
+
+.section .text, "ax" # 8033CC08
+
+
+.global func_8033CC08
+func_8033CC08:
+/* 8033CC08 00339B48  7C 08 02 A6 */	mflr r0
+/* 8033CC0C 00339B4C  90 01 00 04 */	stw r0, 4(r1)
+/* 8033CC10 00339B50  94 21 FF E8 */	stwu r1, -0x18(r1)
+/* 8033CC14 00339B54  93 E1 00 14 */	stw r31, 0x14(r1)
+/* 8033CC18 00339B58  7C 7F 1B 78 */	mr r31, r3
+/* 8033CC1C 00339B5C  4B FF EA A9 */	bl func_8033B6C4
+/* 8033CC20 00339B60  7C 00 04 AC */	sync 0
+/* 8033CC24 00339B64  4C 00 01 2C */	isync 
+/* 8033CC28 00339B68  7F E8 03 A6 */	mtlr r31
+/* 8033CC2C 00339B6C  4E 80 00 20 */	blr 
+/* 8033CC30 00339B70  80 01 00 1C */	lwz r0, 0x1c(r1)
+/* 8033CC34 00339B74  83 E1 00 14 */	lwz r31, 0x14(r1)
+/* 8033CC38 00339B78  38 21 00 18 */	addi r1, r1, 0x18
+/* 8033CC3C 00339B7C  7C 08 03 A6 */	mtlr r0
+/* 8033CC40 00339B80  4E 80 00 20 */	blr 

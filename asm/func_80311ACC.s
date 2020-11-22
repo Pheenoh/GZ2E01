@@ -1,0 +1,52 @@
+.include "macros.inc"
+
+.section .text, "ax" # 80311ACC
+
+
+.global func_80311ACC
+func_80311ACC:
+/* 80311ACC 0030EA0C  A8 03 00 08 */	lha r0, 8(r3)
+/* 80311AD0 0030EA10  54 00 04 38 */	rlwinm r0, r0, 0, 0x10, 0x1c
+/* 80311AD4 0030EA14  3C C0 80 44 */	lis r6, lbl_80439A20@ha
+/* 80311AD8 0030EA18  38 C6 9A 20 */	addi r6, r6, lbl_80439A20@l
+/* 80311ADC 0030EA1C  7C 06 04 2E */	lfsx f0, r6, r0
+/* 80311AE0 0030EA20  7C C6 02 14 */	add r6, r6, r0
+/* 80311AE4 0030EA24  C0 26 00 04 */	lfs f1, 4(r6)
+/* 80311AE8 0030EA28  C0 43 00 00 */	lfs f2, 0(r3)
+/* 80311AEC 0030EA2C  EC 62 00 72 */	fmuls f3, f2, f1
+/* 80311AF0 0030EA30  EC A2 00 32 */	fmuls f5, f2, f0
+/* 80311AF4 0030EA34  C0 43 00 04 */	lfs f2, 4(r3)
+/* 80311AF8 0030EA38  EC C2 00 32 */	fmuls f6, f2, f0
+/* 80311AFC 0030EA3C  EC E2 00 72 */	fmuls f7, f2, f1
+/* 80311B00 0030EA40  D0 65 00 00 */	stfs f3, 0(r5)
+/* 80311B04 0030EA44  FC 00 28 50 */	fneg f0, f5
+/* 80311B08 0030EA48  D0 05 00 04 */	stfs f0, 4(r5)
+/* 80311B0C 0030EA4C  C0 43 00 0C */	lfs f2, 0xc(r3)
+/* 80311B10 0030EA50  C0 84 00 00 */	lfs f4, 0(r4)
+/* 80311B14 0030EA54  FC 00 18 50 */	fneg f0, f3
+/* 80311B18 0030EA58  EC 20 01 32 */	fmuls f1, f0, f4
+/* 80311B1C 0030EA5C  C0 64 00 04 */	lfs f3, 4(r4)
+/* 80311B20 0030EA60  EC 05 00 F2 */	fmuls f0, f5, f3
+/* 80311B24 0030EA64  EC 01 00 2A */	fadds f0, f1, f0
+/* 80311B28 0030EA68  EC 04 00 2A */	fadds f0, f4, f0
+/* 80311B2C 0030EA6C  EC 02 00 2A */	fadds f0, f2, f0
+/* 80311B30 0030EA70  D0 05 00 08 */	stfs f0, 8(r5)
+/* 80311B34 0030EA74  D0 C5 00 10 */	stfs f6, 0x10(r5)
+/* 80311B38 0030EA78  D0 E5 00 14 */	stfs f7, 0x14(r5)
+/* 80311B3C 0030EA7C  C0 43 00 10 */	lfs f2, 0x10(r3)
+/* 80311B40 0030EA80  FC 00 30 50 */	fneg f0, f6
+/* 80311B44 0030EA84  EC 20 01 32 */	fmuls f1, f0, f4
+/* 80311B48 0030EA88  EC 07 00 F2 */	fmuls f0, f7, f3
+/* 80311B4C 0030EA8C  EC 01 00 28 */	fsubs f0, f1, f0
+/* 80311B50 0030EA90  EC 03 00 2A */	fadds f0, f3, f0
+/* 80311B54 0030EA94  EC 02 00 2A */	fadds f0, f2, f0
+/* 80311B58 0030EA98  D0 05 00 18 */	stfs f0, 0x18(r5)
+/* 80311B5C 0030EA9C  C0 02 C9 78 */	lfs f0, lbl_80456378-_SDA2_BASE_(r2)
+/* 80311B60 0030EAA0  D0 05 00 2C */	stfs f0, 0x2c(r5)
+/* 80311B64 0030EAA4  D0 05 00 24 */	stfs f0, 0x24(r5)
+/* 80311B68 0030EAA8  D0 05 00 20 */	stfs f0, 0x20(r5)
+/* 80311B6C 0030EAAC  D0 05 00 1C */	stfs f0, 0x1c(r5)
+/* 80311B70 0030EAB0  D0 05 00 0C */	stfs f0, 0xc(r5)
+/* 80311B74 0030EAB4  C0 02 C9 7C */	lfs f0, lbl_8045637C-_SDA2_BASE_(r2)
+/* 80311B78 0030EAB8  D0 05 00 28 */	stfs f0, 0x28(r5)
+/* 80311B7C 0030EABC  4E 80 00 20 */	blr 

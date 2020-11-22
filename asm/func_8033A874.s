@@ -1,0 +1,18 @@
+.include "macros.inc"
+
+.section .text, "ax" # 8033A874
+
+
+.global func_8033A874
+func_8033A874:
+/* 8033A874 003377B4  7C 08 02 A6 */	mflr r0
+/* 8033A878 003377B8  90 01 00 04 */	stw r0, 4(r1)
+/* 8033A87C 003377BC  94 21 FF F8 */	stwu r1, -8(r1)
+/* 8033A880 003377C0  7C 64 1B 78 */	mr r4, r3
+/* 8033A884 003377C4  4C C6 31 82 */	crclr 6
+/* 8033A888 003377C8  38 6D 84 0C */	addi r3, r13, lbl_8045098C-_SDA_BASE_
+/* 8033A88C 003377CC  4B CC C2 31 */	bl func_80006ABC
+/* 8033A890 003377D0  80 01 00 0C */	lwz r0, 0xc(r1)
+/* 8033A894 003377D4  38 21 00 08 */	addi r1, r1, 8
+/* 8033A898 003377D8  7C 08 03 A6 */	mtlr r0
+/* 8033A89C 003377DC  4E 80 00 20 */	blr 

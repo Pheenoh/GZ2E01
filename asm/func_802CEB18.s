@@ -1,0 +1,35 @@
+.include "macros.inc"
+
+.section .text, "ax" # 802CEB18
+
+
+.global func_802CEB18
+func_802CEB18:
+/* 802CEB18 002CBA58  38 05 00 03 */	addi r0, r5, 3
+/* 802CEB1C 002CBA5C  54 00 F0 BF */	rlwinm. r0, r0, 0x1e, 2, 0x1f
+/* 802CEB20 002CBA60  7C 09 03 A6 */	mtctr r0
+/* 802CEB24 002CBA64  4D 82 00 20 */	beqlr 
+.global lbl_802CEB28
+lbl_802CEB28:
+/* 802CEB28 002CBA68  80 04 00 00 */	lwz r0, 0(r4)
+/* 802CEB2C 002CBA6C  90 03 00 00 */	stw r0, 0(r3)
+/* 802CEB30 002CBA70  38 63 00 04 */	addi r3, r3, 4
+/* 802CEB34 002CBA74  38 84 00 04 */	addi r4, r4, 4
+/* 802CEB38 002CBA78  42 00 FF F0 */	bdnz lbl_802CEB28
+/* 802CEB3C 002CBA7C  4E 80 00 20 */	blr 
+.global lbl_802CEB40
+lbl_802CEB40:
+/* 802CEB40 002CBA80  94 21 FF F0 */	stwu r1, -0x10(r1)
+/* 802CEB44 002CBA84  7C 08 02 A6 */	mflr r0
+/* 802CEB48 002CBA88  90 01 00 14 */	stw r0, 0x14(r1)
+/* 802CEB4C 002CBA8C  3C 60 80 3A */	lis r3, lbl_8039CAD8@ha
+/* 802CEB50 002CBA90  38 63 CA D8 */	addi r3, r3, lbl_8039CAD8@l
+/* 802CEB54 002CBA94  38 80 03 3F */	li r4, 0x33f
+/* 802CEB58 002CBA98  38 A3 00 0C */	addi r5, r3, 0xc
+/* 802CEB5C 002CBA9C  38 C3 00 0F */	addi r6, r3, 0xf
+/* 802CEB60 002CBAA0  4C C6 31 82 */	crclr 6
+/* 802CEB64 002CBAA4  48 01 36 99 */	bl func_802E21FC
+/* 802CEB68 002CBAA8  80 01 00 14 */	lwz r0, 0x14(r1)
+/* 802CEB6C 002CBAAC  7C 08 03 A6 */	mtlr r0
+/* 802CEB70 002CBAB0  38 21 00 10 */	addi r1, r1, 0x10
+/* 802CEB74 002CBAB4  4E 80 00 20 */	blr 

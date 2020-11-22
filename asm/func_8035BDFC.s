@@ -1,0 +1,22 @@
+.include "macros.inc"
+
+.section .text, "ax" # 8035BDFC
+
+
+.global func_8035BDFC
+func_8035BDFC:
+/* 8035BDFC 00358D3C  80 C2 CB 80 */	lwz r6, lbl_80456580-_SDA2_BASE_(r2)
+/* 8035BE00 00358D40  54 65 06 3E */	clrlwi r5, r3, 0x18
+/* 8035BE04 00358D44  38 80 00 10 */	li r4, 0x10
+/* 8035BE08 00358D48  80 06 02 04 */	lwz r0, 0x204(r6)
+/* 8035BE0C 00358D4C  50 60 07 3E */	rlwimi r0, r3, 0, 0x1c, 0x1f
+/* 8035BE10 00358D50  3C 60 CC 01 */	lis r3, 0xCC008000@ha
+/* 8035BE14 00358D54  90 06 02 04 */	stw r0, 0x204(r6)
+/* 8035BE18 00358D58  38 00 10 3F */	li r0, 0x103f
+/* 8035BE1C 00358D5C  98 83 80 00 */	stb r4, 0xCC008000@l(r3)
+/* 8035BE20 00358D60  90 03 80 00 */	stw r0, -0x8000(r3)
+/* 8035BE24 00358D64  90 A3 80 00 */	stw r5, -0x8000(r3)
+/* 8035BE28 00358D68  80 06 05 AC */	lwz r0, 0x5ac(r6)
+/* 8035BE2C 00358D6C  60 00 00 04 */	ori r0, r0, 4
+/* 8035BE30 00358D70  90 06 05 AC */	stw r0, 0x5ac(r6)
+/* 8035BE34 00358D74  4E 80 00 20 */	blr 

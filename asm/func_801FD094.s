@@ -1,0 +1,25 @@
+.include "macros.inc"
+
+.section .text, "ax" # 801FD094
+
+
+.global func_801FD094
+func_801FD094:
+/* 801FD094 001F9FD4  94 21 FF F0 */	stwu r1, -0x10(r1)
+/* 801FD098 001F9FD8  7C 08 02 A6 */	mflr r0
+/* 801FD09C 001F9FDC  90 01 00 14 */	stw r0, 0x14(r1)
+/* 801FD0A0 001F9FE0  93 E1 00 0C */	stw r31, 0xc(r1)
+/* 801FD0A4 001F9FE4  7C 7F 1B 78 */	mr r31, r3
+/* 801FD0A8 001F9FE8  80 03 01 38 */	lwz r0, 0x138(r3)
+/* 801FD0AC 001F9FEC  2C 00 00 00 */	cmpwi r0, 0
+/* 801FD0B0 001F9FF0  40 82 00 10 */	bne lbl_801FD0C0
+/* 801FD0B4 001F9FF4  80 7F 01 00 */	lwz r3, 0x100(r31)
+/* 801FD0B8 001F9FF8  48 0D 16 CD */	bl func_802CE784
+/* 801FD0BC 001F9FFC  90 7F 01 38 */	stw r3, 0x138(r31)
+.global lbl_801FD0C0
+lbl_801FD0C0:
+/* 801FD0C0 001FA000  83 E1 00 0C */	lwz r31, 0xc(r1)
+/* 801FD0C4 001FA004  80 01 00 14 */	lwz r0, 0x14(r1)
+/* 801FD0C8 001FA008  7C 08 03 A6 */	mtlr r0
+/* 801FD0CC 001FA00C  38 21 00 10 */	addi r1, r1, 0x10
+/* 801FD0D0 001FA010  4E 80 00 20 */	blr 

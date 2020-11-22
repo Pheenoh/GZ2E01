@@ -1,0 +1,20 @@
+.include "macros.inc"
+
+.section .text, "ax" # 8025FA98
+
+
+.global func_8025FA98
+func_8025FA98:
+/* 8025FA98 0025C9D8  94 21 FF F0 */	stwu r1, -0x10(r1)
+/* 8025FA9C 0025C9DC  7C 08 02 A6 */	mflr r0
+/* 8025FAA0 0025C9E0  90 01 00 14 */	stw r0, 0x14(r1)
+/* 8025FAA4 0025C9E4  80 63 00 1C */	lwz r3, 0x1c(r3)
+/* 8025FAA8 0025C9E8  28 03 00 00 */	cmplwi r3, 0
+/* 8025FAAC 0025C9EC  41 82 00 08 */	beq lbl_8025FAB4
+/* 8025FAB0 0025C9F0  4B FF 4B 01 */	bl func_802545B0
+.global lbl_8025FAB4
+lbl_8025FAB4:
+/* 8025FAB4 0025C9F4  80 01 00 14 */	lwz r0, 0x14(r1)
+/* 8025FAB8 0025C9F8  7C 08 03 A6 */	mtlr r0
+/* 8025FABC 0025C9FC  38 21 00 10 */	addi r1, r1, 0x10
+/* 8025FAC0 0025CA00  4E 80 00 20 */	blr 

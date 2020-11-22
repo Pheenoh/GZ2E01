@@ -1,0 +1,17 @@
+.include "macros.inc"
+
+.section .text, "ax" # 8029E044
+
+
+.global func_8029E044
+func_8029E044:
+/* 8029E044 0029AF84  94 21 FF F0 */	stwu r1, -0x10(r1)
+/* 8029E048 0029AF88  7C 08 02 A6 */	mflr r0
+/* 8029E04C 0029AF8C  90 01 00 14 */	stw r0, 0x14(r1)
+/* 8029E050 0029AF90  38 A0 00 08 */	li r5, 8
+/* 8029E054 0029AF94  38 63 01 48 */	addi r3, r3, 0x148
+/* 8029E058 0029AF98  4B FF F9 F1 */	bl func_8029DA48
+/* 8029E05C 0029AF9C  80 01 00 14 */	lwz r0, 0x14(r1)
+/* 8029E060 0029AFA0  7C 08 03 A6 */	mtlr r0
+/* 8029E064 0029AFA4  38 21 00 10 */	addi r1, r1, 0x10
+/* 8029E068 0029AFA8  4E 80 00 20 */	blr 

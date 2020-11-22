@@ -1,0 +1,24 @@
+.include "macros.inc"
+
+.section .text, "ax" # 8034D8C4
+
+
+.global func_8034D8C4
+func_8034D8C4:
+/* 8034D8C4 0034A804  3C A0 CC 00 */	lis r5, 0xCC002000@ha
+/* 8034D8C8 0034A808  38 E5 20 00 */	addi r7, r5, 0xCC002000@l
+/* 8034D8CC 0034A80C  A4 07 00 2C */	lhzu r0, 0x2c(r7)
+/* 8034D8D0 0034A810  38 C5 20 00 */	addi r6, r5, 0x2000
+/* 8034D8D4 0034A814  54 09 05 7E */	clrlwi r9, r0, 0x15
+.global lbl_8034D8D8
+lbl_8034D8D8:
+/* 8034D8D8 0034A818  A0 07 00 00 */	lhz r0, 0(r7)
+/* 8034D8DC 0034A81C  7D 28 4B 78 */	mr r8, r9
+/* 8034D8E0 0034A820  A0 A6 00 2E */	lhz r5, 0x2e(r6)
+/* 8034D8E4 0034A824  54 09 05 7E */	clrlwi r9, r0, 0x15
+/* 8034D8E8 0034A828  7C 08 48 40 */	cmplw r8, r9
+/* 8034D8EC 0034A82C  54 A0 05 7E */	clrlwi r0, r5, 0x15
+/* 8034D8F0 0034A830  40 82 FF E8 */	bne lbl_8034D8D8
+/* 8034D8F4 0034A834  90 03 00 00 */	stw r0, 0(r3)
+/* 8034D8F8 0034A838  91 24 00 00 */	stw r9, 0(r4)
+/* 8034D8FC 0034A83C  4E 80 00 20 */	blr 

@@ -1,0 +1,25 @@
+.include "macros.inc"
+
+.section .text, "ax" # 8029E00C
+
+
+.global func_8029E00C
+func_8029E00C:
+/* 8029E00C 0029AF4C  54 85 06 B5 */	rlwinm. r5, r4, 0, 0x1a, 0x1a
+/* 8029E010 0029AF50  54 80 06 FE */	clrlwi r0, r4, 0x1b
+/* 8029E014 0029AF54  41 82 00 14 */	beq lbl_8029E028
+/* 8029E018 0029AF58  28 00 00 14 */	cmplwi r0, 0x14
+/* 8029E01C 0029AF5C  40 81 00 18 */	ble lbl_8029E034
+/* 8029E020 0029AF60  38 00 00 14 */	li r0, 0x14
+/* 8029E024 0029AF64  48 00 00 10 */	b lbl_8029E034
+.global lbl_8029E028
+lbl_8029E028:
+/* 8029E028 0029AF68  28 00 00 18 */	cmplwi r0, 0x18
+/* 8029E02C 0029AF6C  40 81 00 08 */	ble lbl_8029E034
+/* 8029E030 0029AF70  38 00 00 18 */	li r0, 0x18
+.global lbl_8029E034
+lbl_8029E034:
+/* 8029E034 0029AF74  54 00 06 3E */	clrlwi r0, r0, 0x18
+/* 8029E038 0029AF78  7C 05 02 14 */	add r0, r5, r0
+/* 8029E03C 0029AF7C  B0 03 01 08 */	sth r0, 0x108(r3)
+/* 8029E040 0029AF80  4E 80 00 20 */	blr 

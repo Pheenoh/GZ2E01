@@ -1,0 +1,17 @@
+.include "macros.inc"
+
+.section .text, "ax" # 801CCE48
+
+
+.global func_801CCE48
+func_801CCE48:
+/* 801CCE48 001C9D88  94 21 FF F0 */	stwu r1, -0x10(r1)
+/* 801CCE4C 001C9D8C  7C 08 02 A6 */	mflr r0
+/* 801CCE50 001C9D90  90 01 00 14 */	stw r0, 0x14(r1)
+/* 801CCE54 001C9D94  38 80 00 06 */	li r4, 6
+/* 801CCE58 001C9D98  38 A0 00 0B */	li r5, 0xb
+/* 801CCE5C 001C9D9C  48 00 02 B1 */	bl func_801CD10C
+/* 801CCE60 001C9DA0  80 01 00 14 */	lwz r0, 0x14(r1)
+/* 801CCE64 001C9DA4  7C 08 03 A6 */	mtlr r0
+/* 801CCE68 001C9DA8  38 21 00 10 */	addi r1, r1, 0x10
+/* 801CCE6C 001C9DAC  4E 80 00 20 */	blr 

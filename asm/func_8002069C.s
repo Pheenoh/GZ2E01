@@ -1,0 +1,19 @@
+.include "macros.inc"
+
+.section .text, "ax" # 8002069C
+
+
+.global func_8002069C
+func_8002069C:
+/* 8002069C 0001D5DC  88 0D 87 90 */	lbz r0, lbl_80450D10-_SDA_BASE_(r13)
+/* 800206A0 0001D5E0  7C 00 07 75 */	extsb. r0, r0
+/* 800206A4 0001D5E4  40 82 00 10 */	bne lbl_800206B4
+/* 800206A8 0001D5E8  38 00 00 01 */	li r0, 1
+/* 800206AC 0001D5EC  90 0D 87 8C */	stw r0, lbl_80450D0C-_SDA_BASE_(r13)
+/* 800206B0 0001D5F0  98 0D 87 90 */	stb r0, lbl_80450D10-_SDA_BASE_(r13)
+.global lbl_800206B4
+lbl_800206B4:
+/* 800206B4 0001D5F4  80 6D 87 8C */	lwz r3, lbl_80450D0C-_SDA_BASE_(r13)
+/* 800206B8 0001D5F8  38 03 00 01 */	addi r0, r3, 1
+/* 800206BC 0001D5FC  90 0D 87 8C */	stw r0, lbl_80450D0C-_SDA_BASE_(r13)
+/* 800206C0 0001D600  4E 80 00 20 */	blr 

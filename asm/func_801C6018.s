@@ -1,0 +1,30 @@
+.include "macros.inc"
+
+.section .text, "ax" # 801C6018
+
+
+.global func_801C6018
+func_801C6018:
+/* 801C6018 001C2F58  2C 04 00 00 */	cmpwi r4, 0
+/* 801C601C 001C2F5C  40 80 00 08 */	bge lbl_801C6024
+/* 801C6020 001C2F60  1C 84 FF FF */	mulli r4, r4, -1
+.global lbl_801C6024
+lbl_801C6024:
+/* 801C6024 001C2F64  2C 04 03 E8 */	cmpwi r4, 0x3e8
+/* 801C6028 001C2F68  41 80 00 08 */	blt lbl_801C6030
+/* 801C602C 001C2F6C  38 80 03 E7 */	li r4, 0x3e7
+.global lbl_801C6030
+lbl_801C6030:
+/* 801C6030 001C2F70  2C 04 00 64 */	cmpwi r4, 0x64
+/* 801C6034 001C2F74  41 80 00 0C */	blt lbl_801C6040
+/* 801C6038 001C2F78  38 60 00 03 */	li r3, 3
+/* 801C603C 001C2F7C  4E 80 00 20 */	blr 
+.global lbl_801C6040
+lbl_801C6040:
+/* 801C6040 001C2F80  38 00 00 0A */	li r0, 0xa
+/* 801C6044 001C2F84  7C 85 FE 70 */	srawi r5, r4, 0x1f
+/* 801C6048 001C2F88  54 03 0F FE */	srwi r3, r0, 0x1f
+/* 801C604C 001C2F8C  7C 00 20 10 */	subfc r0, r0, r4
+/* 801C6050 001C2F90  7C 65 19 14 */	adde r3, r5, r3
+/* 801C6054 001C2F94  38 63 00 01 */	addi r3, r3, 1
+/* 801C6058 001C2F98  4E 80 00 20 */	blr 

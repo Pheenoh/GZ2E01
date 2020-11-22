@@ -1,0 +1,53 @@
+.include "macros.inc"
+
+.section .text, "ax" # 8014F81C
+
+
+.global func_8014F81C
+func_8014F81C:
+/* 8014F81C 0014C75C  38 00 00 00 */	li r0, 0
+/* 8014F820 0014C760  EC E5 18 28 */	fsubs f7, f5, f3
+/* 8014F824 0014C764  ED 06 20 28 */	fsubs f8, f6, f4
+/* 8014F828 0014C768  EC A7 01 F2 */	fmuls f5, f7, f7
+/* 8014F82C 0014C76C  EC 08 02 32 */	fmuls f0, f8, f8
+/* 8014F830 0014C770  ED 25 00 2A */	fadds f9, f5, f0
+/* 8014F834 0014C774  C0 C2 99 D8 */	lfs f6, lbl_804533D8-_SDA2_BASE_(r2)
+/* 8014F838 0014C778  FC 06 48 00 */	fcmpu cr0, f6, f9
+/* 8014F83C 0014C77C  40 82 00 10 */	bne lbl_8014F84C
+/* 8014F840 0014C780  D0 C5 00 00 */	stfs f6, 0(r5)
+/* 8014F844 0014C784  38 60 00 00 */	li r3, 0
+/* 8014F848 0014C788  4E 80 00 20 */	blr 
+.global lbl_8014F84C
+lbl_8014F84C:
+/* 8014F84C 0014C78C  EC 01 18 28 */	fsubs f0, f1, f3
+/* 8014F850 0014C790  EC A7 00 32 */	fmuls f5, f7, f0
+/* 8014F854 0014C794  EC 02 20 28 */	fsubs f0, f2, f4
+/* 8014F858 0014C798  EC 08 00 32 */	fmuls f0, f8, f0
+/* 8014F85C 0014C79C  EC 05 00 2A */	fadds f0, f5, f0
+/* 8014F860 0014C7A0  EC A0 48 24 */	fdivs f5, f0, f9
+/* 8014F864 0014C7A4  FC 06 28 40 */	fcmpo cr0, f6, f5
+/* 8014F868 0014C7A8  4C 40 13 82 */	cror 2, 0, 2
+/* 8014F86C 0014C7AC  40 82 00 18 */	bne lbl_8014F884
+/* 8014F870 0014C7B0  C0 02 99 DC */	lfs f0, lbl_804533DC-_SDA2_BASE_(r2)
+/* 8014F874 0014C7B4  FC 05 00 40 */	fcmpo cr0, f5, f0
+/* 8014F878 0014C7B8  4C 40 13 82 */	cror 2, 0, 2
+/* 8014F87C 0014C7BC  40 82 00 08 */	bne lbl_8014F884
+/* 8014F880 0014C7C0  38 00 00 01 */	li r0, 1
+.global lbl_8014F884
+lbl_8014F884:
+/* 8014F884 0014C7C4  EC 07 01 72 */	fmuls f0, f7, f5
+/* 8014F888 0014C7C8  EC 03 00 2A */	fadds f0, f3, f0
+/* 8014F88C 0014C7CC  D0 03 00 00 */	stfs f0, 0(r3)
+/* 8014F890 0014C7D0  EC 08 01 72 */	fmuls f0, f8, f5
+/* 8014F894 0014C7D4  EC 04 00 2A */	fadds f0, f4, f0
+/* 8014F898 0014C7D8  D0 04 00 00 */	stfs f0, 0(r4)
+/* 8014F89C 0014C7DC  C0 03 00 00 */	lfs f0, 0(r3)
+/* 8014F8A0 0014C7E0  EC 00 08 28 */	fsubs f0, f0, f1
+/* 8014F8A4 0014C7E4  EC 20 00 32 */	fmuls f1, f0, f0
+/* 8014F8A8 0014C7E8  C0 04 00 00 */	lfs f0, 0(r4)
+/* 8014F8AC 0014C7EC  EC 00 10 28 */	fsubs f0, f0, f2
+/* 8014F8B0 0014C7F0  EC 00 00 32 */	fmuls f0, f0, f0
+/* 8014F8B4 0014C7F4  EC 01 00 2A */	fadds f0, f1, f0
+/* 8014F8B8 0014C7F8  D0 05 00 00 */	stfs f0, 0(r5)
+/* 8014F8BC 0014C7FC  7C 03 03 78 */	mr r3, r0
+/* 8014F8C0 0014C800  4E 80 00 20 */	blr 

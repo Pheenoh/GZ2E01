@@ -1,0 +1,20 @@
+.include "macros.inc"
+
+.section .text, "ax" # 80291B8C
+
+
+.global func_80291B8C
+func_80291B8C:
+/* 80291B8C 0028EACC  54 80 10 3A */	slwi r0, r4, 2
+/* 80291B90 0028EAD0  7C 83 02 14 */	add r4, r3, r0
+/* 80291B94 0028EAD4  80 04 01 30 */	lwz r0, 0x130(r4)
+/* 80291B98 0028EAD8  28 00 00 00 */	cmplwi r0, 0
+/* 80291B9C 0028EADC  41 82 00 0C */	beq lbl_80291BA8
+/* 80291BA0 0028EAE0  38 60 00 00 */	li r3, 0
+/* 80291BA4 0028EAE4  4E 80 00 20 */	blr 
+.global lbl_80291BA8
+lbl_80291BA8:
+/* 80291BA8 0028EAE8  90 65 01 2C */	stw r3, 0x12c(r5)
+/* 80291BAC 0028EAEC  90 A4 01 30 */	stw r5, 0x130(r4)
+/* 80291BB0 0028EAF0  38 60 00 01 */	li r3, 1
+/* 80291BB4 0028EAF4  4E 80 00 20 */	blr 

@@ -1,0 +1,26 @@
+.include "macros.inc"
+
+.section .text, "ax" # 8018FE18
+
+
+.global func_8018FE18
+func_8018FE18:
+/* 8018FE18 0018CD58  94 21 FF F0 */	stwu r1, -0x10(r1)
+/* 8018FE1C 0018CD5C  7C 08 02 A6 */	mflr r0
+/* 8018FE20 0018CD60  90 01 00 14 */	stw r0, 0x14(r1)
+/* 8018FE24 0018CD64  7C 65 1B 78 */	mr r5, r3
+/* 8018FE28 0018CD68  88 03 02 65 */	lbz r0, 0x265(r3)
+/* 8018FE2C 0018CD6C  54 00 10 3A */	slwi r0, r0, 2
+/* 8018FE30 0018CD70  7C 65 02 14 */	add r3, r5, r0
+/* 8018FE34 0018CD74  80 63 00 BC */	lwz r3, 0xbc(r3)
+/* 8018FE38 0018CD78  3C 80 80 43 */	lis r4, lbl_8042C9EC@ha
+/* 8018FE3C 0018CD7C  38 84 C9 EC */	addi r4, r4, lbl_8042C9EC@l
+/* 8018FE40 0018CD80  88 84 00 05 */	lbz r4, 5(r4)
+/* 8018FE44 0018CD84  C0 25 00 C8 */	lfs f1, 0xc8(r5)
+/* 8018FE48 0018CD88  C0 45 00 D4 */	lfs f2, 0xd4(r5)
+/* 8018FE4C 0018CD8C  38 A0 00 00 */	li r5, 0
+/* 8018FE50 0018CD90  48 0C 49 7D */	bl func_802547CC
+/* 8018FE54 0018CD94  80 01 00 14 */	lwz r0, 0x14(r1)
+/* 8018FE58 0018CD98  7C 08 03 A6 */	mtlr r0
+/* 8018FE5C 0018CD9C  38 21 00 10 */	addi r1, r1, 0x10
+/* 8018FE60 0018CDA0  4E 80 00 20 */	blr 

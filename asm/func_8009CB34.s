@@ -1,0 +1,34 @@
+.include "macros.inc"
+
+.section .text, "ax" # 8009CB34
+
+
+.global func_8009CB34
+func_8009CB34:
+/* 8009CB34 00099A74  80 03 00 04 */	lwz r0, 4(r3)
+/* 8009CB38 00099A78  28 00 00 00 */	cmplwi r0, 0
+/* 8009CB3C 00099A7C  4D 82 00 20 */	beqlr 
+/* 8009CB40 00099A80  80 83 00 0C */	lwz r4, 0xc(r3)
+/* 8009CB44 00099A84  80 A3 00 10 */	lwz r5, 0x10(r3)
+/* 8009CB48 00099A88  28 05 00 00 */	cmplwi r5, 0
+/* 8009CB4C 00099A8C  41 82 00 08 */	beq lbl_8009CB54
+/* 8009CB50 00099A90  90 85 00 0C */	stw r4, 0xc(r5)
+.global lbl_8009CB54
+lbl_8009CB54:
+/* 8009CB54 00099A94  28 04 00 00 */	cmplwi r4, 0
+/* 8009CB58 00099A98  40 82 00 0C */	bne lbl_8009CB64
+/* 8009CB5C 00099A9C  90 AD 8A 28 */	stw r5, lbl_80450FA8-_SDA_BASE_(r13)
+/* 8009CB60 00099AA0  48 00 00 08 */	b lbl_8009CB68
+.global lbl_8009CB64
+lbl_8009CB64:
+/* 8009CB64 00099AA4  90 A4 00 10 */	stw r5, 0x10(r4)
+.global lbl_8009CB68
+lbl_8009CB68:
+/* 8009CB68 00099AA8  A8 03 00 08 */	lha r0, 8(r3)
+/* 8009CB6C 00099AAC  80 83 00 04 */	lwz r4, 4(r3)
+/* 8009CB70 00099AB0  B0 04 00 1A */	sth r0, 0x1a(r4)
+/* 8009CB74 00099AB4  38 00 00 00 */	li r0, 0
+/* 8009CB78 00099AB8  90 03 00 04 */	stw r0, 4(r3)
+/* 8009CB7C 00099ABC  90 03 00 0C */	stw r0, 0xc(r3)
+/* 8009CB80 00099AC0  90 03 00 10 */	stw r0, 0x10(r3)
+/* 8009CB84 00099AC4  4E 80 00 20 */	blr 

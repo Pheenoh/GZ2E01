@@ -1,0 +1,37 @@
+.include "macros.inc"
+
+.section .text, "ax" # 8035F2AC
+
+
+.global func_8035F2AC
+func_8035F2AC:
+/* 8035F2AC 0035C1EC  80 02 CB 80 */	lwz r0, lbl_80456580-_SDA2_BASE_(r2)
+/* 8035F2B0 0035C1F0  54 69 10 3A */	slwi r9, r3, 2
+/* 8035F2B4 0035C1F4  2C 04 00 01 */	cmpwi r4, 1
+/* 8035F2B8 0035C1F8  7C 60 4A 14 */	add r3, r0, r9
+/* 8035F2BC 0035C1FC  80 63 01 30 */	lwz r3, 0x130(r3)
+/* 8035F2C0 0035C200  50 83 93 5A */	rlwimi r3, r4, 0x12, 0xd, 0xd
+/* 8035F2C4 0035C204  39 43 00 00 */	addi r10, r3, 0
+/* 8035F2C8 0035C208  41 81 00 10 */	bgt lbl_8035F2D8
+/* 8035F2CC 0035C20C  50 CA A2 96 */	rlwimi r10, r6, 0x14, 0xa, 0xb
+/* 8035F2D0 0035C210  50 AA 83 9E */	rlwimi r10, r5, 0x10, 0xe, 0xf
+/* 8035F2D4 0035C214  48 00 00 10 */	b lbl_8035F2E4
+.global lbl_8035F2D8
+lbl_8035F2D8:
+/* 8035F2D8 0035C218  38 00 00 03 */	li r0, 3
+/* 8035F2DC 0035C21C  50 8A 9A 96 */	rlwimi r10, r4, 0x13, 0xa, 0xb
+/* 8035F2E0 0035C220  50 0A 83 9E */	rlwimi r10, r0, 0x10, 0xe, 0xf
+.global lbl_8035F2E4
+lbl_8035F2E4:
+/* 8035F2E4 0035C224  38 00 00 61 */	li r0, 0x61
+/* 8035F2E8 0035C228  80 82 CB 80 */	lwz r4, lbl_80456580-_SDA2_BASE_(r2)
+/* 8035F2EC 0035C22C  3C A0 CC 01 */	lis r5, 0xCC008000@ha
+/* 8035F2F0 0035C230  98 05 80 00 */	stb r0, 0xCC008000@l(r5)
+/* 8035F2F4 0035C234  50 EA 9B 18 */	rlwimi r10, r7, 0x13, 0xc, 0xc
+/* 8035F2F8 0035C238  51 0A B2 12 */	rlwimi r10, r8, 0x16, 8, 9
+/* 8035F2FC 0035C23C  91 45 80 00 */	stw r10, -0x8000(r5)
+/* 8035F300 0035C240  7C 64 4A 14 */	add r3, r4, r9
+/* 8035F304 0035C244  38 00 00 00 */	li r0, 0
+/* 8035F308 0035C248  91 43 01 30 */	stw r10, 0x130(r3)
+/* 8035F30C 0035C24C  B0 04 00 02 */	sth r0, 2(r4)
+/* 8035F310 0035C250  4E 80 00 20 */	blr 

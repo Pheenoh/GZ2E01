@@ -1,0 +1,17 @@
+.include "macros.inc"
+
+.section .text, "ax" # 80309FDC
+
+
+.global func_80309FDC
+func_80309FDC:
+/* 80309FDC 00306F1C  94 21 FF F0 */	stwu r1, -0x10(r1)
+/* 80309FE0 00306F20  7C 08 02 A6 */	mflr r0
+/* 80309FE4 00306F24  90 01 00 14 */	stw r0, 0x14(r1)
+/* 80309FE8 00306F28  7C 85 23 78 */	mr r5, r4
+/* 80309FEC 00306F2C  80 83 00 04 */	lwz r4, 4(r3)
+/* 80309FF0 00306F30  48 00 00 15 */	bl func_8030A004
+/* 80309FF4 00306F34  80 01 00 14 */	lwz r0, 0x14(r1)
+/* 80309FF8 00306F38  7C 08 03 A6 */	mtlr r0
+/* 80309FFC 00306F3C  38 21 00 10 */	addi r1, r1, 0x10
+/* 8030A000 00306F40  4E 80 00 20 */	blr 

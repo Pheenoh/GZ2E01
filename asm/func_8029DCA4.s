@@ -1,0 +1,22 @@
+.include "macros.inc"
+
+.section .text, "ax" # 8029DCA4
+
+
+.global func_8029DCA4
+func_8029DCA4:
+/* 8029DCA4 0029ABE4  94 21 FF F0 */	stwu r1, -0x10(r1)
+/* 8029DCA8 0029ABE8  7C 08 02 A6 */	mflr r0
+/* 8029DCAC 0029ABEC  90 01 00 14 */	stw r0, 0x14(r1)
+/* 8029DCB0 0029ABF0  38 00 00 00 */	li r0, 0
+/* 8029DCB4 0029ABF4  B0 03 00 0C */	sth r0, 0xc(r3)
+/* 8029DCB8 0029ABF8  B0 03 00 02 */	sth r0, 2(r3)
+/* 8029DCBC 0029ABFC  B0 03 01 0A */	sth r0, 0x10a(r3)
+/* 8029DCC0 0029AC00  B0 03 00 00 */	sth r0, 0(r3)
+/* 8029DCC4 0029AC04  B0 03 00 58 */	sth r0, 0x58(r3)
+/* 8029DCC8 0029AC08  90 03 00 68 */	stw r0, 0x68(r3)
+/* 8029DCCC 0029AC0C  48 00 02 E5 */	bl func_8029DFB0
+/* 8029DCD0 0029AC10  80 01 00 14 */	lwz r0, 0x14(r1)
+/* 8029DCD4 0029AC14  7C 08 03 A6 */	mtlr r0
+/* 8029DCD8 0029AC18  38 21 00 10 */	addi r1, r1, 0x10
+/* 8029DCDC 0029AC1C  4E 80 00 20 */	blr 

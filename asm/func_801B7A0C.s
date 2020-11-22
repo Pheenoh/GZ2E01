@@ -1,0 +1,21 @@
+.include "macros.inc"
+
+.section .text, "ax" # 801B7A0C
+
+
+.global func_801B7A0C
+func_801B7A0C:
+/* 801B7A0C 001B494C  94 21 FF F0 */	stwu r1, -0x10(r1)
+/* 801B7A10 001B4950  7C 08 02 A6 */	mflr r0
+/* 801B7A14 001B4954  90 01 00 14 */	stw r0, 0x14(r1)
+/* 801B7A18 001B4958  93 E1 00 0C */	stw r31, 0xc(r1)
+/* 801B7A1C 001B495C  7C 7F 1B 78 */	mr r31, r3
+/* 801B7A20 001B4960  80 63 00 04 */	lwz r3, 4(r3)
+/* 801B7A24 001B4964  4B FF 84 81 */	bl func_801AFEA4
+/* 801B7A28 001B4968  80 7F 00 08 */	lwz r3, 8(r31)
+/* 801B7A2C 001B496C  4B FF EB 7D */	bl func_801B65A8
+/* 801B7A30 001B4970  83 E1 00 0C */	lwz r31, 0xc(r1)
+/* 801B7A34 001B4974  80 01 00 14 */	lwz r0, 0x14(r1)
+/* 801B7A38 001B4978  7C 08 03 A6 */	mtlr r0
+/* 801B7A3C 001B497C  38 21 00 10 */	addi r1, r1, 0x10
+/* 801B7A40 001B4980  4E 80 00 20 */	blr 

@@ -1,0 +1,17 @@
+.include "macros.inc"
+
+.section .text, "ax" # 801CCE70
+
+
+.global func_801CCE70
+func_801CCE70:
+/* 801CCE70 001C9DB0  94 21 FF F0 */	stwu r1, -0x10(r1)
+/* 801CCE74 001C9DB4  7C 08 02 A6 */	mflr r0
+/* 801CCE78 001C9DB8  90 01 00 14 */	stw r0, 0x14(r1)
+/* 801CCE7C 001C9DBC  38 80 00 0A */	li r4, 0xa
+/* 801CCE80 001C9DC0  38 A0 00 0D */	li r5, 0xd
+/* 801CCE84 001C9DC4  48 00 02 89 */	bl func_801CD10C
+/* 801CCE88 001C9DC8  80 01 00 14 */	lwz r0, 0x14(r1)
+/* 801CCE8C 001C9DCC  7C 08 03 A6 */	mtlr r0
+/* 801CCE90 001C9DD0  38 21 00 10 */	addi r1, r1, 0x10
+/* 801CCE94 001C9DD4  4E 80 00 20 */	blr 

@@ -1,0 +1,37 @@
+.include "macros.inc"
+
+.section .text, "ax" # 802A2280
+
+
+.global func_802A2280
+func_802A2280:
+/* 802A2280 0029F1C0  C0 63 00 0C */	lfs f3, 0xc(r3)
+/* 802A2284 0029F1C4  C0 44 00 00 */	lfs f2, 0(r4)
+/* 802A2288 0029F1C8  C0 03 00 00 */	lfs f0, 0(r3)
+/* 802A228C 0029F1CC  EC 02 00 32 */	fmuls f0, f2, f0
+/* 802A2290 0029F1D0  EC 03 00 32 */	fmuls f0, f3, f0
+/* 802A2294 0029F1D4  EC 01 00 32 */	fmuls f0, f1, f0
+/* 802A2298 0029F1D8  D0 05 00 00 */	stfs f0, 0(r5)
+/* 802A229C 0029F1DC  C0 43 00 10 */	lfs f2, 0x10(r3)
+/* 802A22A0 0029F1E0  C0 24 00 04 */	lfs f1, 4(r4)
+/* 802A22A4 0029F1E4  C0 03 00 04 */	lfs f0, 4(r3)
+/* 802A22A8 0029F1E8  EC 01 00 2A */	fadds f0, f1, f0
+/* 802A22AC 0029F1EC  EC 02 00 2A */	fadds f0, f2, f0
+/* 802A22B0 0029F1F0  D0 05 00 04 */	stfs f0, 4(r5)
+/* 802A22B4 0029F1F4  C0 43 00 14 */	lfs f2, 0x14(r3)
+/* 802A22B8 0029F1F8  C0 24 00 08 */	lfs f1, 8(r4)
+/* 802A22BC 0029F1FC  C0 03 00 08 */	lfs f0, 8(r3)
+/* 802A22C0 0029F200  EC 01 00 32 */	fmuls f0, f1, f0
+/* 802A22C4 0029F204  EC 02 00 32 */	fmuls f0, f2, f0
+/* 802A22C8 0029F208  D0 05 00 08 */	stfs f0, 8(r5)
+/* 802A22CC 0029F20C  C0 24 00 0C */	lfs f1, 0xc(r4)
+/* 802A22D0 0029F210  C0 03 00 18 */	lfs f0, 0x18(r3)
+/* 802A22D4 0029F214  EC 21 00 2A */	fadds f1, f1, f0
+/* 802A22D8 0029F218  C0 02 BD B8 */	lfs f0, lbl_804557B8-_SDA2_BASE_(r2)
+/* 802A22DC 0029F21C  EC 01 00 28 */	fsubs f0, f1, f0
+/* 802A22E0 0029F220  D0 05 00 0C */	stfs f0, 0xc(r5)
+/* 802A22E4 0029F224  C0 24 00 10 */	lfs f1, 0x10(r4)
+/* 802A22E8 0029F228  C0 03 00 1C */	lfs f0, 0x1c(r3)
+/* 802A22EC 0029F22C  EC 01 00 2A */	fadds f0, f1, f0
+/* 802A22F0 0029F230  D0 05 00 10 */	stfs f0, 0x10(r5)
+/* 802A22F4 0029F234  4E 80 00 20 */	blr 

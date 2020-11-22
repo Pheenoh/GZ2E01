@@ -1,0 +1,51 @@
+.include "macros.inc"
+
+.section .text, "ax" # 8029E680
+
+
+.global func_8029E680
+func_8029E680:
+/* 8029E680 0029B5C0  94 21 FF E0 */	stwu r1, -0x20(r1)
+/* 8029E684 0029B5C4  7C 08 02 A6 */	mflr r0
+/* 8029E688 0029B5C8  54 63 82 1E */	rlwinm r3, r3, 0x10, 8, 0xf
+/* 8029E68C 0029B5CC  90 01 00 24 */	stw r0, 0x24(r1)
+/* 8029E690 0029B5D0  64 63 82 00 */	oris r3, r3, 0x8200
+/* 8029E694 0029B5D4  A0 0D 82 48 */	lhz r0, lbl_804507C8-_SDA_BASE_(r13)
+/* 8029E698 0029B5D8  90 81 00 0C */	stw r4, 0xc(r1)
+/* 8029E69C 0029B5DC  38 80 00 05 */	li r4, 5
+/* 8029E6A0 0029B5E0  7C 60 03 78 */	or r0, r3, r0
+/* 8029E6A4 0029B5E4  38 61 00 08 */	addi r3, r1, 8
+/* 8029E6A8 0029B5E8  90 A1 00 10 */	stw r5, 0x10(r1)
+/* 8029E6AC 0029B5EC  38 A0 00 00 */	li r5, 0
+/* 8029E6B0 0029B5F0  90 01 00 08 */	stw r0, 8(r1)
+/* 8029E6B4 0029B5F4  90 C1 00 14 */	stw r6, 0x14(r1)
+/* 8029E6B8 0029B5F8  90 E1 00 18 */	stw r7, 0x18(r1)
+/* 8029E6BC 0029B5FC  48 00 01 25 */	bl func_8029E7E0
+/* 8029E6C0 0029B600  80 01 00 24 */	lwz r0, 0x24(r1)
+/* 8029E6C4 0029B604  7C 08 03 A6 */	mtlr r0
+/* 8029E6C8 0029B608  38 21 00 20 */	addi r1, r1, 0x20
+/* 8029E6CC 0029B60C  4E 80 00 20 */	blr 
+/* 8029E6D0 0029B610  00 00 00 00 */	.4byte 0x00000000  /* unknown instruction */
+/* 8029E6D4 0029B614  00 00 00 00 */	.4byte 0x00000000  /* unknown instruction */
+/* 8029E6D8 0029B618  00 00 00 00 */	.4byte 0x00000000  /* unknown instruction */
+/* 8029E6DC 0029B61C  00 00 00 00 */	.4byte 0x00000000  /* unknown instruction */
+.global lbl_8029E6E0
+lbl_8029E6E0:
+/* 8029E6E0 0029B620  94 21 FF F0 */	stwu r1, -0x10(r1)
+/* 8029E6E4 0029B624  7C 08 02 A6 */	mflr r0
+/* 8029E6E8 0029B628  90 01 00 14 */	stw r0, 0x14(r1)
+/* 8029E6EC 0029B62C  60 00 00 00 */	nop 
+.global lbl_8029E6F0
+lbl_8029E6F0:
+/* 8029E6F0 0029B630  48 0B 3D 51 */	bl func_80352440
+/* 8029E6F4 0029B634  28 03 00 00 */	cmplwi r3, 0
+/* 8029E6F8 0029B638  41 82 FF F8 */	beq lbl_8029E6F0
+/* 8029E6FC 0029B63C  48 0B 3D 55 */	bl func_80352450
+/* 8029E700 0029B640  48 0B 3D 41 */	bl func_80352440
+/* 8029E704 0029B644  48 00 08 9D */	bl func_8029EFA0
+/* 8029E708 0029B648  80 01 00 14 */	lwz r0, 0x14(r1)
+/* 8029E70C 0029B64C  7C 08 03 A6 */	mtlr r0
+/* 8029E710 0029B650  38 21 00 10 */	addi r1, r1, 0x10
+/* 8029E714 0029B654  4E 80 00 20 */	blr 
+/* 8029E718 0029B658  00 00 00 00 */	.4byte 0x00000000  /* unknown instruction */
+/* 8029E71C 0029B65C  00 00 00 00 */	.4byte 0x00000000  /* unknown instruction */

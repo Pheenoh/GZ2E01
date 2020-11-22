@@ -1,0 +1,29 @@
+.include "macros.inc"
+
+.section .text, "ax" # 802E0148
+
+
+.global func_802E0148
+func_802E0148:
+/* 802E0148 002DD088  38 00 FF FF */	li r0, -1
+/* 802E014C 002DD08C  90 03 00 08 */	stw r0, 8(r3)
+/* 802E0150 002DD090  90 83 00 04 */	stw r4, 4(r3)
+/* 802E0154 002DD094  38 00 00 00 */	li r0, 0
+/* 802E0158 002DD098  90 03 00 00 */	stw r0, 0(r3)
+/* 802E015C 002DD09C  28 05 00 00 */	cmplwi r5, 0
+/* 802E0160 002DD0A0  41 82 00 08 */	beq lbl_802E0168
+/* 802E0164 002DD0A4  48 00 00 08 */	b lbl_802E016C
+.global lbl_802E0168
+lbl_802E0168:
+/* 802E0168 002DD0A8  80 AD 8D F4 */	lwz r5, lbl_80451374-_SDA_BASE_(r13)
+.global lbl_802E016C
+lbl_802E016C:
+/* 802E016C 002DD0AC  90 A3 00 10 */	stw r5, 0x10(r3)
+/* 802E0170 002DD0B0  38 00 00 FF */	li r0, 0xff
+/* 802E0174 002DD0B4  98 03 00 08 */	stb r0, 8(r3)
+/* 802E0178 002DD0B8  98 03 00 09 */	stb r0, 9(r3)
+/* 802E017C 002DD0BC  98 03 00 0A */	stb r0, 0xa(r3)
+/* 802E0180 002DD0C0  98 03 00 0B */	stb r0, 0xb(r3)
+/* 802E0184 002DD0C4  38 00 00 01 */	li r0, 1
+/* 802E0188 002DD0C8  98 03 00 0C */	stb r0, 0xc(r3)
+/* 802E018C 002DD0CC  4E 80 00 20 */	blr 

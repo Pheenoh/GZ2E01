@@ -1,0 +1,17 @@
+.include "macros.inc"
+
+.section .text, "ax" # 801CCDDC
+
+
+.global func_801CCDDC
+func_801CCDDC:
+/* 801CCDDC 001C9D1C  94 21 FF F0 */	stwu r1, -0x10(r1)
+/* 801CCDE0 001C9D20  7C 08 02 A6 */	mflr r0
+/* 801CCDE4 001C9D24  90 01 00 14 */	stw r0, 0x14(r1)
+/* 801CCDE8 001C9D28  38 80 00 05 */	li r4, 5
+/* 801CCDEC 001C9D2C  38 A0 00 12 */	li r5, 0x12
+/* 801CCDF0 001C9D30  48 00 03 1D */	bl func_801CD10C
+/* 801CCDF4 001C9D34  80 01 00 14 */	lwz r0, 0x14(r1)
+/* 801CCDF8 001C9D38  7C 08 03 A6 */	mtlr r0
+/* 801CCDFC 001C9D3C  38 21 00 10 */	addi r1, r1, 0x10
+/* 801CCE00 001C9D40  4E 80 00 20 */	blr 

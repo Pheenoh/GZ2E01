@@ -1,0 +1,21 @@
+.include "macros.inc"
+
+.section .text, "ax" # 8003BA9C
+
+
+.global func_8003BA9C
+func_8003BA9C:
+/* 8003BA9C 000389DC  28 03 00 00 */	cmplwi r3, 0
+/* 8003BAA0 000389E0  41 82 00 1C */	beq lbl_8003BABC
+/* 8003BAA4 000389E4  88 03 00 3C */	lbz r0, 0x3c(r3)
+/* 8003BAA8 000389E8  2C 00 00 01 */	cmpwi r0, 1
+/* 8003BAAC 000389EC  41 82 00 08 */	beq lbl_8003BAB4
+/* 8003BAB0 000389F0  48 00 00 0C */	b lbl_8003BABC
+.global lbl_8003BAB4
+lbl_8003BAB4:
+/* 8003BAB4 000389F4  80 63 00 64 */	lwz r3, 0x64(r3)
+/* 8003BAB8 000389F8  4E 80 00 20 */	blr 
+.global lbl_8003BABC
+lbl_8003BABC:
+/* 8003BABC 000389FC  38 60 00 00 */	li r3, 0
+/* 8003BAC0 00038A00  4E 80 00 20 */	blr 

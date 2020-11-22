@@ -1,0 +1,23 @@
+.include "macros.inc"
+
+.section .text, "ax" # 8004AD58
+
+
+.global func_8004AD58
+func_8004AD58:
+/* 8004AD58 00047C98  80 8D 89 18 */	lwz r4, lbl_80450E98-_SDA_BASE_(r13)
+/* 8004AD5C 00047C9C  28 04 00 00 */	cmplwi r4, 0
+/* 8004AD60 00047CA0  41 82 00 28 */	beq lbl_8004AD88
+/* 8004AD64 00047CA4  28 03 00 00 */	cmplwi r3, 0
+/* 8004AD68 00047CA8  41 82 00 20 */	beq lbl_8004AD88
+/* 8004AD6C 00047CAC  80 63 00 C0 */	lwz r3, 0xc0(r3)
+/* 8004AD70 00047CB0  3C 03 00 01 */	addis r0, r3, 1
+/* 8004AD74 00047CB4  28 00 FF FF */	cmplwi r0, 0xffff
+/* 8004AD78 00047CB8  41 82 00 10 */	beq lbl_8004AD88
+/* 8004AD7C 00047CBC  1C 03 03 94 */	mulli r0, r3, 0x394
+/* 8004AD80 00047CC0  7C 64 02 14 */	add r3, r4, r0
+/* 8004AD84 00047CC4  4E 80 00 20 */	blr 
+.global lbl_8004AD88
+lbl_8004AD88:
+/* 8004AD88 00047CC8  38 60 00 00 */	li r3, 0
+/* 8004AD8C 00047CCC  4E 80 00 20 */	blr 

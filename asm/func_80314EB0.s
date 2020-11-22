@@ -1,0 +1,24 @@
+.include "macros.inc"
+
+.section .text, "ax" # 80314EB0
+
+
+.global func_80314EB0
+func_80314EB0:
+/* 80314EB0 00311DF0  94 21 FF F0 */	stwu r1, -0x10(r1)
+/* 80314EB4 00311DF4  7C 08 02 A6 */	mflr r0
+/* 80314EB8 00311DF8  90 01 00 14 */	stw r0, 0x14(r1)
+/* 80314EBC 00311DFC  2C 03 00 19 */	cmpwi r3, 0x19
+/* 80314EC0 00311E00  38 A0 00 01 */	li r5, 1
+/* 80314EC4 00311E04  41 82 00 08 */	beq lbl_80314ECC
+/* 80314EC8 00311E08  38 A3 FF F7 */	addi r5, r3, -9
+.global lbl_80314ECC
+lbl_80314ECC:
+/* 80314ECC 00311E0C  38 05 00 A0 */	addi r0, r5, 0xa0
+/* 80314ED0 00311E10  54 03 06 3E */	clrlwi r3, r0, 0x18
+/* 80314ED4 00311E14  54 84 00 7E */	clrlwi r4, r4, 1
+/* 80314ED8 00311E18  4B FF FF C1 */	bl func_80314E98
+/* 80314EDC 00311E1C  80 01 00 14 */	lwz r0, 0x14(r1)
+/* 80314EE0 00311E20  7C 08 03 A6 */	mtlr r0
+/* 80314EE4 00311E24  38 21 00 10 */	addi r1, r1, 0x10
+/* 80314EE8 00311E28  4E 80 00 20 */	blr 

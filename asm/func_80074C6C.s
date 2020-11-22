@@ -1,0 +1,31 @@
+.include "macros.inc"
+
+.section .text, "ax" # 80074C6C
+
+
+.global func_80074C6C
+func_80074C6C:
+/* 80074C6C 00071BAC  94 21 FF F0 */	stwu r1, -0x10(r1)
+/* 80074C70 00071BB0  7C 08 02 A6 */	mflr r0
+/* 80074C74 00071BB4  90 01 00 14 */	stw r0, 0x14(r1)
+/* 80074C78 00071BB8  A0 04 00 02 */	lhz r0, 2(r4)
+/* 80074C7C 00071BBC  1C C0 00 14 */	mulli r6, r0, 0x14
+/* 80074C80 00071BC0  7C A3 32 14 */	add r5, r3, r6
+/* 80074C84 00071BC4  88 05 00 04 */	lbz r0, 4(r5)
+/* 80074C88 00071BC8  28 00 00 00 */	cmplwi r0, 0
+/* 80074C8C 00071BCC  41 82 00 1C */	beq lbl_80074CA8
+/* 80074C90 00071BD0  7C 63 30 2E */	lwzx r3, r3, r6
+/* 80074C94 00071BD4  81 83 00 04 */	lwz r12, 4(r3)
+/* 80074C98 00071BD8  81 8C 00 6C */	lwz r12, 0x6c(r12)
+/* 80074C9C 00071BDC  7D 89 03 A6 */	mtctr r12
+/* 80074CA0 00071BE0  4E 80 04 21 */	bctrl 
+/* 80074CA4 00071BE4  48 00 00 08 */	b lbl_80074CAC
+.global lbl_80074CA8
+lbl_80074CA8:
+/* 80074CA8 00071BE8  38 60 00 00 */	li r3, 0
+.global lbl_80074CAC
+lbl_80074CAC:
+/* 80074CAC 00071BEC  80 01 00 14 */	lwz r0, 0x14(r1)
+/* 80074CB0 00071BF0  7C 08 03 A6 */	mtlr r0
+/* 80074CB4 00071BF4  38 21 00 10 */	addi r1, r1, 0x10
+/* 80074CB8 00071BF8  4E 80 00 20 */	blr 

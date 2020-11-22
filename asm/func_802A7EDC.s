@@ -1,0 +1,29 @@
+.include "macros.inc"
+
+.section .text, "ax" # 802A7EDC
+
+
+.global func_802A7EDC
+func_802A7EDC:
+/* 802A7EDC 002A4E1C  94 21 FF F0 */	stwu r1, -0x10(r1)
+/* 802A7EE0 002A4E20  7C 08 02 A6 */	mflr r0
+/* 802A7EE4 002A4E24  90 01 00 14 */	stw r0, 0x14(r1)
+/* 802A7EE8 002A4E28  3C 80 80 2B */	lis r4, lbl_802A828C@ha
+/* 802A7EEC 002A4E2C  38 04 82 8C */	addi r0, r4, lbl_802A828C@l
+/* 802A7EF0 002A4E30  90 03 00 24 */	stw r0, 0x24(r3)
+/* 802A7EF4 002A4E34  80 03 00 10 */	lwz r0, 0x10(r3)
+/* 802A7EF8 002A4E38  54 00 10 3A */	slwi r0, r0, 2
+/* 802A7EFC 002A4E3C  7C 83 02 14 */	add r4, r3, r0
+/* 802A7F00 002A4E40  80 04 00 10 */	lwz r0, 0x10(r4)
+/* 802A7F04 002A4E44  90 03 00 0C */	stw r0, 0xc(r3)
+/* 802A7F08 002A4E48  80 83 00 10 */	lwz r4, 0x10(r3)
+/* 802A7F0C 002A4E4C  38 04 FF FF */	addi r0, r4, -1
+/* 802A7F10 002A4E50  90 03 00 10 */	stw r0, 0x10(r3)
+/* 802A7F14 002A4E54  81 83 00 00 */	lwz r12, 0(r3)
+/* 802A7F18 002A4E58  81 8C 00 24 */	lwz r12, 0x24(r12)
+/* 802A7F1C 002A4E5C  7D 89 03 A6 */	mtctr r12
+/* 802A7F20 002A4E60  4E 80 04 21 */	bctrl 
+/* 802A7F24 002A4E64  80 01 00 14 */	lwz r0, 0x14(r1)
+/* 802A7F28 002A4E68  7C 08 03 A6 */	mtlr r0
+/* 802A7F2C 002A4E6C  38 21 00 10 */	addi r1, r1, 0x10
+/* 802A7F30 002A4E70  4E 80 00 20 */	blr 

@@ -1,0 +1,19 @@
+.include "macros.inc"
+
+.section .text, "ax" # 801BB468
+
+
+.global func_801BB468
+func_801BB468:
+/* 801BB468 001B83A8  94 21 FF F0 */	stwu r1, -0x10(r1)
+/* 801BB46C 001B83AC  7C 08 02 A6 */	mflr r0
+/* 801BB470 001B83B0  90 01 00 14 */	stw r0, 0x14(r1)
+/* 801BB474 001B83B4  80 63 0C C0 */	lwz r3, 0xcc0(r3)
+/* 801BB478 001B83B8  81 83 00 00 */	lwz r12, 0(r3)
+/* 801BB47C 001B83BC  81 8C 00 08 */	lwz r12, 8(r12)
+/* 801BB480 001B83C0  7D 89 03 A6 */	mtctr r12
+/* 801BB484 001B83C4  4E 80 04 21 */	bctrl 
+/* 801BB488 001B83C8  80 01 00 14 */	lwz r0, 0x14(r1)
+/* 801BB48C 001B83CC  7C 08 03 A6 */	mtlr r0
+/* 801BB490 001B83D0  38 21 00 10 */	addi r1, r1, 0x10
+/* 801BB494 001B83D4  4E 80 00 20 */	blr 

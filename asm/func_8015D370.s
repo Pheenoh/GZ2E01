@@ -1,0 +1,40 @@
+.include "macros.inc"
+
+.section .text, "ax" # 8015D370
+
+
+.global func_8015D370
+func_8015D370:
+/* 8015D370 0015A2B0  38 C0 00 01 */	li r6, 1
+/* 8015D374 0015A2B4  88 A3 09 4A */	lbz r5, 0x94a(r3)
+/* 8015D378 0015A2B8  28 05 00 01 */	cmplwi r5, 1
+/* 8015D37C 0015A2BC  40 82 00 08 */	bne lbl_8015D384
+/* 8015D380 0015A2C0  38 C0 00 00 */	li r6, 0
+.global lbl_8015D384
+lbl_8015D384:
+/* 8015D384 0015A2C4  88 03 09 48 */	lbz r0, 0x948(r3)
+/* 8015D388 0015A2C8  54 00 07 39 */	rlwinm. r0, r0, 0, 0x1c, 0x1c
+/* 8015D38C 0015A2CC  41 82 00 08 */	beq lbl_8015D394
+/* 8015D390 0015A2D0  38 C0 00 00 */	li r6, 0
+.global lbl_8015D394
+lbl_8015D394:
+/* 8015D394 0015A2D4  3C 80 80 40 */	lis r4, lbl_804061C0@ha
+/* 8015D398 0015A2D8  38 84 61 C0 */	addi r4, r4, lbl_804061C0@l
+/* 8015D39C 0015A2DC  88 04 4F AD */	lbz r0, 0x4fad(r4)
+/* 8015D3A0 0015A2E0  28 00 00 00 */	cmplwi r0, 0
+/* 8015D3A4 0015A2E4  41 82 00 08 */	beq lbl_8015D3AC
+/* 8015D3A8 0015A2E8  38 C0 00 00 */	li r6, 0
+.global lbl_8015D3AC
+lbl_8015D3AC:
+/* 8015D3AC 0015A2EC  28 05 00 05 */	cmplwi r5, 5
+/* 8015D3B0 0015A2F0  41 82 00 10 */	beq lbl_8015D3C0
+/* 8015D3B4 0015A2F4  80 03 04 9C */	lwz r0, 0x49c(r3)
+/* 8015D3B8 0015A2F8  54 00 02 D7 */	rlwinm. r0, r0, 0, 0xb, 0xb
+/* 8015D3BC 0015A2FC  41 82 00 08 */	beq lbl_8015D3C4
+.global lbl_8015D3C0
+lbl_8015D3C0:
+/* 8015D3C0 0015A300  38 C0 00 00 */	li r6, 0
+.global lbl_8015D3C4
+lbl_8015D3C4:
+/* 8015D3C4 0015A304  7C C3 33 78 */	mr r3, r6
+/* 8015D3C8 0015A308  4E 80 00 20 */	blr 

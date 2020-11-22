@@ -1,0 +1,29 @@
+.include "macros.inc"
+
+.section .text, "ax" # 8003EF20
+
+
+.global func_8003EF20
+func_8003EF20:
+/* 8003EF20 0003BE60  88 0D 87 E4 */	lbz r0, lbl_80450D64-_SDA_BASE_(r13)
+/* 8003EF24 0003BE64  7C 00 07 74 */	extsb r0, r0
+/* 8003EF28 0003BE68  38 60 00 00 */	li r3, 0
+/* 8003EF2C 0003BE6C  3C 80 80 40 */	lis r4, lbl_804061C0@ha
+/* 8003EF30 0003BE70  38 84 61 C0 */	addi r4, r4, lbl_804061C0@l
+/* 8003EF34 0003BE74  80 84 5D AC */	lwz r4, 0x5dac(r4)
+/* 8003EF38 0003BE78  28 04 00 00 */	cmplwi r4, 0
+/* 8003EF3C 0003BE7C  41 82 00 08 */	beq lbl_8003EF44
+/* 8003EF40 0003BE80  A8 64 04 E6 */	lha r3, 0x4e6(r4)
+.global lbl_8003EF44
+lbl_8003EF44:
+/* 8003EF44 0003BE84  3C 80 80 3F */	lis r4, lbl_803F6094@ha
+/* 8003EF48 0003BE88  38 84 60 94 */	addi r4, r4, lbl_803F6094@l
+/* 8003EF4C 0003BE8C  1C 00 04 04 */	mulli r0, r0, 0x404
+/* 8003EF50 0003BE90  7C 84 02 14 */	add r4, r4, r0
+/* 8003EF54 0003BE94  80 84 00 20 */	lwz r4, 0x20(r4)
+/* 8003EF58 0003BE98  28 04 00 00 */	cmplwi r4, 0
+/* 8003EF5C 0003BE9C  4D 82 00 20 */	beqlr 
+/* 8003EF60 0003BEA0  A8 04 00 1C */	lha r0, 0x1c(r4)
+/* 8003EF64 0003BEA4  7C 03 02 14 */	add r0, r3, r0
+/* 8003EF68 0003BEA8  7C 03 07 34 */	extsh r3, r0
+/* 8003EF6C 0003BEAC  4E 80 00 20 */	blr 

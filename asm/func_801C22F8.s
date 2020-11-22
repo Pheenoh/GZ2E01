@@ -1,0 +1,18 @@
+.include "macros.inc"
+
+.section .text, "ax" # 801C22F8
+
+
+.global func_801C22F8
+func_801C22F8:
+/* 801C22F8 001BF238  38 60 00 00 */	li r3, 0
+/* 801C22FC 001BF23C  88 0D 88 E0 */	lbz r0, lbl_80450E60-_SDA_BASE_(r13)
+/* 801C2300 001BF240  28 00 00 00 */	cmplwi r0, 0
+/* 801C2304 001BF244  4D 82 00 20 */	beqlr 
+/* 801C2308 001BF248  38 00 00 00 */	li r0, 0
+/* 801C230C 001BF24C  41 82 00 08 */	beq lbl_801C2314
+/* 801C2310 001BF250  88 0D 88 D8 */	lbz r0, lbl_80450E58-_SDA_BASE_(r13)
+.global lbl_801C2314
+lbl_801C2314:
+/* 801C2314 001BF254  7C 03 03 78 */	mr r3, r0
+/* 801C2318 001BF258  4E 80 00 20 */	blr 

@@ -1,0 +1,17 @@
+.include "macros.inc"
+
+.section .text, "ax" # 8009CB14
+
+
+.global func_8009CB14
+func_8009CB14:
+/* 8009CB14 00099A54  80 8D 8A 28 */	lwz r4, lbl_80450FA8-_SDA_BASE_(r13)
+/* 8009CB18 00099A58  28 04 00 00 */	cmplwi r4, 0
+/* 8009CB1C 00099A5C  41 82 00 08 */	beq lbl_8009CB24
+/* 8009CB20 00099A60  90 64 00 0C */	stw r3, 0xc(r4)
+.global lbl_8009CB24
+lbl_8009CB24:
+/* 8009CB24 00099A64  80 0D 8A 28 */	lwz r0, lbl_80450FA8-_SDA_BASE_(r13)
+/* 8009CB28 00099A68  90 03 00 10 */	stw r0, 0x10(r3)
+/* 8009CB2C 00099A6C  90 6D 8A 28 */	stw r3, lbl_80450FA8-_SDA_BASE_(r13)
+/* 8009CB30 00099A70  4E 80 00 20 */	blr 

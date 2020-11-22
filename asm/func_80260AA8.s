@@ -1,0 +1,20 @@
+.include "macros.inc"
+
+.section .text, "ax" # 80260AA8
+
+
+.global func_80260AA8
+func_80260AA8:
+/* 80260AA8 0025D9E8  88 03 00 8C */	lbz r0, 0x8c(r3)
+/* 80260AAC 0025D9EC  28 00 00 01 */	cmplwi r0, 1
+/* 80260AB0 0025D9F0  40 82 00 1C */	bne lbl_80260ACC
+/* 80260AB4 0025D9F4  C0 22 B5 40 */	lfs f1, lbl_80454F40-_SDA2_BASE_(r2)
+/* 80260AB8 0025D9F8  C0 03 00 84 */	lfs f0, 0x84(r3)
+/* 80260ABC 0025D9FC  FC 01 00 00 */	fcmpu cr0, f1, f0
+/* 80260AC0 0025DA00  40 82 00 0C */	bne lbl_80260ACC
+/* 80260AC4 0025DA04  38 60 00 01 */	li r3, 1
+/* 80260AC8 0025DA08  4E 80 00 20 */	blr 
+.global lbl_80260ACC
+lbl_80260ACC:
+/* 80260ACC 0025DA0C  38 60 00 00 */	li r3, 0
+/* 80260AD0 0025DA10  4E 80 00 20 */	blr 

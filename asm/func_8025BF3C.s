@@ -1,0 +1,20 @@
+.include "macros.inc"
+
+.section .text, "ax" # 8025BF3C
+
+
+.global func_8025BF3C
+func_8025BF3C:
+/* 8025BF3C 00258E7C  38 C0 00 00 */	li r6, 0
+/* 8025BF40 00258E80  38 80 00 00 */	li r4, 0
+/* 8025BF44 00258E84  38 00 00 10 */	li r0, 0x10
+/* 8025BF48 00258E88  7C 09 03 A6 */	mtctr r0
+.global lbl_8025BF4C
+lbl_8025BF4C:
+/* 8025BF4C 00258E8C  7C A3 32 14 */	add r5, r3, r6
+/* 8025BF50 00258E90  98 85 00 05 */	stb r4, 5(r5)
+/* 8025BF54 00258E94  88 05 00 05 */	lbz r0, 5(r5)
+/* 8025BF58 00258E98  98 05 00 15 */	stb r0, 0x15(r5)
+/* 8025BF5C 00258E9C  38 C6 00 01 */	addi r6, r6, 1
+/* 8025BF60 00258EA0  42 00 FF EC */	bdnz lbl_8025BF4C
+/* 8025BF64 00258EA4  4E 80 00 20 */	blr 

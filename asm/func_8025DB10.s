@@ -1,0 +1,19 @@
+.include "macros.inc"
+
+.section .text, "ax" # 8025DB10
+
+
+.global func_8025DB10
+func_8025DB10:
+/* 8025DB10 0025AA50  88 03 01 6A */	lbz r0, 0x16a(r3)
+/* 8025DB14 0025AA54  28 00 00 01 */	cmplwi r0, 1
+/* 8025DB18 0025AA58  41 82 00 18 */	beq lbl_8025DB30
+/* 8025DB1C 0025AA5C  88 03 01 6C */	lbz r0, 0x16c(r3)
+/* 8025DB20 0025AA60  28 00 00 04 */	cmplwi r0, 4
+/* 8025DB24 0025AA64  40 82 00 0C */	bne lbl_8025DB30
+/* 8025DB28 0025AA68  38 60 00 01 */	li r3, 1
+/* 8025DB2C 0025AA6C  4E 80 00 20 */	blr 
+.global lbl_8025DB30
+lbl_8025DB30:
+/* 8025DB30 0025AA70  38 60 00 00 */	li r3, 0
+/* 8025DB34 0025AA74  4E 80 00 20 */	blr 

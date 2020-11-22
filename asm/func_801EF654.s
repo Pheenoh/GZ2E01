@@ -1,0 +1,26 @@
+.include "macros.inc"
+
+.section .text, "ax" # 801EF654
+
+
+.global func_801EF654
+func_801EF654:
+/* 801EF654 001EC594  3C 80 80 3C */	lis r4, lbl_803BE7CC@ha
+/* 801EF658 001EC598  38 04 E7 CC */	addi r0, r4, lbl_803BE7CC@l
+/* 801EF65C 001EC59C  90 03 00 00 */	stw r0, 0(r3)
+/* 801EF660 001EC5A0  38 80 00 0F */	li r4, 0xf
+/* 801EF664 001EC5A4  98 83 00 05 */	stb r4, 5(r3)
+/* 801EF668 001EC5A8  38 00 00 5A */	li r0, 0x5a
+/* 801EF66C 001EC5AC  98 03 00 06 */	stb r0, 6(r3)
+/* 801EF670 001EC5B0  38 00 00 05 */	li r0, 5
+/* 801EF674 001EC5B4  98 03 00 07 */	stb r0, 7(r3)
+/* 801EF678 001EC5B8  98 03 00 08 */	stb r0, 8(r3)
+/* 801EF67C 001EC5BC  98 03 00 09 */	stb r0, 9(r3)
+/* 801EF680 001EC5C0  98 03 00 0A */	stb r0, 0xa(r3)
+/* 801EF684 001EC5C4  98 83 00 0B */	stb r4, 0xb(r3)
+/* 801EF688 001EC5C8  38 00 00 00 */	li r0, 0
+/* 801EF68C 001EC5CC  98 03 00 0C */	stb r0, 0xc(r3)
+/* 801EF690 001EC5D0  98 03 00 0D */	stb r0, 0xd(r3)
+/* 801EF694 001EC5D4  98 03 00 0E */	stb r0, 0xe(r3)
+/* 801EF698 001EC5D8  98 03 00 0F */	stb r0, 0xf(r3)
+/* 801EF69C 001EC5DC  4E 80 00 20 */	blr 

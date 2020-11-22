@@ -1,0 +1,22 @@
+.include "macros.inc"
+
+.section .text, "ax" # 8025C0A0
+
+
+.global func_8025C0A0
+func_8025C0A0:
+/* 8025C0A0 00258FE0  3C 80 80 3C */	lis r4, lbl_803C330C@ha
+/* 8025C0A4 00258FE4  38 04 33 0C */	addi r0, r4, lbl_803C330C@l
+/* 8025C0A8 00258FE8  90 03 00 00 */	stw r0, 0(r3)
+/* 8025C0AC 00258FEC  38 C0 00 00 */	li r6, 0
+/* 8025C0B0 00258FF0  38 80 00 00 */	li r4, 0
+/* 8025C0B4 00258FF4  38 00 00 04 */	li r0, 4
+/* 8025C0B8 00258FF8  7C 09 03 A6 */	mtctr r0
+.global lbl_8025C0BC
+lbl_8025C0BC:
+/* 8025C0BC 00258FFC  7C A3 32 14 */	add r5, r3, r6
+/* 8025C0C0 00259000  98 85 00 05 */	stb r4, 5(r5)
+/* 8025C0C4 00259004  98 85 00 09 */	stb r4, 9(r5)
+/* 8025C0C8 00259008  38 C6 00 01 */	addi r6, r6, 1
+/* 8025C0CC 0025900C  42 00 FF F0 */	bdnz lbl_8025C0BC
+/* 8025C0D0 00259010  4E 80 00 20 */	blr 

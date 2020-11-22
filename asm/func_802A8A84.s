@@ -1,0 +1,22 @@
+.include "macros.inc"
+
+.section .text, "ax" # 802A8A84
+
+
+.global func_802A8A84
+func_802A8A84:
+/* 802A8A84 002A59C4  3C A0 80 3D */	lis r5, lbl_803C9C2C@ha
+/* 802A8A88 002A59C8  38 05 9C 2C */	addi r0, r5, lbl_803C9C2C@l
+/* 802A8A8C 002A59CC  90 03 00 00 */	stw r0, 0(r3)
+/* 802A8A90 002A59D0  90 83 00 04 */	stw r4, 4(r3)
+/* 802A8A94 002A59D4  38 00 00 00 */	li r0, 0
+/* 802A8A98 002A59D8  90 03 00 08 */	stw r0, 8(r3)
+/* 802A8A9C 002A59DC  90 03 00 0C */	stw r0, 0xc(r3)
+/* 802A8AA0 002A59E0  90 03 00 10 */	stw r0, 0x10(r3)
+/* 802A8AA4 002A59E4  3C 80 80 2B */	lis r4, lbl_802A828C@ha
+/* 802A8AA8 002A59E8  38 04 82 8C */	addi r0, r4, lbl_802A828C@l
+/* 802A8AAC 002A59EC  90 03 00 24 */	stw r0, 0x24(r3)
+/* 802A8AB0 002A59F0  3C 80 80 3D */	lis r4, lbl_803C9B94@ha
+/* 802A8AB4 002A59F4  38 04 9B 94 */	addi r0, r4, lbl_803C9B94@l
+/* 802A8AB8 002A59F8  90 03 00 00 */	stw r0, 0(r3)
+/* 802A8ABC 002A59FC  4E 80 00 20 */	blr 

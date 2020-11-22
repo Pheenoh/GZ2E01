@@ -1,0 +1,17 @@
+.include "macros.inc"
+
+.section .text, "ax" # 8003F7E8
+
+
+.global func_8003F7E8
+func_8003F7E8:
+/* 8003F7E8 0003C728  94 21 FF F0 */	stwu r1, -0x10(r1)
+/* 8003F7EC 0003C72C  7C 08 02 A6 */	mflr r0
+/* 8003F7F0 0003C730  90 01 00 14 */	stw r0, 0x14(r1)
+/* 8003F7F4 0003C734  38 60 02 00 */	li r3, 0x200
+/* 8003F7F8 0003C738  48 28 F4 55 */	bl func_802CEC4C
+/* 8003F7FC 0003C73C  90 6D 88 E4 */	stw r3, lbl_80450E64-_SDA_BASE_(r13)
+/* 8003F800 0003C740  80 01 00 14 */	lwz r0, 0x14(r1)
+/* 8003F804 0003C744  7C 08 03 A6 */	mtlr r0
+/* 8003F808 0003C748  38 21 00 10 */	addi r1, r1, 0x10
+/* 8003F80C 0003C74C  4E 80 00 20 */	blr 

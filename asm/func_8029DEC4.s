@@ -1,0 +1,20 @@
+.include "macros.inc"
+
+.section .text, "ax" # 8029DEC4
+
+
+.global func_8029DEC4
+func_8029DEC4:
+/* 8029DEC4 0029AE04  A0 03 00 58 */	lhz r0, 0x58(r3)
+/* 8029DEC8 0029AE08  28 00 00 00 */	cmplwi r0, 0
+/* 8029DECC 0029AE0C  41 82 00 10 */	beq lbl_8029DEDC
+/* 8029DED0 0029AE10  A0 03 00 56 */	lhz r0, 0x56(r3)
+/* 8029DED4 0029AE14  B0 03 00 54 */	sth r0, 0x54(r3)
+/* 8029DED8 0029AE18  4E 80 00 20 */	blr 
+.global lbl_8029DEDC
+lbl_8029DEDC:
+/* 8029DEDC 0029AE1C  38 00 00 00 */	li r0, 0
+/* 8029DEE0 0029AE20  B0 03 00 54 */	sth r0, 0x54(r3)
+/* 8029DEE4 0029AE24  38 00 00 01 */	li r0, 1
+/* 8029DEE8 0029AE28  B0 03 00 58 */	sth r0, 0x58(r3)
+/* 8029DEEC 0029AE2C  4E 80 00 20 */	blr 

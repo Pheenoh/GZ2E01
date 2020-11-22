@@ -1,0 +1,22 @@
+.include "macros.inc"
+
+.section .text, "ax" # 8015EDC4
+
+
+.global func_8015EDC4
+func_8015EDC4:
+/* 8015EDC4 0015BD04  94 21 FF F0 */	stwu r1, -0x10(r1)
+/* 8015EDC8 0015BD08  7C 08 02 A6 */	mflr r0
+/* 8015EDCC 0015BD0C  90 01 00 14 */	stw r0, 0x14(r1)
+/* 8015EDD0 0015BD10  93 E1 00 0C */	stw r31, 0xc(r1)
+/* 8015EDD4 0015BD14  7C 7F 1B 78 */	mr r31, r3
+/* 8015EDD8 0015BD18  80 63 00 08 */	lwz r3, 8(r3)
+/* 8015EDDC 0015BD1C  38 80 00 20 */	li r4, 0x20
+/* 8015EDE0 0015BD20  48 16 FF 0D */	bl func_802CECEC
+/* 8015EDE4 0015BD24  90 7F 00 0C */	stw r3, 0xc(r31)
+/* 8015EDE8 0015BD28  80 7F 00 0C */	lwz r3, 0xc(r31)
+/* 8015EDEC 0015BD2C  83 E1 00 0C */	lwz r31, 0xc(r1)
+/* 8015EDF0 0015BD30  80 01 00 14 */	lwz r0, 0x14(r1)
+/* 8015EDF4 0015BD34  7C 08 03 A6 */	mtlr r0
+/* 8015EDF8 0015BD38  38 21 00 10 */	addi r1, r1, 0x10
+/* 8015EDFC 0015BD3C  4E 80 00 20 */	blr 

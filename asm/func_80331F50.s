@@ -1,0 +1,34 @@
+.include "macros.inc"
+
+.section .text, "ax" # 80331F50
+
+
+.global func_80331F50
+func_80331F50:
+/* 80331F50 0032EE90  94 21 FF F0 */	stwu r1, -0x10(r1)
+/* 80331F54 0032EE94  81 22 CA AC */	lwz r9, lbl_804564AC-_SDA2_BASE_(r2)
+/* 80331F58 0032EE98  91 21 00 08 */	stw r9, 8(r1)
+/* 80331F5C 0032EE9C  91 21 00 0C */	stw r9, 0xc(r1)
+/* 80331F60 0032EEA0  81 04 00 04 */	lwz r8, 4(r4)
+/* 80331F64 0032EEA4  80 E4 00 08 */	lwz r7, 8(r4)
+/* 80331F68 0032EEA8  54 A0 08 3C */	slwi r0, r5, 1
+/* 80331F6C 0032EEAC  7C 07 02 2E */	lhzx r0, r7, r0
+/* 80331F70 0032EEB0  1C 00 01 4C */	mulli r0, r0, 0x14c
+/* 80331F74 0032EEB4  7C A8 02 14 */	add r5, r8, r0
+/* 80331F78 0032EEB8  54 C0 08 3C */	slwi r0, r6, 1
+/* 80331F7C 0032EEBC  7C A5 02 14 */	add r5, r5, r0
+/* 80331F80 0032EEC0  A0 05 00 14 */	lhz r0, 0x14(r5)
+/* 80331F84 0032EEC4  28 00 FF FF */	cmplwi r0, 0xffff
+/* 80331F88 0032EEC8  41 82 00 18 */	beq lbl_80331FA0
+/* 80331F8C 0032EECC  80 84 00 1C */	lwz r4, 0x1c(r4)
+/* 80331F90 0032EED0  54 00 13 BA */	rlwinm r0, r0, 2, 0xe, 0x1d
+/* 80331F94 0032EED4  7C 04 00 2E */	lwzx r0, r4, r0
+/* 80331F98 0032EED8  90 03 00 00 */	stw r0, 0(r3)
+/* 80331F9C 0032EEDC  48 00 00 08 */	b lbl_80331FA4
+.global lbl_80331FA0
+lbl_80331FA0:
+/* 80331FA0 0032EEE0  91 23 00 00 */	stw r9, 0(r3)
+.global lbl_80331FA4
+lbl_80331FA4:
+/* 80331FA4 0032EEE4  38 21 00 10 */	addi r1, r1, 0x10
+/* 80331FA8 0032EEE8  4E 80 00 20 */	blr 

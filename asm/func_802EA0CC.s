@@ -1,0 +1,19 @@
+.include "macros.inc"
+
+.section .text, "ax" # 802EA0CC
+
+
+.global func_802EA0CC
+func_802EA0CC:
+/* 802EA0CC 002E700C  94 21 FF F0 */	stwu r1, -0x10(r1)
+/* 802EA0D0 002E7010  7C 08 02 A6 */	mflr r0
+/* 802EA0D4 002E7014  90 01 00 14 */	stw r0, 0x14(r1)
+/* 802EA0D8 002E7018  7C 65 1B 78 */	mr r5, r3
+/* 802EA0DC 002E701C  54 83 06 3E */	clrlwi r3, r4, 0x18
+/* 802EA0E0 002E7020  88 85 00 00 */	lbz r4, 0(r5)
+/* 802EA0E4 002E7024  88 A5 00 01 */	lbz r5, 1(r5)
+/* 802EA0E8 002E7028  48 07 4D BD */	bl func_8035EEA4
+/* 802EA0EC 002E702C  80 01 00 14 */	lwz r0, 0x14(r1)
+/* 802EA0F0 002E7030  7C 08 03 A6 */	mtlr r0
+/* 802EA0F4 002E7034  38 21 00 10 */	addi r1, r1, 0x10
+/* 802EA0F8 002E7038  4E 80 00 20 */	blr 
